@@ -1,4 +1,4 @@
-package primeiroprograma; // pacote
+package HelloWold; // pacote
 
 public class PrimeiroPrograma { // MinhaClasse
     public static void main(String[] args) { //metodoHere

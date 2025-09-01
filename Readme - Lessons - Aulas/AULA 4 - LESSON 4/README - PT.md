@@ -11,7 +11,7 @@ Um programa em Java pode ser organizado em **pacotes**, **classes** e **métodos
 Exemplo de código:
 
 ```java
-package primeiroprograma; // opcional
+package HelloWold; // opcional
 
 public class PrimeiroPrograma { // Classe (bloco principal)
     public static void main(String[] args) { // Método principal
@@ -24,7 +24,7 @@ public class PrimeiroPrograma { // Classe (bloco principal)
 
 ### Analisando o código
 
-* **`package primeiroprograma;`** → opcional, indica o pacote onde a classe está.
+* **`package HelloWold;`** → opcional, indica o pacote onde a classe está.
 * **`public class PrimeiroPrograma { ... }`** → define a **classe** (um bloco).
 * **`public static void main(String[] args) { ... }`** → método principal, ponto de entrada do programa.
 * **`System.out.print("Olá Mundo");`** → instrução que exibe texto no console.
