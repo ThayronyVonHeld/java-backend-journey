@@ -69,7 +69,7 @@ import javax.swing.*;
 #### Passo 1: Criar o projeto
 
 * `File` → `New Project` ou **Ctrl + Shift + N**
-* `Categories` → **Java With Maven – Projects**
+* `Categories` → **Java With Ant**
 * `Project type` → **Java Application**
 * `Project name` → `MyFirstInterface`
 
