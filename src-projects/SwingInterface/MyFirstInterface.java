@@ -6,7 +6,7 @@ package SwingInterface;
 
 /**
  *
- * @author thayr
+ * @author thayrony
  */
 public class MyFirstInterface extends javax.swing.JFrame {
 
