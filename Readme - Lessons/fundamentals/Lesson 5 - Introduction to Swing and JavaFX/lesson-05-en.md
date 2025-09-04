@@ -113,14 +113,14 @@ import javax.swing.*;
 * `New` → **JFrame Form...**
 * `Categories` → **Swing GUI Forms**
 * `File Types` → **JFrame Form**
-* Class name → `SwingInterface`
+* Class name → `fundamentals.SwingInterface`
 
 #### Step 3: Building the Interface
 
 * Drag a **Button** and a **Label** to the central window.
 * Configure the button in properties tab → change text to **"Click here"**.
 
-![Editing button.png](Image%20Readme/Editando%20bot%C3%A3o.png)
+![Editing button.png](Image Readme/Editando botão.png)
 *(Image: button editing in NetBeans)*
 
 * Change variable names (Right-click → **Change Variable Name**):
@@ -146,7 +146,7 @@ private void btnClickActionPerformed(java.awt.event.ActionEvent evt) {
 }
 ```
 
-![Hello World!!.png](Image%20Readme/Hello%20Wold%21%21.png)
+![Hello World!!.png](Image Readme/Hello Wold!!.png)
 *(Image: code running with button)*
 
 ---
@@ -161,7 +161,7 @@ private javax.swing.JButton btnClick;
 private javax.swing.JLabel lblMessage;
 // End of variables declaration
 
-public class SwingInterface extends javax.swing.JFrame {
+public class fundamentals.SwingInterface extends javax.swing.JFrame {
 
     private void btnClickActionPerformed(java.awt.event.ActionEvent evt) {
         lblMessage.setText("Hello, World!");
@@ -175,7 +175,7 @@ public class SwingInterface extends javax.swing.JFrame {
 
 Even though simple, the code already introduces some **OOP (Object-Oriented Programming)** concepts:
 
-* **extends** → Inheritance (the `SwingInterface` class inherits from `javax.swing.JFrame`).
+* **extends** → Inheritance (the `fundamentals.SwingInterface` class inherits from `javax.swing.JFrame`).
 * **private/public** → Encapsulation (visibility control of attributes and methods).
 * **Events** → Event-oriented programming: actions are triggered when user interacts (ex.: button click).
 
@@ -254,12 +254,12 @@ Even though simple, the code already introduces some **OOP (Object-Oriented Prog
 
 #### 5) Structure and Base Code
 
-Create a **package** (ex.: `JavaFXInterface`) and inside it **three files**:
+Create a **package** (ex.: `fundamentals.JavaFXInterface`) and inside it **three files**:
 
 **Main.java**
 
 ```java
-package JavaFXInterface;
+package fundamentals.JavaFXInterface;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -291,9 +291,9 @@ public class Main extends Application {
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="JavaFXInterface.HelloController" spacing="10" alignment="CENTER">
+      fx:controller="fundamentals.JavaFXInterface.HelloController" spacing="10" alignment="CENTER">
 
-    <Label fx:id="label" text="Hello, JavaFX with FXML!" />
+    <Label fx:id="label" text="Hello, JavaFX with FXML!"/>
     <Button text="Click here" onAction="#onHelloButtonClick"/>
 </VBox>
 ```
@@ -301,7 +301,7 @@ public class Main extends Application {
 **HelloController.java**
 
 ```java
-package JavaFXInterface;
+package fundamentals.JavaFXInterface;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -336,7 +336,7 @@ Two valid options:
 2. Right-click on `hello-view.fxml` → **Open in Scene Builder**.
 3. In Scene Builder:
 
-    * **Controller**: fill **Controller class** with `JavaFXInterface.HelloController`.
+    * **Controller**: fill **Controller class** with `fundamentals.JavaFXInterface.HelloController`.
     * Select the **Label** → **Code** → set **fx:id = label**.
     * Select the **Button** → **Code** → set **On Action = onHelloButtonClick**.
 4. Save and return to IntelliJ.
@@ -345,7 +345,7 @@ Two valid options:
 
 #### 8) Run
 
-* Select the configuration pointing to class **`JavaFXInterface.Main`**.
+* Select the configuration pointing to class **`fundamentals.JavaFXInterface.Main`**.
 * Click **Run**. The window should open and the button should update the label text.
 
 ---
@@ -457,8 +457,9 @@ public class MyFirstInterface extends javax.swing.JFrame {
 ```
 
 **JavaFX:**
+
 ```java
-package JavaFXInterface;
+package fundamentals.JavaFXInterface;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

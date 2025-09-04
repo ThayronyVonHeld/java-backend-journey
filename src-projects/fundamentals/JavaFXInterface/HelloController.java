@@ -1,4 +1,4 @@
-package JavaFXInterface;
+package fundamentals.JavaFXInterface;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

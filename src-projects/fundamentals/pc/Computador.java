@@ -1,4 +1,4 @@
-package pc;
+package fundamentals.pc;
 
 public class Computador {
     // Atributos

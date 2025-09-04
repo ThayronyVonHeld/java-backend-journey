@@ -113,14 +113,14 @@ import javax.swing.*;
 * `New` → **JFrame Form...**
 * `Categories` → **Swing GUI Forms**
 * `File Types` → **JFrame Form**
-* Nome da classe → `SwingInterface`
+* Nome da classe → `fundamentals.SwingInterface`
 
 #### Passo 3: Montando a interface
 
 * Arraste um **Button** e um **Label** para a janela central.
 * Configure o botão na aba de propriedades → altere o texto para **"Clique aqui"**.
 
-![Editando botão.png](Image%20Readme/Editando%20bot%C3%A3o.png)
+![Editando botão.png](Image Readme/Editando botão.png)
 *(Imagem: edição do botão no NetBeans)*
 
 * Altere os nomes das variáveis (Right-click → **Change Variable Name**):
@@ -146,7 +146,7 @@ private void btnClickActionPerformed(java.awt.event.ActionEvent evt) {
 }
 ```
 
-![Hello Wold!!.png](Image%20Readme/Hello%20Wold%21%21.png)
+![Hello Wold!!.png](Image Readme/Hello Wold!!.png)
 *(Imagem: código rodando com botão)*
 
 ---
@@ -254,12 +254,12 @@ Mesmo sendo simples, o código já traz alguns conceitos de **POO (Programação
 
 #### 5) Estrutura e código base
 
-Crie um **package** (ex.: `JavaFXInterface`) e dentro dele **três arquivos**:
+Crie um **package** (ex.: `fundamentals.JavaFXInterface`) e dentro dele **três arquivos**:
 
 **Main.java**
 
 ```java
-package JavaFXInterface;
+package fundamentals.JavaFXInterface;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -267,18 +267,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 400, 300);
-        stage.setTitle("JavaFX com FXML!");
-        stage.setScene(scene);
-        stage.show();
-    }
+  @Override
+  public void start(Stage stage) throws Exception {
+    FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
+    Scene scene = new Scene(fxmlLoader.load(), 400, 300);
+    stage.setTitle("JavaFX com FXML!");
+    stage.setScene(scene);
+    stage.show();
+  }
 
-    public static void main(String[] args) {
-        launch();
-    }
+  public static void main(String[] args) {
+    launch();
+  }
 }
 ```
 
@@ -291,29 +291,29 @@ public class Main extends Application {
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javfx.com/javfx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="JavaFXInterface.HelloController" spacing="10" alignment="CENTER">
+      fx:controller="fundamentals.JavaFXInterface.HelloController" spacing="10" alignment="CENTER">
 
-    <Label fx:id="label" text="Olá, JavaFX com FXML!" />
-    <Button text="Clique aqui" onAction="#onHelloButtonClick"/>
+  <Label fx:id="label" text="Olá, JavaFX com FXML!"/>
+  <Button text="Clique aqui" onAction="#onHelloButtonClick"/>
 </VBox>
 ```
 
 **HelloController.java**
 
 ```java
-package JavaFXInterface;
+package fundamentals.JavaFXInterface;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class HelloController {
-    @FXML
-    private Label label;
+  @FXML
+  private Label label;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        label.setText("Botão clicado!");
-    }
+  @FXML
+  protected void onHelloButtonClick() {
+    label.setText("Botão clicado!");
+  }
 }
 ```
 
@@ -336,7 +336,7 @@ Duas opções válidas:
 2. Clique com o direito no `hello-view.fxml` → **Open in Scene Builder**.
 3. No Scene Builder:
 
-  * **Controller**: preencha **Controller class** com `JavaFXInterface.HelloController`.
+  * **Controller**: preencha **Controller class** com `fundamentals.JavaFXInterface.HelloController`.
   * Selecione o **Label** → **Code** → defina **fx:id = label**.
   * Selecione o **Button** → **Code** → defina **On Action = onHelloButtonClick**.
 4. Salve e volte ao IntelliJ.
@@ -345,7 +345,7 @@ Duas opções válidas:
 
 #### 8) Rodar
 
-* Selecione a configuração que aponta para a classe **`JavaFXInterface.Main`**.
+* Selecione a configuração que aponta para a classe **`fundamentals.JavaFXInterface.Main`**.
 * Clique **Run**. A janela deve abrir e o botão atualizar o texto do Label.
 
 ---
@@ -457,8 +457,9 @@ public class MyFirstInterface extends javax.swing.JFrame {
 ```
 
 **JavaFX:**
+
 ```java
-package JavaFXInterface;
+package fundamentals.JavaFXInterface;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -466,18 +467,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    @Override
-    public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 400, 300);
-        stage.setTitle("JavaFX com FXML!");
-        stage.setScene(scene);
-        stage.show();
-    }
+  @Override
+  public void start(Stage stage) throws Exception {
+    FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
+    Scene scene = new Scene(fxmlLoader.load(), 400, 300);
+    stage.setTitle("JavaFX com FXML!");
+    stage.setScene(scene);
+    stage.show();
+  }
 
-    public static void main(String[] args) {
-        launch();
-    }
+  public static void main(String[] args) {
+    launch();
+  }
 }
 ```
 
