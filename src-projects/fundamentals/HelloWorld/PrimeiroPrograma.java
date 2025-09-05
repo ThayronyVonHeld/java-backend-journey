@@ -1,4 +1,4 @@
-package fundamentals.HelloWold; // pacote
+package fundamentals.HelloWorld; // pacote
 
 public class PrimeiroPrograma { // MinhaClasse
     public static void main(String[] args) { //metodoHere
