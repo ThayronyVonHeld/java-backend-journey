@@ -1,7 +1,3 @@
-Perfeito! Peguei o seu conteúdo original e fiz uma **versão revisada e aprimorada**, já incorporando os ajustes históricos, conceituais e exemplos adicionais. Mantive seu estilo didático, visual e bem estruturado.
-
----
-
 # 📚 Aula 1 - O que é Programação Orientada a Objetos?
 
 ---
@@ -18,75 +14,79 @@ Perfeito! Peguei o seu conteúdo original e fiz uma **versão revisada e aprimor
 
 ## 🕰️ A Evolução da Programação
 
-### Linha do Tempo dos Paradigmas de Programação:
 
-```mermaid
-timeline
-    title Evolução dos Paradigmas de Programação
-    section Anos 60
-        Linguagem de Máquina e Assembly<br>(baixo nível)
-    section Anos 70
-        Programação Linear<br>(Lista de Instruções)
-        : Instrução A → B → C
-    section Anos 80
-        Programação Estruturada<br>(Procedimentos)
-    section Anos 90
-        Programação Modular<br>(Módulos + Estruturada)
-    section Atualidade
-        Programação Orientada a Objetos<br>(Objetos e Classes)
+
+
+### Anos 60 – Linguagem de Máquina e Assembly
+
+```text
+- Linguagem de baixo nível
+- Código específico para cada computador
+- Pouca portabilidade
 ```
 
-### Como era a programação antigamente?
+**Vantagem**: Controle total sobre o hardware e execução extremamente eficiente.
 
-**Anos 60**: A programação era feita em linguagem de máquina ou **Assembly**, cada computador tinha sua própria arquitetura e instruções, o que gerava grande dificuldade de portabilidade.
+---
 
-**Programação Linear**: Surgiram linguagens de alto nível, mas ainda com abordagem sequencial — como uma lista de mercado:
+### Anos 70 – Programação Linear
 
-* Instrução A
-* Instrução B
-* Instrução C
+```text
+- Linguagem de alto nível ainda sequencial
+- Execução passo a passo: A → B → C
+```
 
-**Programação Estruturada**: Introduziu o conceito de **procedimentos** e **funções**, permitindo dividir problemas em partes menores e organizadas.
+**Vantagem**: Mais legível que Assembly, mas pouco estruturada.
 
-**Programação Modular**: Criava **módulos independentes**, agrupando dados e funcionalidades. Essa abordagem facilitava a manutenção e permitia construir sistemas maiores e mais complexos.
+---
+
+### Anos 80 – Programação Estruturada
+
+```text
+- Introdução de procedimentos e funções
+- Problemas divididos em partes menores
+```
+
+**Vantagem**: Código mais organizado, manutenção facilitada e reuso inicial.
+
+---
+
+### Anos 90 – Programação Modular
+
+```text
+- Criação de módulos independentes
+- Agrupamento de dados e funcionalidades
+```
+
+**Vantagem**: Sistemas maiores e mais complexos podem ser mantidos e expandidos facilmente.
 
 ---
 
 ## 🧠 O Nascimento da POO: A Visão de Alan Kay
 
 ### Quem foi Alan Kay?
-
-* Cientista da computação com formação em matemática e biologia
-* Trabalhou no Xerox PARC (Palo Alto Research Center)
-* Popularizou a visão da Programação Orientada a Objetos
-* Criador da linguagem **Smalltalk** (primeira linguagem POO “pura”)
-* Visionário do conceito do **Dynabook** (inspiração para os notebooks modernos)
-
-### Outros Pioneiros Importantes
-
-Antes de Alan Kay, a linguagem **Simula (1967)**, criada por Ole-Johan Dahl e Kristen Nygaard, já introduzia conceitos fundamentais da POO, como **classes** e **objetos**.
+- Cientista da computação com formação em matemática e biologia
+- Trabalhou no Xerox PARC (Palo Alto Research Center)
+- Desenvolveu os primeiros conceitos de Programação Orientada a Objetos
+- Criador da linguagem Smalltalk (primeira linguagem POO)
+- Visionário do conceito do Dynabook (que inspirou os notebooks modernos)
 
 ### A Inspiração Biológica:
-
 Alan Kay propôs um postulado revolucionário:
-
-> "O computador ideal deve funcionar como um organismo vivo, onde cada célula se relaciona com outras para alcançar um objetivo, mas cada uma funcionando de forma autônoma."
+> "O computador ideal deve funcionar como um organismo vivo, onde cada célula se relaciona com outras para alcançar um objetivo, mas cada uma funcionando de forma autônoma. As 'células' poderiam também agrupar-se para resolver outros problemas ou desempenhar outras funções."
 
 ### O Smalltalk:
-
 A primeira linguagem verdadeiramente orientada a objetos já contava com:
-
-* Classes e objetos
-* Atributos e métodos
-* Herança e polimorfismo
-* Mensagens entre objetos
+- Classes e objetos
+- Atributos e métodos
+- Herança e polimorfismo
+- Mensagens entre objetos
 
 ---
 
 ## 🔄 Mudança de Paradigma: Dados vs Objetos
 
 ### Programação Tradicional (Estruturada/Modular):
-
 ```mermaid
 flowchart TD
     A[Massa de Dados] --> B[Procedimento 1]
@@ -94,38 +94,36 @@ flowchart TD
     A --> D[Procedimento 3]
     A --> E[Procedimento 4]
     
-    style A fill:#ffebee
+    style A fill:#1E1F22
 ```
 
 **Problema**: Todos os procedimentos acessam a mesma massa de dados, precisando filtrar o que realmente necessitam.
 
 ### Programação Orientada a Objetos:
-
 ```mermaid
 flowchart TD
     subgraph O1 [Objeto 1]
         D1[Dados] --> M1[Métodos]
     end
-    
+
     subgraph O2 [Objeto 2]
         D2[Dados] --> M2[Métodos]
     end
-    
+
     subgraph O3 [Objeto 3]
         D3[Dados] --> M3[Métodos]
     end
-    
+
     O1 --> O2
     O2 --> O3
-    
-    style O1 fill:#e8f5e8
-    style O2 fill:#e8f5e8
-    style O3 fill:#e8f5e8
+
+    style O1 fill:#1E1F22
+    style O2 fill:#1E1F22
+    style O3 fill:#1E1F22
 ```
 
 **Vantagem**: Cada objeto contém apenas os dados que precisa e os métodos que os manipulam, trabalhando de forma autônoma mas colaborativa.
 
----
 
 ## 🎮 Exemplo Prático: O Controle Remoto
 
@@ -163,24 +161,62 @@ class ControleRemoto {
 
 ## 💎 As Vantagens da POO: COMERN
 
-A programação orientada a objetos é **COMERN**.
-
-> Observação: em alguns materiais, a letra “O” pode aparecer como “Organizado” ou “Otimizado”. Aqui usamos “Oportuno” para destacar o desenvolvimento paralelo.
+A programação orientada a objetos apresenta seis vantagens principais, memorizadas como COMERN.
 
 ### C – Confiável (Reliable)
+**Princípio**: O isolamento entre as partes gera software seguro. Alterar uma parte não afeta outras.
+
+```text
+Exemplo - Controle Remoto:
+- Objeto "pilha" e objeto "controle remoto" trabalham em conjunto
+- Trocar pilha da marca A por B: funciona igual
+- Trocar por pilha recarregável: funciona sem alterar o controle
+```
 
 ### O – Oportuno (Opportune)
+**Princípio**: Ao dividir tudo em partes, várias podem ser desenvolvidas em paralelo.
+
+```
+Exemplo:
+- Desenvolver carcaça, circuito, botões e LCD separadamente
+- Desenvolvimento simultâneo acelera o processo
+```
 
 ### M – Manutenível (Maintainable)
+**Princípio**: Atualizar software é mais fácil - pequenas modificações beneficiam todas as partes que usam o objeto.
+
+```
+Exemplo:
+- Trocar pilha comum por recarregável não altera funcionamento
+- Ganha vantagem (não comprar mais pilhas) sem retrabalho
+```
 
 ### E – Extensível (Extensible)
+**Princípio**: O software não é estático - deve crescer para permanecer útil.
+
+```
+Exemplo:
+- Controle com 4 funções pode ganhar 2 novas funções
+- Não precisa recriar do zero, apenas estender capacidades
+```
 
 ### R – Reutilizável (Reusable)
+**Princípio**: Pode ser usado novamente em outro contexto.
+
+```
+Exemplo:
+- Controle da câmera A funciona na câmera B compatível
+- Mesmo objeto, diferentes contextos
+```
 
 ### N – Natural (Natural)
+**Princípio**: Mais fácil de entender - preocupa-se mais com funcionalidade que com detalhes de implementação.
 
-*(mantive os exemplos que você trouxe, estão ótimos)*
-
+```
+Exemplo:
+- Explicar POO com analogias do mundo real (controles, organismos)
+- Acessível mesmo para não-programadores nas explicações conceituais
+```
 ---
 
 ## 🌍 POO no Mundo Real
@@ -207,17 +243,6 @@ A programação orientada a objetos é **COMERN**.
 
 ---
 
-## 📋 Checklist de Aprendizagem
-
-* [ ] Compreendi a evolução histórica dos paradigmas de programação
-* [ ] Entendi a contribuição de Alan Kay e de outros pioneiros para a POO
-* [ ] Assimilei a analogia biológica por trás do paradigma orientado a objetos
-* [ ] Diferencio programação tradicional da orientada a objetos
-* [ ] Memorizei as vantagens da POO através do acrônimo COMERN
-* [ ] Identifico exemplos de POO no mundo real e em linguagens de programação
-
----
-
 ## 📊 Resumo Rápido
 
 * A POO surgiu da necessidade de criar software mais organizado e próximo do mundo real
@@ -228,12 +253,9 @@ A programação orientada a objetos é **COMERN**.
 
 ---
 
-### 💡 Dica do Professor
+### 💡 Dica
 
 "A Programação Orientada a Objetos é como brincar de Lego: você tem peças específicas (objetos) que se encaixam de determinadas formas (métodos) para construir coisas complexas (sistemas). Cada peça sabe exatamente o que fazer e como se conectar com as outras."
 
 > 🧠 **Exercício de Reflexão**: Pense em três objetos do seu dia a dia (ex: celular, carro, microondas) e identifique como cada um exemplifica os princípios da POO - quais seriam seus atributos, métodos e como se relacionam com outros objetos?
-
 ---
-
-Quer que eu siga esse mesmo **padrão de revisão e aprimoramento** para as próximas aulas também, conforme você for trazendo?
