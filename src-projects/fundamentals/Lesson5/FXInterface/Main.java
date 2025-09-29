@@ -1,4 +1,4 @@
-package fundamentals.JavaFXInterface;
+package fundamentals.Lesson5.FXInterface;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

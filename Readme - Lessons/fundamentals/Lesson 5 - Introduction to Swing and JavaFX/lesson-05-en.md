@@ -291,7 +291,7 @@ public class Main extends Application {
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="fundamentals.JavaFXInterface.HelloController" spacing="10" alignment="CENTER">
+      fx:controller="fundamentals.Lesson5.FXInterface.HelloController" spacing="10" alignment="CENTER">
 
     <Label fx:id="label" text="Hello, JavaFX with FXML!"/>
     <Button text="Click here" onAction="#onHelloButtonClick"/>
@@ -336,7 +336,7 @@ Two valid options:
 2. Right-click on `hello-view.fxml` → **Open in Scene Builder**.
 3. In Scene Builder:
 
-    * **Controller**: fill **Controller class** with `fundamentals.JavaFXInterface.HelloController`.
+    * **Controller**: fill **Controller class** with `fundamentals.Lesson5.FXInterface.HelloController`.
     * Select the **Label** → **Code** → set **fx:id = label**.
     * Select the **Button** → **Code** → set **On Action = onHelloButtonClick**.
 4. Save and return to IntelliJ.
@@ -345,7 +345,7 @@ Two valid options:
 
 #### 8) Run
 
-* Select the configuration pointing to class **`fundamentals.JavaFXInterface.Main`**.
+* Select the configuration pointing to class **`fundamentals.Lesson5.FXInterface.Main`**.
 * Click **Run**. The window should open and the button should update the label text.
 
 ---

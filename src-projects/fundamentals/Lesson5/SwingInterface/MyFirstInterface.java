@@ -2,7 +2,7 @@
 /*
  * Feito no JavaBeans, o codigo importei para o Intellij e apenas adaptei o nome do pacote
  */
-package fundamentals.SwingInterface;
+package fundamentals.Lesson5.SwingInterface;
 
 /**
  *
