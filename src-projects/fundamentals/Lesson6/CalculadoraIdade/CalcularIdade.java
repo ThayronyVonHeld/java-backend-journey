@@ -57,7 +57,7 @@ public class CalcularIdade extends javax.swing.JFrame {
         lblIdade.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         lblIdade.setText("0");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pngwing.com.png")));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Lesson7 - Calculadora.png")));
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel5.setText("Calculadora Idade");
