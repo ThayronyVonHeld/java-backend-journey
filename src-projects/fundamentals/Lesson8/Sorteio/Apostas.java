@@ -4,12 +4,12 @@ package fundamentals.Lesson8.Sorteio;
 import java.awt.Font;
 
 
-public class apostas extends javax.swing.JFrame {
+public class Apostas extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(apostas.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Apostas.class.getName());
 
 
-    public apostas() { //construtores
+    public Apostas() { //construtores
         initComponents();
         lblFrase.setText("<html>Advinhe um numero entre 1 a 5.</html>");
 
@@ -29,7 +29,8 @@ public class apostas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fundamentals/Lesson8/apostas/imagens/Lesson 8 - Apostas.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Lesson 8 - Apostas.png")));
+
 
         jLabel2.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel2.setText("Bem Vindo ao Sorteio!");
@@ -109,7 +110,7 @@ public class apostas extends javax.swing.JFrame {
 
     public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(() -> new apostas().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Apostas().setVisible(true));
     }
 
     // Variables declaration - do not modify
