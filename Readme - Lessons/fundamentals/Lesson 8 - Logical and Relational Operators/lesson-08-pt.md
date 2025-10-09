@@ -68,6 +68,7 @@ public class OperadorTernario {
 | `<=` | Menor ou igual | `5 <= 3` | `false` |
 | `==` | Igualdade | `5 == 5` | `true` |
 | `!=` | Diferença | `5 != 3` | `true` |
+| `equals()` | Igualdade de Strings | `senha.equals("java")` |
 
 ### Exemplos com Diferentes Tipos
 ```java
