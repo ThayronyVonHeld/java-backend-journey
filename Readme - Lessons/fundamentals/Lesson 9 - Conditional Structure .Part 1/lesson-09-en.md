@@ -1,4 +1,4 @@
-# 📚 Lesson 9 - Conditional Structures
+# 📚 Lesson 9 - Conditional Structures - Part 1
 
 ---
 
