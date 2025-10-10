@@ -1,5 +1,4 @@
 package fundamentals.Lesson10.ExploreSwitch;
-
 public class Switch extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Switch.class.getName());
@@ -9,7 +8,6 @@ public class Switch extends javax.swing.JFrame {
         initComponents();
         lblPoligono.setVisible(false);
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
@@ -52,15 +50,16 @@ public class Switch extends javax.swing.JFrame {
                                                 .addComponent(lblPoligono))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(27, 27, 27)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(jLabel3)
-                                                                .addGap(27, 27, 27)
-                                                                .addComponent(txtLado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(59, 59, 59)
-                                                                .addComponent(btnTestar)))))
+                                                .addComponent(jLabel3)
+                                                .addGap(27, 27, 27)
+                                                .addComponent(txtLado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(59, 59, 59)
+                                                .addComponent(btnTestar)))
                                 .addContainerGap(108, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
