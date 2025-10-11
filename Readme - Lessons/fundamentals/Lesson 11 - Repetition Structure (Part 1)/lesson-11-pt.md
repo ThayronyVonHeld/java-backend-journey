@@ -292,3 +292,4 @@ while (condicao) {
 ---
 
 > 💡 **Dica**: Sempre teste seus loops com valores pequenos primeiro. Use `System.out.println()` para verificar como suas variáveis estão mudando a cada iteração. A prática é essencial para dominar as estruturas de repetição!
+---

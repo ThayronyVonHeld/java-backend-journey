@@ -1,6 +1,3 @@
-Here’s the English version of your lesson, keeping the same structure, tone, and didactic clarity 👇
-
----
 
 # 📚 Lesson 11 – Repetition Structures (Part 1): While
 
@@ -319,5 +316,3 @@ while (condition) {
 > Practice is key to mastering repetition structures!
 
 ---
-
-Would you like me to format this version in Markdown (same as your saved lessons) so it’s ready to store as **Lesson 11 (English version)** in your reference set?
