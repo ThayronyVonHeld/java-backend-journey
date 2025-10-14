@@ -1,19 +1,24 @@
-# 📚 Aula 12 - Estruturas de Repetição (Parte 2): Do-While
+
+
+# 📚 Aula 12 - Estruturas de Repetição (Parte 2): **Do While**
 
 ---
 
 ## 🎯 Objetivos da Aula
-- Compreender a diferença entre `while` e `do-while`
-- Dominar a estrutura `do-while` em Java
-- Aprender quando usar cada tipo de loop
-- Desenvolver programas com teste no final
-- Criar programas interativos com entrada do usuário
+
+* Entender o funcionamento da estrutura `do while`
+* Comparar o comportamento entre `while` e `do while`
+* Implementar repetições com teste lógico **no final**
+* Utilizar loops com entrada de dados e condição de parada
 
 ---
 
-## 🔄 While vs Do-While: A Diferença Fundamental
+## 🔄 Relembrando o `while`
 
-### Teste no Início: While
+Na aula anterior, vimos o comando **`while`**, cuja **condição lógica é testada no início** do bloco.
+
+### 📊 Fluxograma - Teste no Início (`while`)
+
 ```mermaid
 flowchart TD
     A[INÍCIO] --> B[i ← 0]
@@ -24,29 +29,45 @@ flowchart TD
     C -->|NÃO| F[FIM]
 ```
 
-### Teste no Final: Do-While
+🔹 **Explicação:**
+O `while` **verifica a condição antes de executar** o bloco.
+Se a condição for **falsa logo no início**, o bloco **não é executado nenhuma vez**.
+
+---
+
+## 🧩 Introdução ao `do while`
+
+Agora veremos o **`do while`**, cuja principal diferença é que o **teste lógico é feito no final**.
+Isso significa que o bloco será **executado pelo menos uma vez**, mesmo que a condição seja falsa logo de início.
+
+---
+
+## 🏗️ Fluxograma - Teste no Final (`do while`)
+
 ```mermaid
 flowchart TD
     A[INÍCIO] --> B[i ← 0]
     B --> C[Contar]
     C --> D[i ← i + 1]
-    D --> E{i < 4?}
-    E -->|SIM| C
-    E -->|NÃO| F[FIM]
+    D --> E{i >= 4?}
+    E -->|NÃO| C
+    E -->|SIM| F[FIM]
 ```
+
+🔹 **Perceba:**
+No teste lógico do final, **a condição é invertida** em relação ao `while`.
+Enquanto no `while` usamos `i < 4`, no `do while` o teste de parada é `i >= 4`.
 
 ---
 
-## 🧩 Entendendo a Lógica
+## 💡 Pseudocódigo (Portugol)
 
-### Pseudocódigo: Do-While
-```
-algoritmo "ContadorDoWhile"
+```portugol
+algoritmo "DoWhile_Exemplo"
 var
     i: inteiro
 inicio
     i <- 0
-    
     repita
         escreva("Contar ", i)
         i <- i + 1
@@ -54,340 +75,187 @@ inicio
 fimalgoritmo
 ```
 
-> **Observação importante**: No Java, usamos `enquanto` (while) no lugar do `até`, mas a lógica se mantém!
+➡️ Aqui o teste ocorre **no final**.
+Mesmo que `i` comece com um valor maior ou igual a 4, o bloco **será executado pelo menos uma vez**.
 
 ---
 
-## 💻 Implementação em Java: Do-While
+## 💻 Implementação em Java
 
-### Código Básico do Do-While
 ```java
-public class ContadorDoWhile {
+public class ExemploDoWhile {
     public static void main(String[] args) {
         int i = 0;
         
         do {
             System.out.println("Contar " + i);
-            i++;
-        }
-        while (i < 4);
-    }
-}
-```
-
-### 🔍 Execução Passo a Passo:
-| Iteração | i antes | Ação | i depois | Condição |
-|----------|---------|------|----------|----------|
-| 1 | 0 | "Contar 0" | 1 | 1 < 4 ✓ |
-| 2 | 1 | "Contar 1" | 2 | 2 < 4 ✓ |
-| 3 | 2 | "Contar 2" | 3 | 3 < 4 ✓ |
-| 4 | 3 | "Contar 3" | 4 | 4 < 4 ✗ |
-
----
-
-## ⚡ Diferenças Cruciais
-
-### Características do Do-While:
-- ✅ **Executa pelo menos uma vez** (teste no final)
-- ✅ **Ideal para menus** e interações com usuário
-- ✅ **Garante execução mínima** do bloco
-
-### Quando o While não executa:
-```java
-int i = 5;
-while (i < 4) {  // Condição falsa desde o início
-    System.out.println("Isso NUNCA será executado!");
-}
-```
-
-### Quando o Do-While executa:
-```java
-int i = 5;
-do {  // Executa PELO MENOS UMA VEZ
-    System.out.println("Isso será executado UMA VEZ!");
-    i++;
-}
-while (i < 4);  // Condição testada apenas no final
-```
-
----
-
-## 🎯 Exemplo Prático: Calculadora Interativa
-
-```java
-import java.util.Scanner;
-
-public class CalculadoraInterativa {
-    public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-        String continuar;
-        double resultado = 0;
-        
-        System.out.println("=== CALCULADORA INTERATIVA ===");
-        
-        do {
-            System.out.print("Digite o primeiro número: ");
-            double num1 = teclado.nextDouble();
-            
-            System.out.print("Digite o segundo número: ");
-            double num2 = teclado.nextDouble();
-            
-            System.out.print("Operação (+, -, *, /): ");
-            char operacao = teclado.next().charAt(0);
-            
-            switch (operacao) {
-                case '+':
-                    resultado = num1 + num2;
-                    break;
-                case '-':
-                    resultado = num1 - num2;
-                    break;
-                case '*':
-                    resultado = num1 * num2;
-                    break;
-                case '/':
-                    if (num2 != 0) {
-                        resultado = num1 / num2;
-                    } else {
-                        System.out.println("Erro: Divisão por zero!");
-                        continue;
-                    }
-                    break;
-                default:
-                    System.out.println("Operação inválida!");
-                    continue;
-            }
-            
-            System.out.println("Resultado: " + resultado);
-            System.out.print("Deseja continuar [S/N]? ");
-            continuar = teclado.next();
-            
-        } while (continuar.equalsIgnoreCase("S"));
-        
-        System.out.println("Calculadora encerrada. Obrigado!");
-        teclado.close();
+            i++; // incremento
+        } while (i < 4);
     }
 }
 ```
 
 ---
 
-## 📊 Tabela Comparativa: While vs Do-While
+## 🧩 Explicação Passo a Passo
 
-| Característica | While | Do-While |
-|----------------|-------|-----------|
-| **Teste da condição** | No início | No final |
-| **Execução mínima** | 0 vezes | 1 vez |
-| **Uso ideal** | Quando pode não executar | Quando deve executar pelo menos uma vez |
-| **Sintaxe** | `while(condição) { }` | `do { } while(condição);` |
-| **Aplicação** | Processamentos condicionais | Menus interativos |
+1. A variável `i` é inicializada com 0.
+2. O bloco dentro do `do { ... }` é executado **sem verificar a condição**.
+3. Ao final, a condição `i < 4` é testada.
+4. Se for verdadeira, o bloco **repete**.
+5. Quando `i` for 4, o teste se torna falso e o loop termina.
+
+🔹 **Conclusão:** o `do while` **executa sempre ao menos uma vez**, independentemente da condição.
 
 ---
 
-## 🔧 Padrões de Uso do Do-While
+## ⚙️ Estrutura Geral do `do while`
 
-### Padrão 1: Menu Interativo
+| Parte              | Função                                      |
+| ------------------ | ------------------------------------------- |
+| **Inicialização**  | Define o ponto de partida (`int i = 0;`)    |
+| **Bloco**          | Executa as ações desejadas                  |
+| **Condição Final** | Verifica se o loop deve continuar (`i < 4`) |
+
+---
+
+## 💬 Exemplo Prático com Entrada de Dados
+
 ```java
 import java.util.Scanner;
 
-public class MenuInterativo {
+public class Numeros {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-        int opcao;
-        
-        do {
-            System.out.println("\n=== MENU PRINCIPAL ===");
-            System.out.println("1 - Cadastrar");
-            System.out.println("2 - Listar");
-            System.out.println("3 - Excluir");
-            System.out.println("0 - Sair");
-            System.out.print("Escolha uma opção: ");
-            
-            opcao = teclado.nextInt();
-            
-            switch (opcao) {
-                case 1:
-                    System.out.println("Cadastrando...");
-                    break;
-                case 2:
-                    System.out.println("Listando...");
-                    break;
-                case 3:
-                    System.out.println("Excluindo...");
-                    break;
-                case 0:
-                    System.out.println("Saindo...");
-                    break;
-                default:
-                    System.out.println("Opção inválida!");
-            }
-            
-        } while (opcao != 0);
-        
-        teclado.close();
-    }
-}
-```
-
-### Padrão 2: Validação de Entrada
-```java
-import java.util.Scanner;
-
-public class ValidadorEntrada {
-    public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
         int numero;
+        int soma = 0;
+        String resposta;
+        Scanner teclado = new Scanner(System.in);
         
         do {
-            System.out.print("Digite um número entre 1 e 10: ");
+            System.out.print("Digite um número: ");
             numero = teclado.nextInt();
             
-            if (numero < 1 || numero > 10) {
-                System.out.println("Número inválido! Tente novamente.");
-            }
+            soma += numero;
             
-        } while (numero < 1 || numero > 10);
+            System.out.print("Deseja continuar [S/N]? ");
+            resposta = teclado.next();
+            
+        } while (resposta.equalsIgnoreCase("S"));
         
-        System.out.println("Número válido: " + numero);
-        teclado.close();
+        System.out.println("A soma de todos os valores é: " + soma);
     }
 }
 ```
 
 ---
 
-## 🎮 Exemplo: Jogo de Adivinhação
+### 🧠 Entendendo o Código
 
-```java
-import java.util.Scanner;
-import java.util.Random;
+* O bloco dentro do `do { ... }` **executa primeiro**
+* O programa pergunta ao usuário se ele deseja continuar
+* Se o usuário responder `"S"` ou `"s"`, o loop **repete**
+* Se responder `"N"` ou `"n"`, o loop **encerra**
+* Ao final, o programa mostra a soma total dos números digitados
 
-public class JogoAdivinhacao {
-    public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-        Random random = new Random();
-        String jogarNovamente;
-        
-        do {
-            int numeroSecreto = random.nextInt(100) + 1; // 1-100
-            int tentativa;
-            int tentativas = 0;
-            
-            System.out.println("\n=== JOGO DA ADIVINHAÇÃO ===");
-            System.out.println("Tente adivinhar o número (1-100)");
-            
-            do {
-                System.out.print("Sua tentativa: ");
-                tentativa = teclado.nextInt();
-                tentativas++;
-                
-                if (tentativa < numeroSecreto) {
-                    System.out.println("MAIOR! Tente um número maior.");
-                } else if (tentativa > numeroSecreto) {
-                    System.out.println("MENOR! Tente um número menor.");
-                } else {
-                    System.out.println("PARABÉNS! Você acertou em " + 
-                                     tentativas + " tentativas!");
-                }
-                
-            } while (tentativa != numeroSecreto);
-            
-            System.out.print("Deseja jogar novamente [S/N]? ");
-            jogarNovamente = teclado.next();
-            
-        } while (jogarNovamente.equalsIgnoreCase("S"));
-        
-        System.out.println("Obrigado por jogar!");
-        teclado.close();
-    }
-}
-```
+---
+
+## 🔍 Diferença entre `while` e `do while`
+
+| Estrutura    | Teste Lógico | Executa Pelo Menos Uma Vez? | Posição do Teste |
+| ------------ | ------------ | --------------------------- | ---------------- |
+| **while**    | No início    | ❌ Não                       | Antes do bloco   |
+| **do while** | No final     | ✅ Sim                       | Depois do bloco  |
 
 ---
 
 ## ⚠️ Cuidados Importantes
 
 ### 1. **Ponto e vírgula obrigatório**
+
 ```java
 // ✅ CORRETO
 do {
     // código
-} while (condição);  // ← PONTO E VÍRGULA OBRIGATÓRIO!
+} while (condição); // ← PONTO E VÍRGULA OBRIGATÓRIO!
 
 // ❌ ERRADO
 do {
     // código
-} while (condição)   // ← FALTA PONTO E VÍRGULA!
+} while (condição) // ← FALTA PONTO E VÍRGULA!
 ```
 
-### 2. **Variáveis de controle**
+---
+
+### 2. **Variáveis de Controle**
+
 ```java
 // ✅ CORRETO - variável declarada fora
 String resposta;
 do {
     // código
     resposta = teclado.next();
-} while (resposta.equals("S"));
+} while (resposta.equalsIgnoreCase("S"));
 
 // ❌ PROBLEMÁTICO - variável dentro do loop
 do {
     String resposta = teclado.next();  // Redeclarada a cada loop
-} while (resposta.equals("S"));        // ERRO: resposta não existe aqui
+} while (resposta.equalsIgnoreCase("S")); // ERRO: variável fora de escopo
 ```
 
 ---
 
-## ✅ Checklist de Aprendizagem
+### 3. **Garanta que a condição de saída seja alcançada**
 
-- [ ] Compreendo a diferença entre while e do-while
-- [ ] Sei implementar loops com do-while
-- [ ] Entendo quando usar cada tipo de loop
-- [ ] Domino a sintaxe correta do do-while
-- [ ] Consigo criar programas interativos
-- [ ] Apliquei do-while em situações práticas
-- [ ] Identifico situações onde do-while é mais adequado
+* Atualize as variáveis dentro do bloco
+* Use `break` se necessário
+* Cuidado com **loops infinitos**
 
 ---
 
 ## 🚀 Exercícios Práticos
 
 ### Exercício 1: Calculadora de Médias
+
 ```java
-// Use do-while para calcular médias de vários alunos
-// Pergunte se deseja continuar após cada cálculo
+// Use do-while para calcular médias de vários alunos.
+// Pergunte se deseja continuar após cada cálculo.
 ```
 
 ### Exercício 2: Validador de Senha
+
 ```java
-// Use do-while para fazer o usuário digitar a senha correta
-// Continue pedindo até acertar
+// Use do-while para pedir a senha correta.
+// Continue pedindo até acertar.
 ```
 
-### Exercício 3: Sistema de Banco
+### Exercício 3: Sistema Bancário
+
 ```java
-// Use do-while para criar um menu bancário
-// Opções: Saldo, Saque, Depósito, Sair
+// Crie um menu com as opções: Saldo, Saque, Depósito e Sair.
+// Use do-while para repetir até o usuário escolher "Sair".
 ```
 
 ### Exercício 4: Contador Personalizado
+
 ```java
-// Use do-while para contar de um número inicial até um final
-// Pergunte se quer fazer outra contagem ao terminar
+// Peça um número inicial e um final.
+// Conte de um até o outro e pergunte se deseja repetir a contagem.
 ```
 
 ---
 
-## 🎉 Conclusão
+## ✅ Checklist de Aprendizagem
 
-Nesta aula aprendemos:
-- ✅ **Estrutura `do-while`** para testes no final
-- ✅ **Diferenças fundamentais** entre while e do-while
-- ✅ **Quando usar cada tipo** de loop
-- ✅ **Padrões comuns** com menus interativos
-- ✅ **Cuidados importantes** com a sintaxe
-
-**Próxima aula:** Estrutura `for` para loops controlados!
+* [ ] Entendo o conceito do `do while`
+* [ ] Sei diferenciar `while` e `do while`
+* [ ] Sei implementar loops com teste no final
+* [ ] Sei usar `Scanner` para controlar repetições
+* [ ] Evito loops infinitos
+* [ ] Criei exemplos práticos com entrada de dados
 
 ---
 
-> 💡 **Dica do Professor**: "Use do-while quando você precisa garantir que o bloco execute pelo menos uma vez. É perfeito para menus, validações e qualquer situação onde a primeira execução é obrigatória. Pratique criando pequenos programas interativos para solidificar o conhecimento!"
+> 💡 **Dica:** Use o `do while` sempre que for necessário **executar o bloco pelo menos uma vez**, como em **menus interativos**, **leituras de dados** ou **validações de entrada**.
+
+---
+

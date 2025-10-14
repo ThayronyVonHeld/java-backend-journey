@@ -1,97 +1,97 @@
 
-
-# 📚 Aula 12 - Estruturas de Repetição (Parte 2): Do While
-
----
-
-## 🎯 Objetivos da Aula
-
-* Entender o funcionamento da estrutura `do while`
-* Comparar o comportamento entre `while` e `do while`
-* Implementar repetições com teste lógico **no final**
-* Utilizar loops com entrada de dados e condição de parada
+# 📚 Lesson 12 - Loop Structures (Part 2): **Do While**
 
 ---
 
-## 🔄 Relembrando o While
+## 🎯 Lesson Objectives
 
-Na aula anterior vimos o comando **`while`**, cuja **condição lógica é testada no início** do bloco.
+* Understand how the `do while` loop works
+* Compare the behavior of `while` and `do while`
+* Implement loops with a **logical test at the end**
+* Use loops with user input and stop conditions
 
-### 📊 Fluxograma - Teste no Início (`while`)
+---
+
+## 🔄 Reviewing the `while` Loop
+
+In the previous lesson, we studied the **`while`** command, where the **logical condition is tested at the beginning** of the block.
+
+### 📊 Flowchart – Test at the Beginning (`while`)
 
 ```mermaid
 flowchart TD
-    A[INÍCIO] --> B[i ← 0]
+    A[START] --> B[i ← 0]
     B --> C{i < 4?}
-    C -->|SIM| D[Contar]
+    C -->|YES| D[Count]
     D --> E[i ← i + 1]
     E --> C
-    C -->|NÃO| F[FIM]
+    C -->|NO| F[END]
 ```
 
-🔹 **Explicação:**
-O `while` **verifica a condição antes de executar** o bloco.
-Se a condição for **falsa logo no início**, o bloco **não é executado nenhuma vez**.
+🔹 **Explanation:**
+The `while` loop **checks the condition before executing** the block.
+If the condition is **false at the start**, the block **is not executed even once**.
 
 ---
 
-## 🧩 Introdução ao `do while`
+## 🧩 Introducing the `do while` Loop
 
-Agora, veremos o **`do while`**, cuja principal diferença é que o **teste lógico é feito no final**.
+Now let’s look at the **`do while`** loop.
+The main difference is that the **logical test is performed at the end** of the block.
 
-Isso significa que **o bloco será executado pelo menos uma vez**, mesmo que a condição seja falsa logo de início.
+That means the loop will **always execute at least once**, even if the condition is false from the beginning.
 
 ---
 
-## 🏗️ Fluxograma - Teste no Final (`do while`)
+## 🏗️ Flowchart – Test at the End (`do while`)
 
 ```mermaid
 flowchart TD
-    A[INÍCIO] --> B[i ← 0]
-    B --> C[Contar]
+    A[START] --> B[i ← 0]
+    B --> C[Count]
     C --> D[i ← i + 1]
     D --> E{i >= 4?}
-    E -->|NÃO| C
-    E -->|SIM| F[FIM]
+    E -->|NO| C
+    E -->|YES| F[END]
 ```
 
-🔹 **Perceba:**
-No teste lógico do final, **a condição é invertida** em relação ao `while`.
-Enquanto no `while` usamos `i < 4`,
-no `do while` o teste de parada é `i >= 4`.
+🔹 **Notice:**
+In this structure, **the condition is inverted** compared to the `while` loop.
+While the `while` loop uses `i < 4`,
+the `do while` loop uses the **stop condition** `i >= 4`.
 
 ---
 
-## 💡 Pseudocódigo (Portugol)
+## 💡 Pseudocode Example
 
 ```portugol
-algoritmo "DoWhile_Exemplo"
+algorithm "DoWhile_Example"
 var
-    i: inteiro
-inicio
+    i: integer
+begin
     i <- 0
-    repita
-        escreva("Contar ", i)
+    repeat
+        write("Count ", i)
         i <- i + 1
-    até (i >= 4)
-fimalgoritmo
+    until (i >= 4)
+endalgorithm
 ```
 
-➡️ Aqui o teste ocorre **no final**.
-Mesmo que `i` comece com um valor maior ou igual a 4, o bloco **será executado pelo menos uma vez**.
+➡️ Here the test happens **at the end**.
+Even if `i` starts greater than or equal to 4, the block **will still run once**.
 
 ---
 
-## 💻 Implementação em Java: Estrutura Do While
+## 💻 Java Implementation
 
 ```java
-public class ExemploDoWhile {
+public class DoWhileExample {
     public static void main(String[] args) {
         int i = 0;
         
         do {
-            System.out.println("Contar " + i);
-            i++; // incremento
+            System.out.println("Count " + i);
+            i++; // increment
         } while (i < 4);
     }
 }
@@ -99,118 +99,165 @@ public class ExemploDoWhile {
 
 ---
 
-## 🧩 Explicação Detalhada
+## 🧩 Step-by-Step Explanation
 
-1. A variável `i` é inicializada com 0
-2. O bloco dentro do `do { ... }` é executado **sem verificar a condição**
-3. Ao final, a condição `i < 4` é testada
-4. Se for verdadeira, o bloco **repete**
-5. Quando `i` for 4, o teste se torna falso e o loop termina
+1. The variable `i` is initialized with 0.
+2. The block inside `do { ... }` runs **without checking the condition first**.
+3. At the end, the condition `i < 4` is tested.
+4. If true, the loop **repeats**.
+5. When `i` becomes 4, the condition is false and the loop ends.
 
-🔹 **Conclusão:** o `do while` **executa sempre ao menos uma vez**, independentemente da condição.
-
----
-
-## ⚙️ Estrutura Geral do `do while`
-
-| Parte              | Função                                      |
-| ------------------ | ------------------------------------------- |
-| **Inicialização**  | Define o ponto de partida (`int i = 0;`)    |
-| **Bloco**          | Ações que serão executadas                  |
-| **Condição Final** | Verifica se o loop deve continuar (`i < 4`) |
+🔹 **Conclusion:** The `do while` loop **always runs at least once**, regardless of the condition.
 
 ---
 
-## 💬 Exemplo Prático com Entrada de Dados
+## ⚙️ General Structure of a `do while` Loop
+
+| Part                | Purpose                                           |
+| ------------------- | ------------------------------------------------- |
+| **Initialization**  | Defines the starting point (`int i = 0;`)         |
+| **Block**           | Executes the desired actions                      |
+| **Final Condition** | Checks whether the loop should continue (`i < 4`) |
+
+---
+
+## 💬 Practical Example with User Input
 
 ```java
 import java.util.Scanner;
 
-public class Numeros {
+public class Numbers {
     public static void main(String[] args) {
-        int i;
-        int soma = 0;
-        String resposta;
-        Scanner teclado = new Scanner(System.in);
+        int number;
+        int sum = 0;
+        String answer;
+        Scanner input = new Scanner(System.in);
         
         do {
-            System.out.print("Digite um número: ");
-            i = teclado.nextInt();
+            System.out.print("Enter a number: ");
+            number = input.nextInt();
             
-            soma += i; // soma = soma + i;
+            sum += number;
             
-            System.out.print("Deseja continuar [S/N]? ");
-            resposta = teclado.next();
+            System.out.print("Do you want to continue [Y/N]? ");
+            answer = input.next();
             
-        } while (resposta.equals("S"));
+        } while (answer.equalsIgnoreCase("Y"));
         
-        System.out.println("A soma de todos os valores é: " + soma);
+        System.out.println("The total sum is: " + sum);
     }
 }
 ```
 
 ---
 
-### 🧠 Entendendo o Código
+### 🧠 Understanding the Code
 
-* O bloco dentro do `do { ... }` **executa primeiro**
-* O programa pergunta ao usuário se ele deseja continuar
-* Se o usuário responder `"S"`, o loop **repete**
-* Se responder `"N"`, o loop **encerra**
-* Ao final, o programa mostra o total somado
-
----
-
-## 🔍 Diferença entre While e Do While
-
-| Estrutura    | Teste Lógico | Executa Pelo Menos Uma Vez? | Posição do Teste |
-| ------------ | ------------ | --------------------------- | ---------------- |
-| **while**    | No início    | ❌ Não                       | Antes do bloco   |
-| **do while** | No final     | ✅ Sim                       | Depois do bloco  |
+* The block inside `do { ... }` **executes first**
+* The program asks the user if they want to continue
+* If the user answers `"Y"` or `"y"`, the loop **repeats**
+* If they answer `"N"` or `"n"`, the loop **ends**
+* Finally, the program displays the total sum
 
 ---
 
-## ⚠️ Cuidados Importantes
+## 🔍 Difference Between `while` and `do while`
 
-1. **Evite loops infinitos**
-
-   ```java
-   do {
-       // cuidado se a condição nunca mudar!
-   } while (true);
-   ```
-
-2. **Garanta que a condição de saída seja alcançada**
-
-    * Atualize as variáveis dentro do bloco
-    * Use `break` se necessário
+| Structure    | Logical Test | Runs at Least Once? | Test Position    |
+| ------------ | ------------ | ------------------- | ---------------- |
+| **while**    | At the start | ❌ No                | Before the block |
+| **do while** | At the end   | ✅ Yes               | After the block  |
 
 ---
 
-## 🚀 Exercícios Práticos
+## ⚠️ Important Details
 
-1. **Exercício 1:**
-   Faça um programa que leia números até o usuário digitar `0`, e mostre a soma total.
+### 1. **Semicolon Is Required**
 
-2. **Exercício 2:**
-   Leia idades até o usuário digitar um número negativo, e mostre a média das idades.
+```java
+// ✅ CORRECT
+do {
+    // code
+} while (condition); // ← SEMICOLON REQUIRED!
 
-3. **Exercício 3:**
-   Simule um menu de opções (1-Consultar, 2-Adicionar, 0-Sair) usando `do while`.
-
----
-
-## ✅ Checklist de Aprendizagem
-
-* [ ] Entendo o conceito do `do while`
-* [ ] Sei diferenciar `while` e `do while`
-* [ ] Sei implementar loops com teste no final
-* [ ] Sei usar `Scanner` para controlar repetições
-* [ ] Evito loops infinitos
-* [ ] Criei exemplos práticos com entrada de dados
+// ❌ WRONG
+do {
+    // code
+} while (condition) // ← MISSING SEMICOLON!
+```
 
 ---
 
-> 💡 **Dica:** Use o `do while` sempre que for necessário **executar o bloco pelo menos uma vez**, como em menus interativos ou leituras de entrada do usuário.
+### 2. **Control Variables**
+
+```java
+// ✅ CORRECT – variable declared outside
+String answer;
+do {
+    // code
+    answer = input.next();
+} while (answer.equalsIgnoreCase("Y"));
+
+// ❌ WRONG – variable declared inside the loop
+do {
+    String answer = input.next(); // redeclared every loop
+} while (answer.equalsIgnoreCase("Y")); // ERROR: variable not in scope
+```
 
 ---
+
+### 3. **Make Sure the Exit Condition Is Reachable**
+
+* Update control variables inside the loop
+* Use `break` if necessary
+* Avoid **infinite loops**
+
+---
+
+## 🚀 Practice Exercises
+
+### Exercise 1: Average Calculator
+
+```java
+// Use do-while to calculate averages for multiple students.
+// Ask if the user wants to continue after each calculation.
+```
+
+### Exercise 2: Password Validator
+
+```java
+// Use do-while to make the user type the correct password.
+// Keep asking until it matches.
+```
+
+### Exercise 3: Banking System
+
+```java
+// Create a menu with options: Balance, Withdraw, Deposit, Exit.
+// Use do-while to repeat until the user chooses "Exit".
+```
+
+### Exercise 4: Custom Counter
+
+```java
+// Ask for a start and end number.
+// Count between them and ask if the user wants to repeat.
+```
+
+---
+
+## ✅ Learning Checklist
+
+* [ ] I understand the concept of `do while`
+* [ ] I can differentiate between `while` and `do while`
+* [ ] I can implement loops with the test at the end
+* [ ] I know how to use `Scanner` to control repetition
+* [ ] I can avoid infinite loops
+* [ ] I created practical examples using user input
+
+---
+
+> 💡 **Tip:** Use `do while` whenever you need the block to **run at least once**, such as in **interactive menus**, **data input**, or **validation loops**.
+
+---
+
