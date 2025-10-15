@@ -1,184 +1,183 @@
-# 📚 Aula 13 - Estruturas de Repetição (Parte 3): For
+
+# 📚 Lesson 13 - Repetition Structures (Part 3): **For and Nested Loops**
 
 ---
 
-## 🎯 Objetivos da Aula
-- Dominar a estrutura `for` em Java
-- Compreender a variável de controle automática
-- Aprender sobre laços aninhados
-- Desenvolver programas com loops controlados
-- Criar matrizes e tabuadas usando for
+## 🎯 Lesson Objectives
+
+* Understand how the `for` structure works
+* Identify the differences between `while`, `do while`, and `for`
+* Implement loops with a **control variable**
+* Apply **nested loops** (a loop inside another loop)
 
 ---
 
-## 🔄 Revisão das Estruturas de Repetição
+## 🔁 Reviewing the Previous Structures
 
-### Já Aprendemos:
-- **`while`** → teste lógico no início
-- **`do-while`** → teste lógico no final
+So far, we’ve seen two repetition structures:
 
-### Agora Veremos:
-- **`for`** → variável de controle automática
+| Structure    | Type of Test | Test Position    | Executes at least once? |
+| ------------ | ------------ | ---------------- | ----------------------- |
+| **while**    | Logical test | At the beginning | ❌ No                    |
+| **do while** | Logical test | At the end       | ✅ Yes                   |
+
+Now we’ll study the **`for`**, a structure that uses an **automatic control variable** — ideal when you already know **how many times** you want to repeat an action.
 
 ---
 
-## 🏗️ Fluxograma: Estrutura For
+## 🧩 Introduction to `for`
+
+Unlike `while` and `do while`, the `for` loop **automatically controls the start, the end, and the increment** of the repetition variable.
+
+---
+
+## 📊 Flowchart – `for` Structure
 
 ```mermaid
 flowchart TD
-    A[INÍCIO] --> B[contagem ← 0 até 3 passo 1]
-    B --> C[Conte]
-    C --> D{Próximo valor?}
-    D -->|SIM| C
-    D -->|NÃO| E[FIM]
+    A[START] --> B[count ← 0 to 3 step 1]
+    B --> C[Count]
+    C --> D[Increment +1]
+    D --> E{count <= 3?}
+    E -->|YES| C
+    E -->|NO| F[END]
 ```
 
-### Característica Principal:
-A estrutura `for` já faz o **looping automaticamente** - não precisamos fazer `c = c + 1` manualmente!
+🔹 **Note:**
+The `for` structure performs the **loop automatically** — there’s no need to write `count = count + 1` manually!
 
 ---
 
-## 💡 Representação em Pseudocódigo
+## 💡 Representation in Pseudocode
 
 ```
-algoritmo "ContadorFor"
+algorithm "ForCounter"
 var
-    contagem: inteiro
-inicio
-    para contagem de 0 até 3 passo 1 faça
-        escreva("Conte ", contagem)
-    fimpara
-fimalgoritmo
+    count: integer
+begin
+    for count from 0 to 3 step 1 do
+        write("Count ", count)
+    endfor
+end
 ```
+
+➡️ The loop starts with `count = 0` and repeats until `count = 3`, adding **+1 with each iteration**.
 
 ---
 
-## 💻 Implementação em Java: For Básico
+## 💻 Implementation in Java
 
-### Sintaxe do For
 ```java
-for (inicialização; condição; incremento) {
-    // bloco de código
-}
-```
-
-### Código Básico
-```java
-public class ContadorFor {
+public class ForExample {
     public static void main(String[] args) {
-        for (int contagem = 0; contagem <= 3; contagem++) {
-            System.out.println("Conte " + contagem);
+        for (int count = 0; count <= 3; count++) {
+            System.out.println("Count " + count);
         }
     }
 }
 ```
 
-### 🔍 Execução Passo a Passo:
-| Iteração | contagem | Condição | Saída |
-|----------|----------|----------|-------|
-| 1 | 0 | 0 <= 3 ✓ | "Conte 0" |
-| 2 | 1 | 1 <= 3 ✓ | "Conte 1" |
-| 3 | 2 | 2 <= 3 ✓ | "Conte 2" |
-| 4 | 3 | 3 <= 3 ✓ | "Conte 3" |
-| 5 | 4 | 4 <= 3 ✗ | (para) |
+### 🔍 Step-by-Step Execution
+
+| Iteration | count | Condition | Output    |
+| --------- | ----- | --------- | --------- |
+| 1         | 0     | 0 <= 3 ✓  | "Count 0" |
+| 2         | 1     | 1 <= 3 ✓  | "Count 1" |
+| 3         | 2     | 2 <= 3 ✓  | "Count 2" |
+| 4         | 3     | 3 <= 3 ✓  | "Count 3" |
+| 5         | 4     | 4 <= 3 ✗  | (stops)   |
 
 ---
 
-## 🎯 Exemplo Prático: Tabuada
+### 🧠 Understanding the Structure
+
+The `for` loop is composed of **three main parts:**
+
+```java
+for (initialization; condition; increment)
+```
+
+| Part               | Function                                              |
+| ------------------ | ----------------------------------------------------- |
+| **Initialization** | Defines the starting point (`int count = 0`)          |
+| **Condition**      | Defines when the loop will stop (`count <= 3`)        |
+| **Increment**      | Updates the variable after each iteration (`count++`) |
+
+---
+
+## ⚙️ Practical Example: Multiplication Table
 
 ```java
 import java.util.Scanner;
 
-public class Tabuada {
+public class MultiplicationTable {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-        System.out.print("Digite um número: ");
-        int numero = teclado.nextInt();
+        System.out.print("Enter a number: ");
+        int number = input.nextInt();
 
-        System.out.println("\n=== TABUADA DO " + numero + " ===");
-        
-        for (int contador = 0; contador <= 10; contador++) {
-            int resultado = numero * contador;
-            System.out.printf("%d x %d = %d\n", numero, contador, resultado);
-        }
-        
-        teclado.close();
-    }
-}
-```
-
-### 🧩 Explicação:
-- `int contador = 0` → Inicializa o contador em 0
-- `contador <= 10` → Continua enquanto contador for ≤ 10
-- `contador++` → Incrementa 1 a cada iteração
-- `printf` → Formata a saída de forma organizada
-
----
-
-## 🔄 Variações do For
-
-### Contagem Regressiva
-```java
-public class ContagemRegressiva {
-    public static void main(String[] args) {
-        for (int i = 10; i >= 0; i--) {
-            System.out.println(i + "...");
-        }
-        System.out.println("Fogo! 🚀");
-    }
-}
-```
-
-### Incremento Diferente
-```java
-public class IncrementoDiferente {
-    public static void main(String[] args) {
-        // Conta de 2 em 2
-        for (int i = 0; i <= 10; i += 2) {
-            System.out.println("Número: " + i);
-        }
-        
-        // Conta de 5 em 5 (regressivo)
-        for (int i = 50; i >= 0; i -= 5) {
-            System.out.println("Valor: " + i);
+        for (int i = 0; i <= 10; i++) {
+            int result = number * i;
+            System.out.printf("%d x %d = %d\n", number, i, result);
         }
     }
 }
 ```
 
----
+### 🧩 Explanation
 
-## 🧩 Laços Aninhados (Nested Loops)
-
-### Conceito:
-Um loop dentro de outro loop. Muito útil para trabalhar com matrizes e tabelas.
-
-### Fluxograma:
-```
-inicio
-i ← 1 até 3 passo 1
-  j ← 0 até 3 passo 2
-fim
-```
-
-### Combinações Resultantes:
-| i | j |
-|---|---|
-| 1 | 0 |
-| 1 | 2 |
-| 2 | 0 |
-| 2 | 2 |
-| 3 | 0 |
-| 3 | 2 |
+1. The user enters a number
+2. The `for` loop goes from 0 to 10
+3. Each iteration multiplies the number by `i`
+4. The result is printed in a formatted way
+5. At the end, the complete multiplication table is displayed
 
 ---
 
-## 💻 Exemplo: Laços Aninhados
+## 🧱 Nested Loops
 
-### Código Básico
+A **nested loop** occurs when a loop is executed **inside another loop**. It’s very useful when working with matrices, grids, or tables.
+
+---
+
+### 📊 Flowchart – Nested Loop
+
+```mermaid
+flowchart TD
+    A[START] --> B[i ← 1 to 3 step 1]
+    B --> C[j ← 0 to 3 step 2]
+    C --> D[Process i and j]
+    D --> E[END of j]
+    E --> F[END of i]
+    F --> G[END]
+```
+
+🔹 In this example, the loop **`j`** runs completely **for each cycle of loop `i`**.
+
+---
+
+## 💡 Pseudocode Example
+
+```portugol
+algorithm "NestedLoop"
+var
+    i, j: integer
+begin
+    for i ← 1 to 3 step 1 do
+        for j ← 0 to 3 step 2 do
+            write(i, " ", j)
+        endfor
+    endfor
+end
+```
+
+---
+
+## 💻 Java Example – Nested Loops
+
 ```java
-public class Matriz {
+public class Matrix {
     public static void main(String[] args) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
@@ -189,215 +188,86 @@ public class Matriz {
 }
 ```
 
-### 🔍 Saída Esperada:
-```
-1 1
-1 2
-2 1
-2 2
-3 1
-3 2
-```
+### 🧠 Expected Output
 
-### 🧩 Explicação:
-- **Loop externo** (`i`) controla as linhas
-- **Loop interno** (`j`) controla as colunas
-- Para cada valor de `i`, todos os valores de `j` são executados
+| i | j |
+| - | - |
+| 1 | 1 |
+| 1 | 2 |
+| 2 | 1 |
+| 2 | 2 |
+| 3 | 1 |
+| 3 | 2 |
 
 ---
 
-## 🎮 Exemplos Práticos com Laços Aninhados
+## 🔍 Understanding the Flow of Nested Loops
 
-### Exemplo 1: Tabuada Completa
+| Step | i | j | Action       |
+| ---- | - | - | ------------ |
+| 1    | 1 | 1 | Prints "1 1" |
+| 2    | 1 | 2 | Prints "1 2" |
+| 3    | 2 | 1 | Prints "2 1" |
+| 4    | 2 | 2 | Prints "2 2" |
+| 5    | 3 | 1 | Prints "3 1" |
+| 6    | 3 | 2 | Prints "3 2" |
+
+🔹 The inner loop (`j`) repeats **entirely for each value of `i`**.
+🔹 This is how we build structures like **matrices**, **tables**, or **grids**.
+
+---
+
+## ⚠️ Cautions with the `for` Loop
+
+1. **Avoid infinite loops:**
+   Always make sure the stop condition can be reached.
+2. **Variable control:**
+   Declare the variable inside the `for` unless you need to access it outside.
+3. **Performance:**
+   Nested loops increase complexity — use them only when necessary.
+
+---
+
+## 🚀 Practical Exercises
+
+### 🧮 Exercise 1: Countdown
+
 ```java
-public class TabuadaCompleta {
-    public static void main(String[] args) {
-        System.out.println("=== TABUADA COMPLETA ===");
-        
-        for (int i = 1; i <= 10; i++) {          // Números de 1 a 10
-            System.out.println("\nTabuada do " + i + ":");
-            
-            for (int j = 0; j <= 10; j++) {      // Multiplicadores de 0 a 10
-                System.out.printf("%d x %d = %d\n", i, j, i * j);
-            }
-        }
-    }
-}
+// Create a for loop that counts down from 10 to 0 and prints each number
 ```
 
-### Exemplo 2: Padrão de Asteriscos
+### 🧠 Exercise 2: Sum of Numbers
+
 ```java
-public class PadraoAsteriscos {
-    public static void main(String[] args) {
-        for (int linha = 1; linha <= 5; linha++) {
-            for (int coluna = 1; coluna <= linha; coluna++) {
-                System.out.print("* ");
-            }
-            System.out.println(); // Quebra de linha
-        }
-    }
-}
+// Ask the user for 5 numbers and calculate their sum using a for loop
 ```
 
-### 🔍 Saída:
-```
-* 
-* * 
-* * * 
-* * * * 
-* * * * * 
-```
+### 🧾 Exercise 3: Full Multiplication Tables
 
-### Exemplo 3: Matriz Numérica
 ```java
-public class MatrizNumerica {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 4; i++) {
-            for (int j = 1; j <= 4; j++) {
-                System.out.printf("(%d,%d) ", i, j);
-            }
-            System.out.println(); // Nova linha após cada linha da matriz
-        }
-    }
-}
+// Display all multiplication tables from 1 to 10 using nested loops
 ```
 
-### 🔍 Saída:
-```
-(1,1) (1,2) (1,3) (1,4) 
-(2,1) (2,2) (2,3) (2,4) 
-(3,1) (3,2) (3,3) (3,4) 
-(4,1) (4,2) (4,3) (4,4) 
+### 🧊 Exercise 4: Coordinate Table
+
+```java
+// Display all combinations of coordinates (x, y) from 1 to 3
 ```
 
 ---
 
-## ⚡ Break e Continue no For
+## ✅ Learning Checklist
 
-### Usando Break
-```java
-public class BreakNoFor {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 10; i++) {
-            if (i == 5) {
-                break; // Para o loop quando i for 5
-            }
-            System.out.println("Número: " + i);
-        }
-        System.out.println("Loop interrompido!");
-    }
-}
-```
-
-### Usando Continue
-```java
-public class ContinueNoFor {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 10; i++) {
-            if (i % 2 == 0) { // Se for par
-                continue; // Pula para próxima iteração
-            }
-            System.out.println("Número ímpar: " + i);
-        }
-    }
-}
-```
+* [ ] I understand how the `for` loop works
+* [ ] I know the difference between `for`, `while`, and `do while`
+* [ ] I can implement loops with control variables
+* [ ] I can use nested loops
+* [ ] I can avoid infinite loops
+* [ ] I’ve created practical examples using `for`
 
 ---
 
-## 📊 Tabela Comparativa: While vs For
-
-| Característica | While | For |
-|----------------|-------|-----|
-| **Inicialização** | Fora do loop | Dentro da declaração |
-| **Condição** | Teste no início | Teste no início |
-| **Incremento** | Manual (`i++`) | Automático (`i++`) |
-| **Uso ideal** | Quando não sabemos quantas iterações | Quando sabemos quantas iterações |
-| **Controle** | Mais flexível | Mais estruturado |
+> 💡 **Tip:** Use `for` when you **know exactly how many times** you want to repeat an action.
+> For uncertain or condition-based repetitions, use `while` or `do while`.
 
 ---
-
-## 🔧 Padrões Comuns com For
-
-### Padrão 1: Contagem Simples
-```java
-for (int i = 0; i < n; i++) {
-    // Processamento
-}
-```
-
-### Padrão 2: Iteração em Arrays (próximas aulas)
-```java
-for (int i = 0; i < array.length; i++) {
-    // Processa cada elemento
-}
-```
-
-### Padrão 3: Laços Aninhados para Matrizes
-```java
-for (int i = 0; i < linhas; i++) {
-    for (int j = 0; j < colunas; j++) {
-        // Processa elemento da matriz
-    }
-}
-```
-
----
-
-## ✅ Checklist de Aprendizagem
-
-- [ ] Compreendo a estrutura `for` e sua sintaxe
-- [ ] Sei usar variáveis de controle automáticas
-- [ ] Domino laços aninhados e suas aplicações
-- [ ] Consigo criar tabuadas e padrões com for
-- [ ] Entendo a diferença entre break e continue
-- [ ] Apliquei for em situações práticas
-- [ ] Criei programas com múltiplos níveis de loops
-
----
-
-## 🚀 Exercícios Práticos
-
-### Exercício 1: Números Primos
-```java
-// Use for para encontrar números primos de 1 a 100
-```
-
-### Exercício 2: Pirâmide de Números
-```java
-// Use laços aninhados para criar:
-// 1
-// 1 2
-// 1 2 3
-// 1 2 3 4
-```
-
-### Exercício 3: Calculadora de Fatorial
-```java
-// Use for para calcular fatorial de um número
-```
-
-### Exercício 4: Tabuada Personalizada
-```java
-// Peça início e fim, mostre tabuada nesse intervalo
-```
-
----
-
-## 🎉 Conclusão da Trilogia de Repetição
-
-### Resumo do que Aprendemos:
-1. **Aula 11**: `while` → teste no início, flexível
-2. **Aula 12**: `do-while` → teste no final, execução garantida
-3. **Aula 13**: `for` → controle automático, estruturado
-
-### Próximos Passos:
-- Arrays e coleções
-- Métodos e funções
-- Programação orientada a objetos
-
----
-
-> 💡 **Dica **: "O `for` é sua melhor escolha quando você sabe quantas vezes quer repetir. Use laços aninhados para trabalhar com dados bidimensionais. Pratique criando diferentes padrões e tabuadas - isso solidificará seu entendimento sobre controle de fluxo!"
-
-**Parabéns por completar as estruturas de repetição! 🎊**
