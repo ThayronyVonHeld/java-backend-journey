@@ -262,4 +262,4 @@ int example = 10 + (int) (Math.random() * 11); // 10, 11, ..., 20
 
 ---
 
-> 💡 **Teacher’s Tip**: "Constant practice with operators is essential. Create small mathematical programs daily to solidify your knowledge. Remember: the Math class is your best friend for complex calculations!"
+> 💡 **Tip**: "Constant practice with operators is essential. Create small mathematical programs daily to solidify your knowledge. Remember: the Math class is your best friend for complex calculations!"

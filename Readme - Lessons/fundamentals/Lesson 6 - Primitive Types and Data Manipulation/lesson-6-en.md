@@ -368,4 +368,4 @@ private void btnSumActionPerformed(java.awt.event.ActionEvent evt) {
 
 ---
 
-> 💡 **Teacher's Tip**: "Consistent practice is the key to mastering data types. Try creating small programs every day to solidify your knowledge!"
+> 💡 **Tip**: "Consistent practice is the key to mastering data types. Try creating small programs every day to solidify your knowledge!"

@@ -368,4 +368,4 @@ private void btnSomaActionPerformed(java.awt.event.ActionEvent evt) {
 
 ---
 
-> 💡 **Dica do Professor**: "A prática consistente é a chave para dominar os tipos de dados. Experimente criar pequenos programas todos os dias para fixar o conhecimento!"
+> 💡 **Dica**: "A prática consistente é a chave para dominar os tipos de dados. Experimente criar pequenos programas todos os dias para fixar o conhecimento!"
