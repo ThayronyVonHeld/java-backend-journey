@@ -1,413 +1,424 @@
-# 📚 Aula 14 - Vetores
+# 📚 Lesson 14 - Arrays
 
 ---
 
-## 🎯 Objetivos da Aula
-- Compreender o conceito de vetores como variáveis compostas unidimensionais
-- Aprender a declarar e inicializar vetores em Java
-- Dominar o uso de loops com vetores
-- Conhecer os métodos úteis da classe Arrays
-- Desenvolver programas com manipulação de vetores
+## 🎯 Lesson Objectives
+
+* Understand the concept of arrays as one-dimensional composite variables
+* Learn how to declare and initialize arrays in Java
+* Master the use of loops with arrays
+* Get familiar with useful methods from the `Arrays` class
+* Develop programs that manipulate arrays
 
 ---
 
-## 🧩 O que são Vetores?
+## 🔍 What is an Array?
 
-### Conceito:
-Vetores são **variáveis compostas unidimensionais** que armazenam múltiplos valores do mesmo tipo.
+An **array** is a **one-dimensional composite variable** capable of storing **multiple values of the same type** in different memory positions.
 
-### Analogia:
-Pense em vetores como **gavetas** numeradas onde cada gaveta armazena um valor.
+📦 **Analogy:**
+Think of an array as a **drawer cabinet**, where each drawer has a **position (index)** and stores a **value**.
+
+---
 
 ```
 n [3][5][8][2]
    0  1  2  3
 ```
 
-- **Posição 0** → valor 3
-- **Posição 1** → valor 5
-- **Posição 2** → valor 8
-- **Posição 3** → valor 2
+* **Position 0** → value 3
+* **Position 1** → value 5
+* **Position 2** → value 8
+* **Position 3** → value 2
 
 ---
 
-## 💡 Representação em Pseudocódigo
+## 💡 Representation in Pseudocode
 
-```portugol
-algoritmo "ExemploVetor"
+```
 var
-    n: vetor [0..3] de inteiro
-inicio
+    n: array [0..3] of integer
+
+begin
     n[0] <- 3
     n[1] <- 5
     n[2] <- 8
     n[3] <- 2
-fimalgoritmo
+end
+```
+
+Each number on the right represents the **index** (position) of the array.
+That is: `n[0] = 3`, `n[1] = 5`, and so on.
+
+---
+
+## 💻 Implementation in Java
+
+```java
+int n[] = new int[4];
+n[0] = 3;
+n[1] = 5;
+n[2] = 8;
+n[3] = 2;
+```
+
+➡️ In Java, arrays are **objects**, so we use the `new` keyword.
+
+### ✅ Simplified Form
+
+If you already know the values:
+
+```java
+int n[] = {3, 5, 8, 2};
 ```
 
 ---
 
-## 💻 Implementação em Java
+## 🧩 Practical Example
 
-### Forma 1: Declaração e Atribuição Separadas
 ```java
-public class VetorBasico {
-    public static void main(String[] args) {
-        int n[] = new int[4];  // Cria vetor com 4 posições
-        n[0] = 3;              // Posição 0 recebe 3
-        n[1] = 5;              // Posição 1 recebe 5
-        n[2] = 8;              // Posição 2 recebe 8
-        n[3] = 2;              // Posição 3 recebe 2
-    }
-}
-```
-
-### Forma 2: Declaração com Valores Iniciais
-```java
-public class VetorSimplificado {
-    public static void main(String[] args) {
-        int n[] = {3, 5, 8, 2};  // Cria e inicializa o vetor
-    }
-}
-```
-
----
-
-## 🎯 Exemplo Prático: Percorrendo um Vetor
-
-### Código Básico com For Tradicional
-```java
-public class Vetor01 {
+public class Array01 {
     public static void main(String[] args) {
         int n[] = {3, 2, 8, 7, 5, 4};
-        
-        for(int i = 0; i <= 5; i++) {
-            System.out.println("Na posição " + i + " temos o valor " + n[i]);
+
+        for (int i = 0; i <= 5; i++) {
+            System.out.println("At position " + i + " we have the value " + n[i]);
         }
     }
 }
 ```
 
-### 🔍 Saída Esperada:
+### 🧠 Expected Output
+
 ```
-Na posição 0 temos o valor 3
-Na posição 1 temos o valor 2
-Na posição 2 temos o valor 8
-Na posição 3 temos o valor 7
-Na posição 4 temos o valor 5
-Na posição 5 temos o valor 4
+At position 0 we have the value 3
+At position 1 we have the value 2
+At position 2 we have the value 8
+At position 3 we have the value 7
+At position 4 we have the value 5
+At position 5 we have the value 4
 ```
 
 ---
 
-## 📏 Propriedade Length
+## 📏 The `length` Property
 
-### O que é?
-Todo vetor em Java possui a propriedade `length` que retorna o **tamanho total** do vetor.
+### What is it?
 
-### Exemplo com Length
+Every array in Java has the property `length`, which returns the **total size** of the array.
+
+### Example Using `length`
+
 ```java
-public class VetorComLength {
+public class ArrayLength {
     public static void main(String[] args) {
         int n[] = {3, 2, 8, 7, 5, 4};
         
-        System.out.println("Total de casas de N: " + n.length);
+        System.out.println("Total elements in N: " + n.length);
         
-        for(int i = 0; i < n.length; i++) {
-            System.out.println("Na posição " + i + " temos o valor " + n[i]);
+        for (int i = 0; i < n.length; i++) {
+            System.out.println("At position " + i + " we have the value " + n[i]);
         }
     }
 }
 ```
 
-### ✅ Vantagens do Length:
-- **Código mais seguro** - evita erros de índice
-- **Manutenção fácil** - funciona mesmo se o vetor mudar de tamanho
-- **Mais legível** - intenção clara do código
+### 🧠 Output
+
+```
+Total elements in N: 6
+At position 0 we have the value 3
+At position 1 we have the value 2
+At position 2 we have the value 8
+At position 3 we have the value 7
+At position 4 we have the value 5
+At position 5 we have the value 4
+```
+
+### ✅ Advantages of `length`:
+
+* **Safer code** – avoids index errors
+* **Easy maintenance** – works even if the array size changes
+* **More readable** – clearly expresses intent
 
 ---
 
-## 🔄 For-Each (For It)
+## ⚙️ For-Each Loop
 
-### Sintaxe Simplificada para Vetores
+The **for-each** loop simplifies array traversal, automatically iterating through all elements.
+
+### Simplified Syntax for Arrays
+
 ```java
-for(tipo elemento : vetor) {
-    // processa elemento
+for (type element : array) {
+    // process element
 }
 ```
 
-### Comparação: For Tradicional vs For-Each
+### Comparison: Traditional For vs For-Each
 
-#### For Tradicional:
+#### Traditional For:
+
 ```java
 int num[] = {3, 5, 8, 4};
-for(int i = 0; i < num.length; i++) {
+for (int i = 0; i < num.length; i++) {
     System.out.print(num[i] + " ");
 }
-// Saída: 3 5 8 4
+// Output: 3 5 8 4
 ```
 
 #### For-Each:
+
 ```java
 int num[] = {3, 5, 8, 4};
-for(int valor : num) {
-    System.out.print(valor + " ");
+for (int value : num) {
+    System.out.print(value + " ");
 }
-// Saída: 3 5 8 4
+// Output: 3 5 8 4
 ```
 
-### Exemplo Prático com For-Each
+### Practical Example with For-Each
+
 ```java
-public class VetorForEach {
+public class ArrayForEach {
     public static void main(String[] args) {
         double v[] = {3.5, 2.75, 9.0, -4.5};
         
-        for(double valor : v) {
-            System.out.print(valor + " ");
+        for (double value : v) {
+            System.out.print(value + " ");
         }
     }
 }
-// Saída: 3.5 2.75 9.0 -4.5
+// Output: 3.5 2.75 9.0 -4.5
 ```
 
 ---
 
-## 🧰 Classe Arrays - Métodos Úteis
+## 🧰 Arrays Class – Useful Methods
 
-### Importação Necessária
-```java
-import java.util.Arrays;
-```
+Java provides the `Arrays` class with several **utility methods**.
 
----
+### 🧩 Example – Sorting with `Arrays.sort()`
 
-## 📊 Ordenação com Arrays.sort()
-
-### Ordenando um Vetor
 ```java
 import java.util.Arrays;
 
-public class OrdenacaoVetor {
+public class ArraySort {
     public static void main(String[] args) {
         int num[] = {3, 5, 8, 4};
-        
-        Arrays.sort(num);  // Ordena o vetor
-        
-        for(int valor : num) {
-            System.out.print(valor + "  ");
+        Arrays.sort(num);
+
+        for (int value : num) {
+            System.out.print(value + "  ");
         }
     }
 }
-// Saída: 3  4  5  8
+```
+
+### 🧠 Output:
+
+```
+3  4  5  8
 ```
 
 ---
 
-## 🔍 Busca com Arrays.binarySearch()
+## 🔍 Searching with `Arrays.binarySearch()`
 
-### Buscando um Valor no Vetor
+### Searching for a Value
+
 ```java
 import java.util.Arrays;
 
-public class BuscaVetor {
+public class ArraySearch {
     public static void main(String[] args) {
         int vet[] = {3, 7, 6, 1, 9, 4, 2};
         
-        // Mostra o vetor original
-        for(int v : vet) {
+        for (int v : vet) {
             System.out.print(v + "  ");
         }
         System.out.println(" ");
         
-        // Busca o valor 1
-        int posicao = Arrays.binarySearch(vet, 1);
-        System.out.println("Encontrei o valor na posição " + posicao);
+        int position = Arrays.binarySearch(vet, 1);
+        System.out.println("Found the value at position " + position);
     }
 }
 ```
 
-### ⚠️ Importante:
-- O vetor **deve estar ordenado** para `binarySearch()` funcionar corretamente
-- Retorna a **posição** do elemento se encontrado
-- Retorna um **valor negativo** se não encontrado
+### ⚠️ Important:
+
+* The array **must be sorted** for `binarySearch()` to work properly
+* Returns the **position** if found
+* Returns a **negative value** if not found
 
 ---
 
-## 🎯 Exemplo Completo: Busca com Ordenação
+## 🎯 Complete Example: Sorted Search
 
 ```java
 import java.util.Arrays;
 
-public class BuscaOrdenada {
+public class SortedSearch {
     public static void main(String[] args) {
         int vet[] = {3, 7, 6, 1, 9, 4, 2};
         
-        System.out.print("Vetor original: ");
-        for(int v : vet) {
+        System.out.print("Original array: ");
+        for (int v : vet) {
             System.out.print(v + " ");
         }
         
-        // Ordena o vetor
         Arrays.sort(vet);
         
-        System.out.print("\nVetor ordenado: ");
-        for(int v : vet) {
+        System.out.print("\nSorted array: ");
+        for (int v : vet) {
             System.out.print(v + " ");
         }
         
-        // Busca o valor 7
         int pos = Arrays.binarySearch(vet, 7);
-        System.out.println("\nO valor 7 está na posição: " + pos);
+        System.out.println("\nThe value 7 is at position: " + pos);
     }
 }
 ```
 
 ---
 
-## 🏗️ Preenchimento Automático com Arrays.fill()
+## 🧱 Filling Arrays with `fill()`
 
-### Preenchendo um Vetor com Valor Padrão
+You can automatically fill an array with a fixed value using `Arrays.fill()`.
+
+### Filling an Array
+
 ```java
 import java.util.Arrays;
 
-public class PreenchimentoVetor {
+public class ArrayFill {
     public static void main(String[] args) {
-        int v[] = new int[20];  // Vetor com 20 posições
+        int v[] = new int[20];
         
-        Arrays.fill(v, 0);  // Preenche todo o vetor com 0
+        Arrays.fill(v, 0);
         
-        for(int valor : v) {
-            System.out.print(valor + " ");
+        for (int value : v) {
+            System.out.print(value + " ");
         }
     }
 }
-// Saída: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+// Output: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 ```
 
-### Preenchimento Parcial
+### Partial Filling
+
 ```java
 import java.util.Arrays;
 
-public class PreenchimentoParcial {
+public class PartialFill {
     public static void main(String[] args) {
         int v[] = new int[10];
         
-        // Preenche apenas as posições 2 a 6 com o valor 5
         Arrays.fill(v, 2, 7, 5);
         
-        for(int valor : v) {
-            System.out.print(valor + " ");
+        for (int value : v) {
+            System.out.print(value + " ");
         }
     }
 }
-// Saída: 0 0 5 5 5 5 5 0 0 0
+// Output: 0 0 5 5 5 5 5 0 0 0
 ```
 
 ---
 
-## 📋 Tabela de Métodos da Classe Arrays
+## 📋 Arrays Class Method Table
 
-| Método | Descrição | Exemplo |
-|--------|-----------|---------|
-| `Arrays.sort(vetor)` | Ordena o vetor | `Arrays.sort(numeros)` |
-| `Arrays.binarySearch(vetor, valor)` | Busca valor no vetor | `Arrays.binarySearch(numeros, 5)` |
-| `Arrays.fill(vetor, valor)` | Preenche todo vetor | `Arrays.fill(vetor, 0)` |
-| `Arrays.fill(vetor, inicio, fim, valor)` | Preenche intervalo | `Arrays.fill(vetor, 2, 5, 10)` |
+| Method                                  | Description            | Example                           |
+| --------------------------------------- | ---------------------- | --------------------------------- |
+| `Arrays.sort(array)`                    | Sorts the array        | `Arrays.sort(numbers)`            |
+| `Arrays.binarySearch(array, value)`     | Searches for a value   | `Arrays.binarySearch(numbers, 5)` |
+| `Arrays.fill(array, value)`             | Fills the entire array | `Arrays.fill(array, 0)`           |
+| `Arrays.fill(array, start, end, value)` | Fills a range          | `Arrays.fill(array, 2, 5, 10)`    |
 
 ---
 
-## 🎮 Exemplo Prático: Sistema de Notas
+## 🎮 Practical Example: Grade System
 
 ```java
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class SistemaNotas {
+public class GradeSystem {
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         
-        System.out.print("Quantas notas deseja cadastrar? ");
-        int quantidade = teclado.nextInt();
+        System.out.print("How many grades do you want to enter? ");
+        int amount = input.nextInt();
         
-        double notas[] = new double[quantidade];
-        double soma = 0;
+        double grades[] = new double[amount];
+        double sum = 0;
         
-        // Entrada das notas
-        for(int i = 0; i < notas.length; i++) {
-            System.out.print("Digite a nota " + (i + 1) + ": ");
-            notas[i] = teclado.nextDouble();
-            soma += notas[i];
+        for (int i = 0; i < grades.length; i++) {
+            System.out.print("Enter grade " + (i + 1) + ": ");
+            grades[i] = input.nextDouble();
+            sum += grades[i];
         }
         
-        // Ordena as notas
-        Arrays.sort(notas);
+        Arrays.sort(grades);
         
-        // Exibe resultados
-        System.out.println("\n=== RESULTADOS ===");
-        System.out.print("Notas ordenadas: ");
-        for(double nota : notas) {
-            System.out.print(nota + " ");
+        System.out.println("\n=== RESULTS ===");
+        System.out.print("Sorted grades: ");
+        for (double g : grades) {
+            System.out.print(g + " ");
         }
         
-        System.out.println("\nMaior nota: " + notas[notas.length - 1]);
-        System.out.println("Menor nota: " + notas[0]);
-        System.out.println("Média: " + (soma / notas.length));
+        System.out.println("\nHighest grade: " + grades[grades.length - 1]);
+        System.out.println("Lowest grade: " + grades[0]);
+        System.out.println("Average: " + (sum / grades.length));
         
-        teclado.close();
+        input.close();
     }
 }
 ```
 
 ---
 
-## ✅ Checklist de Aprendizagem
+## 🚀 Practice Exercises
 
-- [ ] Compreendo o conceito de vetores como variáveis compostas
-- [ ] Sei declarar e inicializar vetores em Java
-- [ ] Domino o uso de for tradicional com vetores
-- [ ] Sei usar for-each para percorrer vetores
-- [ ] Conheço e uso a propriedade length
-- [ ] Aplico métodos da classe Arrays: sort, binarySearch, fill
-- [ ] Consigo criar programas que manipulam vetores
+### Exercise 1: Reversed Array
 
----
-
-## 🚀 Exercícios Práticos
-
-### Exercício 1: Vetor Invertido
 ```java
-// Crie um vetor e exiba seus elementos na ordem inversa
+// Create an array and display its elements in reverse order
 ```
 
-### Exercício 2: Contador de Pares e Ímpares
+### Exercise 2: Count Even and Odd Numbers
+
 ```java
-// Conte quantos números pares e ímpares existem em um vetor
+// Count how many even and odd numbers exist in an array
 ```
 
-### Exercício 3: Busca por Valor
+### Exercise 3: Search for a Value
+
 ```java
-// Peça um número ao usuário e verifique se existe no vetor
+// Ask the user for a number and check if it exists in the array
 ```
 
-### Exercício 4: Estatísticas de Vetor
+### Exercise 4: Array Statistics
+
 ```java
-// Calcule média, maior e menor valor de um vetor de números
+// Calculate average, maximum, and minimum of a numeric array
 ```
 
 ---
 
-## 🎉 Conclusão
+## ✅ Learning Checklist
 
-Nesta aula aprendemos:
-- ✅ **Conceito de vetores** como variáveis compostas unidimensionais
-- ✅ **Declaração e inicialização** de vetores em Java
-- ✅ **Percorrer vetores** com for tradicional e for-each
-- ✅ **Propriedade length** para trabalhar com tamanhos dinâmicos
-- ✅ **Métodos úteis** da classe Arrays
-- ✅ **Aplicações práticas** com manipulação de dados
-
-**Próxima aula: Matrizes (arrays bidimensionais)!**
+* [ ] I understand the concept of arrays as composite variables
+* [ ] I can declare and initialize arrays in Java
+* [ ] I can use traditional for loops with arrays
+* [ ] I can use for-each loops to traverse arrays
+* [ ] I understand and use the `length` property
+* [ ] I can apply `Arrays` methods: sort, binarySearch, fill
+* [ ] I can create programs that manipulate arrays
 
 ---
 
-> 💡 **Dica do Professor**: "Pratique criando diferentes tipos de vetores e experimentando todos os métodos. Use System.out.println() para verificar o estado do seu vetor a cada operação. A manipulação de vetores é fundamental para trabalhar com coleções de dados em Java!"
+> 💡 **Tip:** Practice by creating different types of arrays and experimenting with all methods. Use `System.out.println()` to inspect your array after each operation. Mastering array manipulation is essential for working with data collections in Java!
+
+---
+
