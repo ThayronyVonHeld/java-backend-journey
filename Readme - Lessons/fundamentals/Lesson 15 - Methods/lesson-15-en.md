@@ -1,435 +1,384 @@
-# 📚 Aula 15 - Métodos
+# 📚 Lesson 15 - Methods
 
 ---
 
-## 🎯 Objetivos da Aula
-- Compreender o conceito de métodos em Java
-- Diferenciar entre procedimentos e funções
-- Dominar a sintaxe de criação e chamada de métodos
-- Entender o modificador `static` e seu uso
-- Aprender a trabalhar com métodos em diferentes classes
-- Conhecer os modificadores de acesso: public, private, protected
+## 🎯 Lesson Objectives
+
+* Understand the concept of methods in Java
+* Differentiate between procedures and functions
+* Master the syntax for creating and calling methods
+* Understand the `static` modifier and how to use it
+* Learn to work with methods across different classes
+* Explore access modifiers: `public`, `private`, and `protected`
 
 ---
 
-## 🧩 Conceito de Métodos em Java
+## 🧩 Concept of Methods in Java
 
-### O que são Métodos?
-Em Java, **não existe distinção** entre funções e procedimentos como em outras linguagens. Tudo são **métodos**!
+### What Are Methods?
 
-### Identificação pelo Tipo de Retorno:
-- **Procedimento** → Não retorna valor → usa `void`
-- **Função** → Retorna valor → usa tipo primitivo ou objeto
+In Java, there is **no specific reserved word** for *functions* or *procedures* as in other languages.
+In Java, **everything is called a method**.
+
+The difference between a function and a procedure lies in the **return type**:
+
+* If the method **returns a value**, it is a **function**.
+* If it **does not return a value**, it is a **procedure**, and we use the keyword **`void`**.
+
+### 💭 Why Use Methods?
+
+* Avoid code repetition
+* Make code easier to read and maintain
+* Divide problems into smaller, manageable parts
+* Keep programs organized and professional
 
 ---
 
-## 💡 Representação em Algoritmo
+## 🔹 Reviewing with Pseudocode
 
-### Procedimento em Algoritmo:
-```portugol
-procedimento Soma(A, B: Inteiro)
+In pseudocode, a **procedure** would look like this:
+
+```text
+procedure Sum(A, B: Integer)
 var
-    S: Inteiro
-inicio
+    S: Integer
+begin
     S <- A + B
-    Escreva(S)
-fimProcedimento
+    Write(S)
+endProcedure
 ```
 
-**Chamada:** `Soma(5, 2)`
+Calling the procedure:
 
-### Função em Algoritmo:
-```portugol
-função Soma(A, B: Inteiro): Inteiro
-var
-    S: Inteiro
-inicio
-    S <- A + B
-    retorne S
-fimFunção
+```text
+Sum(5, 2)
 ```
 
-**Chamada:** `sm <- Soma(5, 2)`
+In this case, the **procedure does not return a value**, it only performs an action.
 
 ---
 
-## 💻 Implementação em Java
+## 💻 Translating to Java
 
-### Procedimento em Java:
+In Java, the same procedure would look like this:
+
 ```java
-void soma(int a, int b) {
+void sum(int a, int b) {
     int s = a + b;
-    System.out.println(s);
+    System.out.print(s);
+}
+
+sum(5, 2); // calling the procedure
+```
+
+---
+
+## 🎯 Practical Example
+
+```java
+public class TestProcedure {
+
+    void sum(int a, int b) {
+        int s = a + b;
+        System.out.println("The sum is: " + s);
+    }
+
+    public static void main(String[] args) {
+        sum(5, 2);
+    }
 }
 ```
 
-### Função em Java:
+⚠️ This code will **cause an error** because the `sum` method is **not static**, while `main` **is**.
+A `static` method belongs to the **class**, not to an **instance (object)**.
+
+### In Summary: What Is `static`?
+
+* **Static method** → Belongs to the **class**, not to an instance
+* **Non-static method** → Belongs to an **object** (instance) of the class
+
+---
+
+## ⚡ Fixing It with `static`
+
 ```java
-int soma(int a, int b) {
+public class TestProcedure {
+
+    static void sum(int a, int b) { // added 'static'
+        int s = a + b;
+        System.out.println("The sum is: " + s);
+    }
+
+    public static void main(String[] args) {
+        sum(5, 2);
+    }
+}
+```
+
+When we add `static`, the method becomes accessible **without needing to create an object of the class**.
+
+> 💡 The `main` method is always the first to run — it’s the entry point of the program.
+
+---
+
+## 🔹 Now, Functions!
+
+In pseudocode:
+
+```text
+function Sum(A, B: Integer): Integer
+var
+    S: Integer
+begin
+    S <- A + B
+    return S
+endFunction
+
+sm <- Sum(5, 2) // Calling the function
+```
+
+Here, we have a **return statement** (`return S`) and the return type is `Integer`.
+
+---
+
+## 🔹 Translating to Java
+
+```java
+int sum(int a, int b) {
     int s = a + b;
     return s;
 }
+
+int sm = sum(5, 2);
 ```
+
+The difference is simple:
+
+* Use `void` → no return value.
+* Use a type (`int`, `String`, `double`, etc.) → returns a value.
 
 ---
 
-## 🏗️ Estrutura de um Método
+## 🔹 Practical Example
 
-### Sintaxe Completa:
 ```java
-[modificadores] tipo_retorno nome_metodo([parâmetros]) {
-    // corpo do método
-    return valor; // se não for void
-}
-```
+public class TestFunction {
 
-### Exemplo Prático com Erro:
-```java
-public class TesteProcedimento {
-    void soma(int a, int b) {
+    static int sum(int a, int b) {
         int s = a + b;
-        System.out.println("A soma é: " + s);
+        return s;
     }
 
     public static void main(String[] args) {
-        soma(5, 2); // ❌ ERRO! Não pode chamar método não-estático de estático
+        int sm = sum(5, 2);
+        System.out.println("The sum is: " + sm);
     }
 }
 ```
+
+The `static` keyword is still needed because we are calling the function inside the `main` method, which is also `static`.
+
+> 🔸 In other contexts, `static` may not be necessary, depending on the program structure.
 
 ---
 
-## ⚡ O Modificador `static`
+### Example of a Non-Static Method
 
-### O Problema:
-O método `main` é `static` (estático), portanto só pode chamar outros métodos que também sejam `static`.
-
-### Solução:
 ```java
-public class TesteProcedimento {
-    static void soma(int a, int b) { // ✅ Adiciona static
-        int s = a + b;
-        System.out.println("A soma é: " + s);
+public class InstanceExample {
+    void greeting(String name) {
+        System.out.println("Hello, " + name + "!");
     }
 
     public static void main(String[] args) {
-        soma(5, 2); // ✅ Agora funciona!
+        InstanceExample example = new InstanceExample(); // creating object
+        example.greeting("Thayrony");
     }
 }
 ```
 
-### O que é `static`?
-- **Método estático** → Pertence à **classe**, não às instâncias
-- **Método não-estático** → Pertence às **instâncias** (objetos) da classe
+> 💡 Non-static methods require creating an object before calling them.
 
 ---
 
-## 🎯 Exemplos Práticos Completos
+## 🔄 Understanding the `main` Method
 
-### Exemplo 1: Procedimento com Static
-```java
-public class ExemploProcedimento {
-    static void saudacao(String nome) {
-        System.out.println("Olá, " + nome + "! Seja bem-vindo!");
-    }
+### Analyzing the Main Method:
 
-    static void soma(int a, int b) {
-        int resultado = a + b;
-        System.out.println(a + " + " + b + " = " + resultado);
-    }
-
-    public static void main(String[] args) {
-        saudacao("Maria");
-        soma(10, 5);
-        soma(7, 3);
-    }
-}
-```
-
-### Exemplo 2: Função com Static
-```java
-public class ExemploFuncao {
-    static int soma(int a, int b) {
-        return a + b;
-    }
-
-    static double calcularMedia(double n1, double n2) {
-        return (n1 + n2) / 2;
-    }
-
-    static String verificarAprovacao(double media) {
-        if (media >= 7.0) {
-            return "Aprovado";
-        } else {
-            return "Reprovado";
-        }
-    }
-
-    public static void main(String[] args) {
-        int resultadoSoma = soma(5, 3);
-        double media = calcularMedia(8.5, 7.0);
-        String situacao = verificarAprovacao(media);
-        
-        System.out.println("Soma: " + resultadoSoma);
-        System.out.println("Média: " + media);
-        System.out.println("Situação: " + situacao);
-    }
-}
-```
-
----
-
-## 🔄 Entendendo o Método `main`
-
-### Análise do Método Principal:
 ```java
 public static void main(String[] args) {
-    // código
+    // code
 }
 ```
 
-- **`public`** → Método acessível de qualquer lugar
-- **`static`** → Pertence à classe, não precisa de instância
-- **`void`** → Não retorna valor
-- **`main`** → Nome do método (ponto de entrada)
-- **`String[] args`** → Parâmetro: vetor de Strings para argumentos
+* **`public`** → Accessible from anywhere
+* **`static`** → Belongs to the class, doesn’t require an instance
+* **`void`** → No return value
+* **`String[] args`** → Parameter: array of strings for command-line arguments
+
+Thus, the `main` method is the entry point of every Java program.
 
 ---
 
-## 🏪 Trabalhando com Múltiplas Classes
+## 🏪 Working with Methods in Other Classes
 
-### Classe Operacoes:
+You can create a method in one class and call it from another.
+
+### Class `Operations.java`
+
 ```java
-package fundamentals.Lesson15.TestandoClasses;
+package fundamentals.Lesson15.TestingClasses;
 
-public class Operacoes {
-    public static String contador(int i, int f) {
+public class Operations {
+    public static String counter(int i, int f) {
         String s = "";
-        for(int c = i; c <= f; c++) {
+        for (int c = i; c <= f; c++) {
             s += c + " ";
         }
         return s;
     }
-    
-    public static int fatorial(int n) {
-        int fat = 1;
-        for(int i = 1; i <= n; i++) {
-            fat *= i;
-        }
-        return fat;
-    }
 }
 ```
 
-### Classe TesteFuncao (Principal):
+### Class `TestFunction.java`
+
 ```java
-package fundamentals.Lesson15.TestandoClasses;
+package fundamentals.Lesson15.TestingClasses;
 
-public class TesteFuncao {
+public class TestFunction {
     public static void main(String[] args) {
-        System.out.println("Vai começar a contagem:");
-        System.out.println(Operacoes.contador(1, 5));
-        
-        System.out.println("\nFatorial de 5:");
-        System.out.println(Operacoes.fatorial(5));
+        System.out.println("Counting will start...");
+        System.out.println(Operations.counter(1, 5));
     }
 }
 ```
 
-### 🔍 Saída Esperada:
+We use:
+
+```java
+Operations.counter(1, 5);
 ```
-Vai começar a contagem:
+
+That is: **class name + dot + method name**.
+
+### 🔍 Expected Output:
+
+```
+Counting will start...
 1 2 3 4 5 
-
-Fatorial de 5:
-120
 ```
 
 ---
 
-## 🔒 Modificadores de Acesso
+## 🔒 Access Modifiers
 
-### Tabela de Modificadores:
+### Access Modifiers Table:
 
-| Modificador | Acesso | Descrição |
-|-------------|---------|-----------|
-| **`public`** | Público | Acessível de qualquer lugar |
-| **`private`** | Privado | Acessível apenas na própria classe |
-| **`protected`** | Protegido | Acessível na classe e subclasses |
-| **(default)** | Pacote | Acessível apenas no mesmo pacote |
+| Modifier        | Access    | Description                                    |
+| --------------- | --------- | ---------------------------------------------- |
+| **`public`**    | Public    | Accessible from anywhere                       |
+| **`private`**   | Private   | Accessible only within the same class          |
+| **`protected`** | Protected | Accessible within the class and its subclasses |
+| **(default)**   | Package   | Accessible only within the same package        |
 
-### Exemplo com Diferentes Modificadores:
+---
+
+### Example with Different Modifiers
+
 ```java
-public class ExemploModificadores {
-    public static void metodoPublico() {
-        System.out.println("Método público - qualquer um pode acessar");
+public class AccessExample {
+    public static void publicMethod() {
+        System.out.println("Public method - accessible from anywhere");
     }
-    
-    private static void metodoPrivado() {
-        System.out.println("Método privado - só acessível nesta classe");
+
+    private static void privateMethod() {
+        System.out.println("Private method - accessible only within this class");
     }
-    
-    protected static void metodoProtegido() {
-        System.out.println("Método protegido - acessível por herança");
+
+    protected static void protectedMethod() {
+        System.out.println("Protected method - accessible by inheritance");
     }
-    
-    static void metodoPadrao() {
-        System.out.println("Método padrão - acessível no mesmo pacote");
+
+    static void defaultMethod() {
+        System.out.println("Default method - accessible within the same package");
     }
 }
 ```
 
 ---
 
-## 🎮 Exemplo Prático: Calculadora Completa
+## 📋 Method Syntax Summary
 
-### Classe Calculadora:
-```java
-public class Calculadora {
-    // Métodos públicos e estáticos
-    public static double somar(double a, double b) {
-        return a + b;
-    }
-    
-    public static double subtrair(double a, double b) {
-        return a - b;
-    }
-    
-    public static double multiplicar(double a, double b) {
-        return a * b;
-    }
-    
-    public static double dividir(double a, double b) {
-        if (b != 0) {
-            return a / b;
-        } else {
-            System.out.println("Erro: Divisão por zero!");
-            return 0;
-        }
-    }
-    
-    // Método privado - só usado internamente
-    private static boolean ehPar(int numero) {
-        return numero % 2 == 0;
-    }
-    
-    public static String verificarParidade(int numero) {
-        if (ehPar(numero)) {
-            return numero + " é PAR";
-        } else {
-            return numero + " é ÍMPAR";
-        }
-    }
-}
-```
+### Full Structure:
 
-### Classe Principal:
-```java
-import java.util.Scanner;
-
-public class TesteCalculadora {
-    public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in);
-        
-        System.out.print("Digite o primeiro número: ");
-        double num1 = teclado.nextDouble();
-        
-        System.out.print("Digite o segundo número: ");
-        double num2 = teclado.nextDouble();
-        
-        // Usando métodos da classe Calculadora
-        System.out.println("\n=== RESULTADOS ===");
-        System.out.println("Soma: " + Calculadora.somar(num1, num2));
-        System.out.println("Subtração: " + Calculadora.subtrair(num1, num2));
-        System.out.println("Multiplicação: " + Calculadora.multiplicar(num1, num2));
-        System.out.println("Divisão: " + Calculadora.dividir(num1, num2));
-        
-        System.out.print("\nDigite um número inteiro: ");
-        int numero = teclado.nextInt();
-        System.out.println(Calculadora.verificarParidade(numero));
-        
-        teclado.close();
-    }
-}
-```
-
----
-
-## 📋 Resumo da Sintaxe
-
-### Estrutura Completa:
 ```java
 [public|private|protected] [static] [final] [synchronized] 
-tipo_retorno nomeMetodo(tipo param1, tipo param2, ...) {
-    // corpo do método
+return_type methodName(type param1, type param2, ...) {
+    // method body
     
-    if (tipo_retorno != void) {
-        return valor;
+    if (return_type != void) {
+        return value;
     }
 }
 ```
 
-### Partes do Método:
-1. **Modificadores de acesso** → `public`, `private`, `protected`
-2. **Modificador static** → `static` (opcional)
-3. **Tipo de retorno** → `void`, `int`, `String`, etc.
-4. **Nome do método** → identificador
-5. **Parâmetros** → entre parênteses
-6. **Corpo** → entre chaves
-7. **Return** → se não for `void`
+### Parts of a Method:
+
+1. **Access modifier** → `public`, `private`, `protected`
+2. **Static modifier** → `static` (optional)
+3. **Return type** → `void`, `int`, `String`, etc.
+4. **Method name** → identifier
+5. **Parameters** → inside parentheses
+6. **Body** → inside curly braces
+7. **Return statement** → required if not `void`
 
 ---
 
-## ✅ Checklist de Aprendizagem
+## 🚀 Practical Exercises
 
-- [ ] Compreendo o conceito de métodos em Java
-- [ ] Sei diferenciar procedimentos (void) de funções (com retorno)
-- [ ] Domino a sintaxe de criação e chamada de métodos
-- [ ] Entendo o uso do modificador `static`
-- [ ] Consigo criar métodos em classes separadas
-- [ ] Conheço e aplico modificadores de acesso
-- [ ] Sei trabalhar com parâmetros e valores de retorno
-- [ ] Criei programas organizados com métodos
+### Exercise 1: Temperature Converter
 
----
-
-## 🚀 Exercícios Práticos
-
-### Exercício 1: Conversor de Temperatura
 ```java
-// Crie métodos para converter Celsius ↔ Fahrenheit
+// Create methods to convert between Celsius ↔ Fahrenheit
 ```
 
-### Exercício 2: Validador de Dados
+### Exercise 2: Data Validator
+
 ```java
-// Crie métodos para validar email, CPF, idade, etc.
+// Create methods to validate email, ID, age, etc.
 ```
 
-### Exercício 3: Calculadora Geométrica
+### Exercise 3: Geometry Calculator
+
 ```java
-// Crie métodos para calcular área, perímetro, volume
+// Create methods to calculate area, perimeter, and volume
 ```
 
-### Exercício 4: Gerador de Relatórios
+### Exercise 4: Report Generator
+
 ```java
-// Crie métodos para gerar diferentes tipos de relatórios
+// Create methods to generate different types of reports
 ```
 
 ---
 
-## 🎉 Conclusão
+## ✅ Learning Checklist
 
-Nesta aula aprendemos:
-- ✅ **Conceito de métodos** em Java
-- ✅ **Diferença entre procedimentos e funções**
-- ✅ **Uso do modificador `static`**
-- ✅ **Trabalho com múltiplas classes**
-- ✅ **Modificadores de acesso**: public, private, protected
-- ✅ **Organização de código** com métodos
-- ✅ **Boas práticas** de programação modular
+* [ ] I understand the concept of methods in Java
+* [ ] I can differentiate between procedures (void) and functions (with return)
+* [ ] I master the syntax for creating and calling methods
+* [ ] I understand how the `static` modifier works
+* [ ] I can create methods in separate classes
+* [ ] I know and apply access modifiers
+* [ ] I can work with parameters and return values
+* [ ] I can build organized programs using methods
 
-**Parabéns por completar o curso de fundamentos de Java! 🎊**
+**Congratulations on completing the Java Fundamentals course! 🎊**
 
 ---
 
-> 💡 **Dica Final**: "A prática é essencial para dominar métodos. Comece criando métodos pequenos e específicos. Use nomes descritivos que expliquem o que o método faz. Lembre-se: código bem organizado em métodos é mais fácil de manter, testar e entender. Continue praticando e explorando os conceitos de orientação a objetos que virão a seguir!"
+> 💡 **Final Tip:** A good programmer doesn’t write more code — they write **better** code.
+> Organize, name clearly, and reuse your methods.
+> Each small method you create is one more step toward professional programming.
+
+---
