@@ -364,7 +364,6 @@ private void btnSumActionPerformed(java.awt.event.ActionEvent evt) {
 - Use `printf` for professional output formatting
 - Document your code with Javadoc for real projects
 
-**Next Lesson: Control Structures and Conditionals!**
 
 ---
 

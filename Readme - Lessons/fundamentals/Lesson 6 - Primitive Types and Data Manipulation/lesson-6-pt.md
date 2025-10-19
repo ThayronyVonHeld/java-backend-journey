@@ -364,7 +364,6 @@ private void btnSomaActionPerformed(java.awt.event.ActionEvent evt) {
 - Use `printf` para formatação profissional de saída
 - Documente seu código com Javadoc para projetos reais
 
-**Próxima Aula: Estruturas de Controle e Condicionais!**
 
 ---
 
