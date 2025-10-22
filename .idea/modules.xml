@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InterfaceComJavaFx/InterfaceComJavaFx.iml" filepath="$PROJECT_DIR$/InterfaceComJavaFx/InterfaceComJavaFx.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Introduction-JAVA.iml" filepath="$PROJECT_DIR$/.idea/Introduction-JAVA.iml" />
     </modules>
   </component>
