@@ -1,340 +1,499 @@
-# 📚 Aula 2 - O que é um Objeto?
+# 📚 Lesson 2 - What is an Object?
 
 ---
 
-## 🎯 Objetivos da Aula
-- Compreender o conceito de objetos na Programação Orientada a Objetos
-- Diferenciar entre objetos concretos e abstratos
-- Identificar atributos, métodos e estados de objetos
-- Entender a relação entre classes e objetos
-- Aplicar o conceito de abstração na modelagem de objetos
+## 🎯 Lesson Objectives
+
+* Understand the concept of objects in Object-Oriented Programming (OOP)
+* Differentiate between concrete and abstract objects
+* Identify attributes, methods, and states of objects
+* Understand the relationship between classes and objects
+* Apply the concept of abstraction when modeling objects
 
 ---
 
-## 🧐 O que é um Objeto?
+## 🧐 What is an Object?
 
-### Observe ao seu redor...
-Quantos objetos você consegue identificar?
-- 📱 Celular
-- 🚗 Carro
-- 🖱️ Mouse
-- 🎮 Joystick
+Ask yourself: **what is an object?**
+Look around and try to identify how many objects you can see.
 
-**Mas e quanto a...**
-- 📅 Horário no dentista?
-- 📝 Compromisso agendado?
-- 👨‍🎓 Aluno?
-- 🔘 Botão na tela?
+For example: a **cell phone**, a **car**, a **mouse**, or a **joystick**.
+All of these are **objects**, things we can **see, touch, use, and describe**.
 
-### Definição Formal de Objeto:
-> **"Um objeto é uma coisa material ou abstrata que pode ser percebida pelos sentidos e descrita por meio de suas características, comportamentos e estado atual."**
+But what if I asked you:
+
+* Is your **dentist appointment** an object?
+* What about the **meeting you scheduled**?
+* Or a **button on your phone screen**?
+
+Most people would say that **only the first four** (cell phone, car, joystick, and mouse) are objects.
+But can’t the others **also be considered objects**?
 
 ---
 
-## 🔍 Analisando um Objeto: Controle Remoto
+### 📘 Formal Definition of an Object
 
-### Exemplo Prático - Controle Remoto GoPro:
+According to classical Object-Oriented Programming:
+
+> **“An object is a material or abstract thing that can be perceived by the senses and described through its characteristics, behaviors, and current state.”**
+
+So, an object can be something **concrete** (like a pen) or **abstract** (like an appointment).
+What matters is that it has:
+
+* **Characteristics**
+* **Behaviors**
+* **State**
+
+---
+
+## ✏️ Example 1 – Remote Control
+
+A **remote control** is an excellent example of an object:
+
+* **Characteristics** → has buttons, a brand “X”, model “RM”
+* **Behaviors** → turn on, record, pause, power off
+* **State** → off, new, low battery, or searching for a signal
+
+Anything that has **characteristics, behaviors, and a state** is an **object**.
+
+### Practical Example – Remote Control
+
 ```java
-// CARACTERÍSTICAS (O que tem?)
-String marca = "GoPro";
-String modelo = "RM";
-int quantidadeBotoes = 2;
+// CHARACTERISTICS (What does it have?)
+String brand = "X";
+String model = "RM";
+int buttonCount = 2;
 
-// COMPORTAMENTOS (O que faz?)
-void ligar() { /* código */ }
-void gravar() { /* código */ }
-void pausar() { /* código */ }
+// BEHAVIORS (What does it do?)
+void turnOn() { /* code */ }
+void record() { /* code */ }
+void pause() { /* code */ }
 
-// ESTADO (Como está agora?)
-boolean ligado = false;
-int nivelBateria = 75;
-boolean conectado = true;
+// STATE (What is its current condition?)
+boolean isOn = false;
+int batteryLevel = 75;
+boolean connected = true;
 ```
 
 ---
 
-## ✨ Os Três Pilares de Todo Objeto
+## 📅 Example 2 – Appointment
 
-### 1. **O que eu tenho?** → **Atributos**
-- Características físicas ou descritivas
-- Propriedades que definem o objeto
+Now think about your **dentist appointment**.
 
-### 2. **O que eu faço?** → **Métodos**
-- Ações que o objeto pode realizar
-- Comportamentos e funcionalidades
+* **Characteristics** → date and time, location, type (consultation, check-up, etc.)
+* **Behaviors** → schedule, reschedule, cancel
+* **State** → scheduled, canceled, or completed
 
-### 3. **Como estou agora?** → **Estado**
-- Situação atual do objeto
-- Valores específicos em um momento
+Even though it’s **abstract**, it still has these three dimensions, therefore, it’s also an **object**.
 
 ---
 
-## 🖊️ Exemplo Detalhado: Caneta
+## ✨ The Three Pillars of Every Object
 
-### Análise da Caneta como Objeto:
+### 1. **What do I have?** → **Attributes**
 
-#### **ATRIBUTOS** (O que a caneta tem?)
-```java
-String modelo;
-String cor; 
-double ponta;    // 0.5, 0.7, 1.0
-int carga;       // porcentagem
-boolean tampada;
-```
+* Physical or descriptive characteristics
+* Properties that define the object
 
-#### **MÉTODOS** (O que a caneta faz?)
-```java
-void rabiscar() { /* código */ }
-void tampar() { /* código */ }
-void destampar() { /* código */ }
-boolean podeEscrever() { /* código */ }
-```
+### 2. **What do I do?** → **Methods**
 
-#### **ESTADO** (Como está agora?)
-```java
-modelo = "Bic Cristal";
-cor = "Azul";
-ponta = 0.5;
-carga = 90;
-tampada = false;  // ↴ ESTADO ATUAL: Destampada, com 90% de carga, escrevendo
+* Actions the object can perform
+* Behaviors and functionalities
+
+### 3. **How am I now?** → **State**
+
+* The object’s current situation
+* Specific values at a given time
+
+---
+
+## 🖊️ Detailed Example: Pen
+
+### 🧠 The Pen Class
+
+Before creating a pen, we need its **mold**.
+In a factory, this mold is designed based on the **characteristics** of the final product.
+
+In programming, we do the same: we create a **Pen class**.
+
+---
+
+### 🏭 Class vs Object
+
+| Concept    | Analogy             | Definition                               |
+| ---------- | ------------------- | ---------------------------------------- |
+| **Class**  | **Mold** of the pen | Blueprint or design                      |
+| **Object** | **Actual pen**      | Concrete instance created from the class |
+
+---
+
+### Basic Structure
+
+```pseudocode
+class Pen
+    // Attributes
+    model : string
+    color : string
+    tip : double
+    inkLevel : int
+    capped : boolean
+
+    // Methods
+    method write()
+    end method
+
+    method cap()
+    end method
+end class
 ```
 
 ---
 
-## 🏭 Classe vs Objeto
+## 🧩 Methods in Action
 
-### Analogia da Fábrica:
-| Conceito | Analogia | Definição |
-|----------|----------|-----------|
-| **Classe** | **Molde** da caneta | Projeto, planejamento, definição |
-| **Objeto** | **Caneta** específica | Instância concreta criada a partir da classe |
+Inside the methods, we define the pen’s behavior.
 
-### 📝 Exemplo em Código:
+### Example – Method `write()`
 
-#### **CLASSE** (Molde)
+```pseudocode
+if capped == true then
+    print("Error: The pen is capped")
+else
+    print("Writing...")
+end if
+```
+
+### Example – Method `cap()`
+
+```pseudocode
+capped = true
+```
+
+Methods can change the **attributes** of a class.
+That’s what makes objects **dynamic**.
+
+---
+
+## 🧪 Creating an Object (Instantiating)
+
+The computer **doesn’t know what a pen is**, you have to teach it.
+
+We create a **class** (the mold) and then **instantiate** an object:
+
+```pseudocode
+P1 = new Pen
+```
+
+Now we have a pen called `P1`.
+
+We can set its attributes:
+
+```pseudocode
+P1.color = "Blue"
+P1.tip = 0.5
+P1.capped = false
+```
+
+And use its methods:
+
+```pseudocode
+P1.write()
+```
+
+We can also create another object:
+
+```pseudocode
+P2 = new Pen
+P2.color = "Red"
+P2.tip = 1.0
+P2.cap()
+```
+
+Now we have **two different pens** (two objects) created from the **same class**.
+
+---
+
+### Analysis in Java
+
+#### **ATTRIBUTES** (What does the pen have?)
+
 ```java
-public class Caneta {
-    // ATRIBUTOS
-    String modelo;
-    String cor;
-    double ponta;
-    int carga;
-    boolean tampada;
+String model;
+String color; 
+double tip;    
+int inkLevel;
+boolean capped;
+```
+
+#### **METHODS** (What does the pen do?)
+
+```java
+void write() { /* code */ }
+void cap() { /* code */ }
+void uncap() { /* code */ }
+boolean canWrite() { /* code */ }
+```
+
+#### **STATE** (How is it right now?)
+
+```java
+model = "Bic Cristal";
+color = "Blue";
+tip = 0.5;
+inkLevel = 90;
+capped = false; // CURRENT STATE: Uncapped, 90% ink, writing
+```
+
+---
+
+### 📝 Example in Code
+
+#### **CLASS** (Blueprint)
+
+```java
+public class Pen {
+    // ATTRIBUTES
+    String model;
+    String color;
+    double tip;
+    int inkLevel;
+    boolean capped;
     
-    // MÉTODOS
-    void rabiscar() {
-        if (tampada) {
-            System.out.println("Erro! Caneta tampada");
+    // METHODS
+    void write() {
+        if (capped) {
+            System.out.println("Error! Pen is capped");
         } else {
-            System.out.println("Rabiscando...");
+            System.out.println("Writing...");
         }
     }
     
-    void tampar() {
-        tampada = true;
+    void cap() {
+        capped = true;
     }
 }
 ```
 
-#### **OBJETOS** (Instâncias)
+#### **OBJECTS** (Instances)
+
 ```java
-// Criando objetos a partir da classe
-Caneta c1 = new Caneta();  // ↴ INSTANCIAÇÃO
-Caneta c2 = new Caneta();
+Pen p1 = new Pen();  
+Pen p2 = new Pen();
 
-// Configurando objetos diferentes
-c1.cor = "Azul";
-c1.ponta = 0.5;
-c1.tampada = false;
+p1.color = "Blue";
+p1.tip = 0.5;
+p1.capped = false;
 
-c2.cor = "Vermelha"; 
-c2.ponta = 1.0;
-c2.tampada = true;
+p2.color = "Red"; 
+p2.tip = 1.0;
+p2.capped = true;
 ```
 
 ---
 
-## 🔄 Instanciamento
+## 🔄 Instantiation
 
-### O que é Instanciar?
-> **Instanciar** é o processo de criar um objeto específico a partir de uma classe.
+### What is Instantiation?
 
-### Sintaxe:
+> **Instantiation** is the process of creating a specific object from a class.
+
+### Syntax
+
 ```java
-// nomeObjeto = new Classe();
-Caneta minhaCaneta = new Caneta();
-ControleRemoto meuControle = new ControleRemoto();
-Aluno aluno1 = new Aluno();
+// objectName = new Class();
+Pen myPen = new Pen();
+RemoteControl myRemote = new RemoteControl();
+Student student1 = new Student();
 ```
 
-### 📌 Pontos Importantes:
-- Uma **classe** pode gerar **múltiplos objetos**
-- Cada objeto tem **seus próprios valores** nos atributos
-- Objetos da mesma classe são **independentes**
+### 📌 Key Points
+
+* A **class** can generate **multiple objects**
+* Each object has its **own attribute values**
+* Objects from the same class are **independent**
 
 ---
 
-## 🧠 Abstração: O Primeiro Pilar da POO
+## 🧱 Class × Object × Instance
 
-### O que é Abstração?
-> **Focar apenas nos aspectos relevantes** de um objeto para um determinado contexto, **ignorando detalhes desnecessários**.
+| Term            | Definition                                    |
+| --------------- | --------------------------------------------- |
+| **Class**       | Blueprint that defines attributes and methods |
+| **Object**      | Instance (example) created from the class     |
+| **Instantiate** | Action of creating an object from a class     |
 
-### Exemplos de Abstração:
+Example:
 
-#### Contexto: Cadastro de Aluno
+> “Pen class” is the blueprint,
+> “P1” and “P2” are objects (instances) of that class.
+
+---
+
+## 🧠 Abstraction: The First Pillar of OOP
+
+### What is Abstraction?
+
+You are a person. So am I.
+We’re both objects of the **Person class**.
+
+We share the same **attributes** (name, age, weight...), but have **different states**.
+
+**Abstraction** helps us **focus only on the relevant attributes** for a given context.
+
+> **Abstraction** means focusing on the relevant aspects of an object for a specific context and ignoring unnecessary details.
+
+* In a **student registration system**, eye color is irrelevant.
+* In a **modeling agency system**, it’s essential.
+
+👉 Abstraction means **ignoring what doesn’t matter** and **keeping what does**.
+
+---
+
+### Example of Abstraction
+
+#### Context: Student Registration
+
 ```java
-public class Aluno {
-    // ATRIBUTOS RELEVANTES
-    String nome;
-    String matricula;
-    String curso;
+public class Student {
+    // RELEVANT ATTRIBUTES
+    String name;
+    String registration;
+    String course;
     
-    // IGNORADOS (não relevantes neste contexto)
-    // - Cor dos olhos
-    // - Peso
-    // - Altura
-    // - Time de futebol preferido
+    // IGNORED (not relevant in this context)
+    // - Eye color
+    // - Weight
+    // - Height
+    // - Favorite soccer team
 }
 ```
 
-#### Contexto: Cadastro de Modelo
+#### Context: Model Registration
+
 ```java
-public class Modelo {
-    // ATRIBUTOS RELEVANTES  
-    double altura;
-    double peso;
-    String corOlhos;
-    String corCabelo;
+public class Model {
+    // RELEVANT ATTRIBUTES
+    double height;
+    double weight;
+    String eyeColor;
+    String hairColor;
     
-    // IGNORADOS (não relevantes neste contexto)
-    // - Matrícula
-    // - Curso
-    // - Notas
+    // IGNORED (not relevant in this context)
+    // - Registration
+    // - Course
+    // - Grades
 }
 ```
 
 ---
 
-## 🎯 Aplicação Prática: Modelando Objetos
+## 🎯 Practical Application: Modeling Objects
 
-### Exemplo 1: Objeto Concreto - Cadeira
+### Example 1: Concrete Object – Chair
+
 ```java
-public class Cadeira {
-    // ATRIBUTOS
-    String cor;
+public class Chair {
+    String color;
     String material;
-    boolean temBraco;
-    double pesoMaximo;
+    boolean hasArms;
+    double maxWeight;
     
-    // MÉTODOS
-    void sentar() {
-        System.out.println("Alguém sentou na cadeira");
+    void sit() {
+        System.out.println("Someone sat on the chair");
     }
     
-    void empilhar() {
-        System.out.println("Cadeira empilhada");
+    void stack() {
+        System.out.println("Chair stacked");
     }
     
-    // ESTADO ATUAL
-    boolean ocupada = false;
-    boolean empilhada = false;
-    String orientacao = "frente";
+    boolean occupied = false;
+    boolean stacked = false;
+    String orientation = "front";
 }
 ```
 
-### Exemplo 2: Objeto Abstrato - Compromisso
+### Example 2: Abstract Object – Appointment
+
 ```java
-public class Compromisso {
-    // ATRIBUTOS
-    Date data;
-    String horario;
-    String local;
-    String descricao;
+public class Appointment {
+    Date date;
+    String time;
+    String location;
+    String description;
     
-    // MÉTODOS  
-    void marcar() {
-        System.out.println("Compromisso marcado");
+    void schedule() {
+        System.out.println("Appointment scheduled");
     }
     
-    void cancelar() {
-        System.out.println("Compromisso cancelado");
+    void cancel() {
+        System.out.println("Appointment canceled");
     }
     
-    void adiar() {
-        System.out.println("Compromisso adiado");
+    void postpone() {
+        System.out.println("Appointment postponed");
     }
     
-    // ESTADO ATUAL
-    String status = "agendado"; // agendado, cancelado, realizado
+    String status = "scheduled"; // scheduled, canceled, completed
 }
 ```
 
 ---
 
-## 📋 Tabela de Comparação: Classe vs Objeto
+## 📋 Comparison Table: Class vs Object
 
-| Aspecto | Classe | Objeto |
-|---------|--------|--------|
-| **Natureza** | Abstrata | Concreta |
-| **Definição** | Molde, projeto | Instância, exemplar |
-| **Tempo** | Existe durante o design | Existe durante a execução |
-| **Quantidade** | Uma por conceito | Múltiplos por classe |
-| **Analogia** | Projeto da casa | Casa construída |
-
----
-
-## 🎮 Atividade Prática
-
-### 🔍 Exercício 1: Objetos Concretos
-**Escolha DOIS objetos concretos ao seu redor e analise:**
-
-#### Objeto: [Seu Objeto Aqui]
-- **Atributos**:
-- **Métodos**:
-- **Estado Atual**:
-
-#### Objeto: [Seu Objeto Aqui]
-- **Atributos**:
-- **Métodos**:
-- **Estado Atual**:
-
-### 💭 Exercício 2: Objetos Abstratos
-**Escolha DOIS objetos abstratos do seu dia a dia:**
-
-#### Objeto: [Exemplo: Aula]
-- **Atributos**: horário, disciplina, professor, alunos
-- **Métodos**: iniciar(), terminar(), adiar()
-- **Estado Atual**: "aguardando início"
-
-#### Objeto: [Seu Objeto Abstrato]
-- **Atributos**:
-- **Métodos**:
-- **Estado Atual**:
+| Aspect         | Class                 | Object            |
+| -------------- | --------------------- | ----------------- |
+| **Nature**     | Abstract              | Concrete          |
+| **Definition** | Blueprint, design     | Instance, example |
+| **Time**       | Exists at design time | Exists at runtime |
+| **Quantity**   | One per concept       | Many per class    |
+| **Analogy**    | House blueprint       | Built house       |
 
 ---
 
-## ✅ Checklist de Aprendizagem
+## 🎮 Practice Activity
 
-- [ ] Compreendo o conceito de objetos na POO
-- [ ] Sei diferenciar objetos concretos e abstratos
-- [ ] Consigo identificar atributos, métodos e estados
-- [ ] Entendo a diferença entre classe e objeto
-- [ ] Compreendo o processo de instanciação
-- [ ] Aplico o conceito de abstração na modelagem
-- [ ] Consigo analisar objetos do mundo real
+### 🔍 Exercise 1: Concrete Objects
 
----
+**Choose TWO concrete objects around you and analyze:**
 
-## 🚀 Próximos Passos
+#### Object: [Your Object Here]
 
-Na próxima aula exploraremos:
-- **Como criar classes em Java**
-- **Modificadores de acesso** (public, private)
-- **Construtores** e inicialização de objetos
-- **Encapsulamento** - segundo pilar da POO
+* **Attributes**:
+* **Methods**:
+* **Current State**:
+
+#### Object: [Your Object Here]
+
+* **Attributes**:
+* **Methods**:
+* **Current State**:
 
 ---
 
-> 💡 **Dica do Professor**: "Pratique identificando objetos no seu dia a dia. Pergunte sempre: 'O que ele tem? O que ele faz? Como está agora?' Essa mentalidade é fundamental para se tornar um bom programador orientado a objetos. A abstração é sua aliada - foque no que é importante para o problema que você está resolvendo!"
+### 💭 Exercise 2: Abstract Objects
 
-**Continue observando o mundo através das lentes da POO! 👓**
+**Choose TWO abstract objects from your daily life:**
+
+#### Object: [Example: Class]
+
+* **Attributes**: time, subject, teacher, students
+* **Methods**: start(), end(), postpone()
+* **Current State**: "waiting to start"
+
+#### Object: [Your Abstract Object]
+
+* **Attributes**:
+* **Methods**:
+* **Current State**:
+
+---
+
+> 💡 **Tip:** "Practice identifying objects in your daily life. Always ask yourself: *What does it have? What does it do? What is its current state?* This mindset is key to becoming a good object-oriented programmer.
+> Abstraction is your ally — focus on what truly matters for the problem you’re solving!"
+
+**Keep seeing the world through OOP lenses! 👓**
+
+---
+
