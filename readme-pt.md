@@ -1,5 +1,7 @@
 # ☕️ Estudos em Java
 
+[English Version Here!](https://github.com/ThayronyVonHeld/Introduction-JAVA/blob/main/README.md)
+
 Repositório dedicado à documentação do meu aprendizado em **Java**, desde os conceitos básicos da linguagem até **Programação Orientada a Objetos (POO)**.
 Aqui você encontrará **aulas, anotações, exemplos práticos e exercícios resolvidos**, baseados em cursos, materiais de referência e práticas pessoais.
 

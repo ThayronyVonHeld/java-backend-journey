@@ -1,6 +1,6 @@
 # ☕️ Java Studies 
 
-[Versão em Português Aqui](https://www.linkedin.com/in/thayrony-von-held-b14ba7256/)
+[Versão em Português Aqui](https://github.com/ThayronyVonHeld/Introduction-JAVA/blob/main/readme-pt.md)
 
 Repository dedicated to documenting my learning journey in **Java**, from the language fundamentals to **Object-Oriented Programming (OOP)**.
 Here you’ll find **lessons, notes, practical examples, and solved exercises**, based on courses, reference materials, and personal practice.
