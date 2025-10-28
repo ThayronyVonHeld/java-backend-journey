@@ -1,96 +1,191 @@
-# 📚 Aula 3 - Modificadores de Visibilidade
+# 📚 Aula 3 – Modificadores de Visibilidade
 
 ---
 
 ## 🎯 Objetivos da Aula
 - Compreender o conceito de UML e diagramas de classes
-- Aprender a representar classes usando diagramas UML
-- Dominar os modificadores de visibilidade: public, private e protected
-- Entender quando usar cada tipo de modificador
-- Aplicar modificadores de visibilidade em código Java
+- Identificar os tipos de modificadores de acesso
+- Relacionar os conceitos de visibilidade com exemplos práticos
+- Aplicar os modificadores em código Java
 
 ---
 
-## 🎨 UML - Unified Modeling Language
+## 🧭 Introdução
 
-### O que é UML?
-A **UML (Unified Modeling Language)** é uma linguagem de modelagem padronizada que permite visualizar, especificar, construir e documentar sistemas de software.
+A **visibilidade** é uma das grandes essências da Programação Orientada a Objetos.
+Ela define **quem pode acessar** os atributos e métodos de uma classe, garantindo **segurança e organização** no código.
 
-### Diagrama de Classes
-O diagrama mais famoso da UML é o **diagrama de classes**, que simplifica a representação visual de uma classe.
+Antes de falarmos sobre os modificadores de visibilidade, vamos entender rapidamente um recurso muito usado na modelagem de sistemas: a **UML (Unified Modeling Language)**.
 
 ---
 
-## 📐 Representando uma Classe em UML
+## 🧩 UML – Linguagem de Modelagem Unificada
 
-### Exemplo: Classe Caneta
+A **UML** é uma linguagem padronizada usada para **visualizar, especificar, construir e documentar** sistemas de software.
+
+Entre seus vários diagramas, o mais famoso (e o que nos interessa agora) é o **diagrama de classes**.
+
+---
+
+## 🏗️ Diagrama de Classes
+
+O **diagrama de classes** é uma forma simples de **representar visualmente uma classe e seus elementos**.
+
+Por exemplo, se pegarmos a classe `Caneta` (vista na aula anterior), podemos representá-la assim:
 
 ```
-    Caneta
--------------------
-+ modelo: String
-+ cor: String  
-- carga: int
-# ponta: float
-# tampada: boolean
--------------------
-+ escrever()
-+ rabiscar()
-+ pintar()
-- tampar()
-- destampar()
++---------------------+
+|      Caneta         |   ← Nome da Classe
++---------------------+
+| modelo              |   ← Atributos
+| cor                 |
+| carga               |
+| ponta               |
+| tampada             |
++---------------------+
+| escrever()          |   ← Métodos
+| rabiscar()          |
+| pintar()            |
+| tampar()            |
+| destampar()         |
++---------------------+
 ```
 
-### 🔍 Legenda do Diagrama:
-- **Retângulo** → Representa uma classe
-- **Topo** → Nome da classe (Começa com maiúscula)
-- **Seção do meio** → Atributos (começam com minúscula)
-- **Seção inferior** → Métodos (com parênteses `()`)
-- **Símbolos** → `+` público, `-` privado, `#` protegido
+Perceba que:
+
+* A **classe** é o título no topo, iniciando com **letra maiúscula**.
+* Os **atributos** e **métodos** começam com **letra minúscula**.
+* Os **métodos** possuem **parênteses `()`**, indicando ações.
+
+Esse diagrama ajuda a **visualizar rapidamente** o que uma classe possui e o que ela pode fazer.
 
 ---
 
-## 🔒 Modificadores de Visibilidade
+## 🔒 O que são Modificadores de Visibilidade?
 
-### Os Três Níveis de Acesso:
+Os **modificadores de visibilidade** indicam **quem pode acessar** os **atributos e métodos** de uma classe.
+Eles servem para **proteger os dados** e **controlar o acesso** a determinadas partes do código.
 
-| Símbolo | Modificador | Descrição |
-|---------|-------------|-----------|
-| `+` | **public** | Acesso total - qualquer classe pode acessar |
-| `-` | **private** | Acesso restrito - somente a própria classe |
-| `#` | **protected** | Acesso protegido - própria classe e subclasses |
+Na **UML**, usamos os seguintes símbolos:
+
+| Símbolo | Modificador   | Descrição                                   |
+| ------- | ------------- | ------------------------------------------- |
+| `+`     | **public**    | Acesso livre (qualquer classe pode acessar) |
+| `-`     | **private**   | Acesso restrito à própria classe            |
+| `#`     | **protected** | Acesso permitido à classe e suas subclasses |
 
 ---
 
-## 📞 Analogia com Telefones
+## 🧱 Exemplo em UML
 
-### ☎️ Public (`+`) - Telefone Público
-- **Todos podem usar**
-- Como os "orelhões" nas ruas
-- **Qualquer pessoa** tem acesso
+```
++---------------------+
+|      Caneta         |
++---------------------+
+| + modelo            |
+| + cor               |
+| - carga             |
+| # ponta             |
+| # tampada           |
++---------------------+
+| + escrever()        |
+| + rabiscar()        |
+| + pintar()          |
+| - tampar()          |
+| - destampar()       |
++---------------------+
+```
 
-### 📱 Private (`-`) - Celular Pessoal
-- **Uso exclusivo do dono**
-- Precisa de senha para acessar
-- **Ninguém mais** pode usar
+---
 
-### 🏢 Protected (`#`) - Telefone Empresarial
-- **Funcionários da empresa** podem usar
-- Não é público (qualquer um)
-- Não é privado (apenas uma pessoa)
-- **Grupo específico** tem acesso
+## ☎️ Analogias Simples
+
+Vamos entender cada tipo com exemplos do mundo real:
+
+### **Public (+)**
+
+Pense em um **telefone público** (“orelhão”).
+Qualquer pessoa pode usá-lo, ele é **acessível a todos**.
+
+➡️ Em POO: **qualquer classe** pode acessar esse atributo ou método.
+
+---
+
+### **Private (-)**
+
+Agora pense em um **celular pessoal**.
+Apenas o dono pode usá-lo e ainda coloca senha para garantir a privacidade.
+
+➡️ Em POO: **somente a própria classe** pode acessar ou modificar.
+
+---
+
+### **Protected (#)**
+
+Imagine um **telefone corporativo**.
+Somente os **funcionários da empresa** podem usar, não é público, mas também não é exclusivo de uma pessoa.
+
+➡️ Em POO: **a classe e suas subclasses** podem acessar.
 
 ---
 
 ## 🎮 Exemplo Prático: Controle Remoto
 
-### Analisando um Controle Remoto:
-- **Botões externos** → `public` (todos podem usar)
-- **Componentes internos** → `private` (protegido do usuário)
-- **LED infravermelho** → `protected` (só a TV recebe o sinal)
+Pense em um **controle remoto**:
+
+* Os **botões externos** (ligar, volume, canal) → **públicos**, pois o usuário precisa usá-los.
+* Os **circuitos internos** → **privados**, protegidos pela carcaça.
+* O **LED infravermelho** → **protegido**, pois se comunica com a TV, mas não está acessível a qualquer pessoa.
+
+Essa “**cápsula de proteção**” que separa o que é público do que é privado é chamada de **encapsulamento** (veremos mais sobre isso na próxima aula).
 
 ---
 
+## 🧩 Exemplo em Pseudocódigo
+
+```algoritmo
+classe Caneta
+  publico modelo : caractere
+  publico cor : caractere
+  protegido ponta : real
+  privado carga : inteiro
+  protegido tampada : lógico
+
+  publico método escrever()
+  fim método
+
+  publico método rabiscar()
+  fim método
+
+  publico método pintar()
+  fim método
+
+  privado método tampar()
+  fim método
+
+  privado método destampar()
+  fim método
+fim classe
+```
+
+---
+
+## ⚙️ Criando um Objeto
+
+```algoritmo
+c1 = nova Caneta
+c1.modelo = "BIC Cristal"   // OK → público
+c1.cor = "Azul"             // OK → público
+c1.ponta = 0.5              // ❌ ERRO → protegido
+c1.carga = 50               // ❌ ERRO → privado
+c1.tampada = verdadeiro     // ❌ ERRO → protegido
+
+c1.escrever()   // OK → público
+c1.rabiscar()   // OK → público
+c1.tampar()     // ❌ ERRO → método privado
+```
+
+---
 ## 💻 Aplicação em Código Java
 
 ### Classe Caneta com Modificadores:
@@ -163,9 +258,7 @@ public class Main {
     }
 }
 ```
-
 ---
-
 ## 🎯 O que é `this`?
 
 ### Explicando `this`:
@@ -225,11 +318,6 @@ c1.carga = 50;             // ✅ Protegido (mesmo pacote)
 3. **Manutenibilidade** → Código mais organizado e seguro
 4. **Prevenção de erros** → Evita modificações acidentais
 
-### Exemplo do Mundo Real:
-- **Carro**: Volante e pedais são `public` (todos usam)
-- **Motor**: É `private` (só mecanicos especializados acessam)
-- **Computador de bordo**: É `protected` (sistema do carro acessa)
-
 ---
 
 ## 📋 Tabela Resumo - Modificadores
@@ -242,18 +330,6 @@ c1.carga = 50;             // ✅ Protegido (mesmo pacote)
 | **private** | ✅ | ❌ | ❌ | ❌ |
 
 > **Default**: Quando não especificamos nenhum modificador
-
----
-
-## ✅ Checklist de Aprendizagem
-
-- [ ] Compreendo o que é UML e diagramas de classes
-- [ ] Sei representar uma classe usando diagrama UML
-- [ ] Domino os três modificadores de visibilidade
-- [ ] Entendo quando usar public, private e protected
-- [ ] Compreendo o significado da palavra `this`
-- [ ] Consigo aplicar modificadores em código Java
-- [ ] Entendo as restrições de acesso de cada modificador
 
 ---
 
@@ -282,17 +358,4 @@ c1.carga = 50;             // ✅ Protegido (mesmo pacote)
 
 ---
 
-## 🎉 Conclusão
-
-Nesta aula aprendemos:
-- ✅ **UML e diagramas de classes** para representação visual
-- ✅ **Modificadores de visibilidade**: public, private, protected
-- ✅ **Analogias práticas** para entender cada modificador
-- ✅ **Aplicação em código Java** com restrições de acesso
-- ✅ **Uso da palavra `this`** para referenciar o objeto atual
-
-**Próxima aula: Encapsulamento e Métodos Acessores!**
-
----
-
-> 💡 **Dica do Professor**: "Pense nos modificadores como níveis de segurança. Use `private` para o que é sensível, `protected` para o que é compartilhado na família, e `public` para o que todos precisam usar. Essa mentalidade ajuda a criar código mais seguro e organizado!"
+> 💡 **Dica**: "Pense nos modificadores como níveis de segurança. Use `private` para o que é sensível, `protected` para o que é compartilhado na família, e `public` para o que todos precisam usar. Essa mentalidade ajuda a criar código mais seguro e organizado!"

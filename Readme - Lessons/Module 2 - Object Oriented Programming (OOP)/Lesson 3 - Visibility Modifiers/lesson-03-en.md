@@ -1,276 +1,378 @@
+# 📚 Lesson 3 – Access Modifiers
 
 ---
 
-# 📚 Aula 3 – Modificadores de Visibilidade
+## 🎯 Lesson Objectives
+
+* Understand the concept of UML and class diagrams
+* Identify different types of access modifiers
+* Relate visibility concepts to real-world examples
+* Apply access modifiers in Java code
 
 ---
 
-## 🎯 Objetivos da Aula
+## 🧭 Introduction
 
-* Compreender o conceito de visibilidade em POO
-* Identificar os tipos de modificadores de acesso
-* Entender como eles protegem os dados de uma classe
-* Relacionar os conceitos de visibilidade com exemplos práticos
-* Aplicar os modificadores em código Java
+**Visibility** is one of the core principles of Object-Oriented Programming.
+It defines **who can access** a class’s attributes and methods, ensuring **security and organization** within the code.
 
----
-
-## 🧭 Introdução
-
-A **visibilidade** é uma das grandes essências da Programação Orientada a Objetos.
-Ela define **quem pode acessar** os atributos e métodos de uma classe, garantindo **segurança e organização** no código.
-
-Antes de falarmos sobre os modificadores de visibilidade, vamos entender rapidamente um recurso muito usado na modelagem de sistemas: a **UML (Unified Modeling Language)**.
+Before we dive into access modifiers, let’s take a quick look at a tool widely used in system modeling **UML (Unified Modeling Language)**.
 
 ---
 
-## 🧩 UML – Linguagem de Modelagem Unificada
+## 🧩 UML – Unified Modeling Language
 
-A **UML** é uma linguagem padronizada usada para **visualizar, especificar, construir e documentar** sistemas de software.
+**UML** is a standardized language used to **visualize, specify, construct, and document** software systems.
 
-Entre seus vários diagramas, o mais famoso (e o que nos interessa agora) é o **diagrama de classes**.
+Among its many diagrams, the most relevant one for us is the **class diagram**.
 
 ---
 
-## 🏗️ Diagrama de Classes
+## 🏗️ Class Diagram
 
-O **diagrama de classes** é uma forma simples de **representar visualmente uma classe e seus elementos**.
+A **class diagram** provides a visual representation of a class and its elements.
 
-Por exemplo, se pegarmos a classe `Caneta` (vista na aula anterior), podemos representá-la assim:
+For example, the `Pen` class (from the previous lesson) could be represented like this:
 
 ```
 +---------------------+
-|      Caneta         |   ← Nome da Classe
+|        Pen          |   ← Class name
 +---------------------+
-| modelo              |   ← Atributos
-| cor                 |
-| carga               |
-| ponta               |
-| tampada             |
+| model               |   ← Attributes
+| color               |
+| inkLevel            |
+| tipSize             |
+| capped              |
 +---------------------+
-| escrever()          |   ← Métodos
-| rabiscar()          |
-| pintar()            |
-| tampar()            |
-| destampar()         |
+| write()             |   ← Methods
+| scribble()          |
+| draw()              |
+| cap()               |
+| uncap()             |
 +---------------------+
 ```
 
-Perceba que:
+Notice that:
 
-* A **classe** é o título no topo, iniciando com **letra maiúscula**.
-* Os **atributos** e **métodos** começam com **letra minúscula**.
-* Os **métodos** possuem **parênteses `()`**, indicando ações.
+* The **class name** is at the top and starts with a **capital letter**.
+* **Attributes** and **methods** start with **lowercase letters**.
+* **Methods** always include parentheses `()` to indicate actions.
 
-Esse diagrama ajuda a **visualizar rapidamente** o que uma classe possui e o que ela pode fazer.
-
----
-
-## 🔒 O que são Modificadores de Visibilidade?
-
-Os **modificadores de visibilidade** indicam **quem pode acessar** os **atributos e métodos** de uma classe.
-Eles servem para **proteger os dados** e **controlar o acesso** a determinadas partes do código.
-
-Na **UML**, usamos os seguintes símbolos:
-
-| Símbolo | Modificador   | Descrição                                   |
-| ------- | ------------- | ------------------------------------------- |
-| `+`     | **public**    | Acesso livre (qualquer classe pode acessar) |
-| `-`     | **private**   | Acesso restrito à própria classe            |
-| `#`     | **protected** | Acesso permitido à classe e suas subclasses |
+This diagram helps you **quickly visualize** what a class contains and what it can do.
 
 ---
 
-## ☎️ Analogias Simples
+## 🔒 What Are Access Modifiers?
 
-Vamos entender cada tipo com exemplos do mundo real:
+**Access modifiers** define **who can access** a class’s **attributes and methods**.
+They are used to **protect data** and **control access** to specific parts of the code.
+
+In **UML**, we use these symbols:
+
+| Symbol | Modifier      | Description                                |
+| ------ | ------------- | ------------------------------------------ |
+| `+`    | **public**    | Free access (any class can access)         |
+| `-`    | **private**   | Restricted to the class itself             |
+| `#`    | **protected** | Accessible by the class and its subclasses |
+
+---
+
+## 🧱 UML Example
+
+```
++---------------------+
+|        Pen          |
++---------------------+
+| + model             |
+| + color             |
+| - inkLevel          |
+| # tipSize           |
+| # capped            |
++---------------------+
+| + write()           |
+| + scribble()        |
+| + draw()            |
+| - cap()             |
+| - uncap()           |
++---------------------+
+```
+
+---
+
+## ☎️ Simple Analogies
+
+Let’s understand each type using real-world examples:
 
 ### **Public (+)**
 
-Pense em um **telefone público** (“orelhão”).
-Qualquer pessoa pode usá-lo — ele é **acessível a todos**.
+Think of a **payphone**, anyone can use it.
+It’s **accessible to everyone**.
 
-➡️ Em POO: **qualquer classe** pode acessar esse atributo ou método.
+➡️ In OOP: **any class** can access this attribute or method.
 
 ---
 
 ### **Private (-)**
 
-Agora pense em um **celular pessoal**.
-Apenas o dono pode usá-lo — e ainda coloca senha para garantir a privacidade.
+Now imagine your **personal cellphone**.
+Only you can use it, and you even protect it with a password.
 
-➡️ Em POO: **somente a própria classe** pode acessar ou modificar.
+➡️ In OOP: **only the class itself** can access or modify it.
 
 ---
 
 ### **Protected (#)**
 
-Imagine um **telefone corporativo**.
-Somente os **funcionários da empresa** podem usar — não é público, mas também não é exclusivo de uma pessoa.
+Think of a **company phone**.
+Only **employees** can use it, it’s not public, but also not exclusive to one person.
 
-➡️ Em POO: **a classe e suas subclasses** podem acessar.
-
----
-
-## 🎮 Exemplo Prático: Controle Remoto
-
-Pense em um **controle remoto**:
-
-* Os **botões externos** (ligar, volume, canal) → **públicos**, pois o usuário precisa usá-los.
-* Os **circuitos internos** → **privados**, protegidos pela carcaça.
-* O **LED infravermelho** → **protegido**, pois se comunica com a TV, mas não está acessível a qualquer pessoa.
-
-Essa “**cápsula de proteção**” que separa o que é público do que é privado é chamada de **encapsulamento** (veremos mais sobre isso na próxima aula).
+➡️ In OOP: **the class and its subclasses** can access it.
 
 ---
 
-## 💡 Relembrando
+## 🎮 Practical Example: Remote Control
 
-| Modificador | Quem pode acessar?    | Exemplo             |
-| ----------- | --------------------- | ------------------- |
-| `public`    | Qualquer classe       | Telefone público    |
-| `private`   | Apenas a classe atual | Celular pessoal     |
-| `protected` | Classe + Subclasses   | Telefone da empresa |
+Think about a **TV remote**:
+
+* The **external buttons** (power, volume, channel) → **public**, since the user must access them.
+* The **internal circuits** → **private**, protected by the casing.
+* The **infrared LED** → **protected**, because it interacts with the TV but isn’t directly accessible.
+
+This “**protective shell**” that separates what’s public from what’s private is called **encapsulation** (we’ll explore it in the next lesson).
 
 ---
 
-## 🧱 Exemplo em UML
+## 🧩 Example in Pseudocode
 
-```
-+---------------------+
-|      Caneta         |
-+---------------------+
-| + modelo            |
-| + cor               |
-| - carga             |
-| # ponta             |
-| # tampada           |
-+---------------------+
-| + escrever()        |
-| + rabiscar()        |
-| + pintar()          |
-| - tampar()          |
-| - destampar()       |
-+---------------------+
+```text
+class Pen
+  public model : string
+  public color : string
+  protected tipSize : float
+  private inkLevel : int
+  protected capped : boolean
+
+  public method write()
+  end method
+
+  public method scribble()
+  end method
+
+  public method draw()
+  end method
+
+  private method cap()
+  end method
+
+  private method uncap()
+  end method
+end class
 ```
 
 ---
 
-## 🧩 Exemplo em Pseudocódigo
+## ⚙️ Creating an Object
 
-```algoritmo
-classe Caneta
-  publico modelo : caractere
-  publico cor : caractere
-  protegido ponta : real
-  privado carga : inteiro
-  protegido tampada : lógico
+```text
+p1 = new Pen
+p1.model = "BIC Cristal"   // OK → public
+p1.color = "Blue"          // OK → public
+p1.tipSize = 0.5           // ❌ ERROR → protected
+p1.inkLevel = 50           // ❌ ERROR → private
+p1.capped = true           // ❌ ERROR → protected
 
-  publico método escrever()
-  fim método
-
-  publico método rabiscar()
-  fim método
-
-  publico método pintar()
-  fim método
-
-  privado método tampar()
-  fim método
-
-  privado método destampar()
-  fim método
-fim classe
+p1.write()     // OK → public
+p1.scribble()  // OK → public
+p1.cap()       // ❌ ERROR → private method
 ```
 
 ---
 
-## ⚙️ Criando um Objeto
+## 💻 Java Code Example
 
-```algoritmo
-c1 = nova Caneta
-c1.modelo = "BIC Cristal"   // OK → público
-c1.cor = "Azul"             // OK → público
-c1.ponta = 0.5              // ❌ ERRO → protegido
-c1.carga = 50               // ❌ ERRO → privado
-c1.tampada = verdadeiro     // ❌ ERRO → protegido
-
-c1.escrever()   // OK → público
-c1.rabiscar()   // OK → público
-c1.tampar()     // ❌ ERRO → método privado
-```
-
----
-
-## 💻 Aplicando em Java
-
-### Classe `Caneta.java`
+### Pen Class with Modifiers:
 
 ```java
-package oop.lesson3.caneta;
+package oop.Lesson3.Pen;
 
-public class Caneta {
-    public String modelo;
-    public String cor;
-    private float ponta;
-    protected int carga;
-    private boolean tampada;
-
+public class Pen {
+    // ATTRIBUTES WITH MODIFIERS
+    public String model;      // + Public
+    public String color;      // + Public
+    private Float tipSize;    // - Private
+    protected int inkLevel;   // # Protected
+    private boolean capped;   // - Private
+    
+    // METHODS
     public void status() {
-        System.out.println("Modelo: " + this.modelo);
-        System.out.println("Cor: " + this.cor);
-        System.out.println("Ponta: " + this.ponta);
-        System.out.println("Carga: " + this.carga);
-        System.out.println("Está tampada? " + this.tampada);
+        System.out.println("Model: " + this.model);
+        System.out.println("A " + this.color + " pen");
+        System.out.println("Tip size: " + this.tipSize);
+        System.out.println("Ink level: " + this.inkLevel);
+        System.out.println("Is it capped? " + this.capped);
     }
-
-    public void rabiscar() {
-        if (this.tampada) {
-            System.out.println("Erro! Não posso rabiscar.");
+    
+    public void scribble() {
+        if (this.capped) {
+            System.out.println("Error! Can't scribble while capped.");
         } else {
-            System.out.println("Rabiscando...");
+            System.out.println("Scribbling...");
         }
     }
-
-    public void tampar() {
-        this.tampada = true;
+    
+    private void cap() {
+        this.capped = true;
     }
-
-    public void destampar() {
-        this.tampada = false;
+    
+    private void uncap() {
+        this.capped = false;
     }
 }
 ```
 
----
-
-### Classe Principal `Main.java`
+### Main Class:
 
 ```java
-package oop.lesson3.caneta;
+package oop.Lesson3.Pen;
 
 public class Main {
     public static void main(String[] args) {
-        Caneta c1 = new Caneta();
-        c1.modelo = "BIC Cristal";
-        c1.cor = "Azul";
-        // c1.ponta = 0.5f;  // ❌ ERRO: atributo privado
-        c1.carga = 50;       // OK: atributo protegido (mesmo pacote)
-        // c1.tampada = false; // ❌ ERRO: atributo privado
-        c1.tampar();
-        c1.status();
-        c1.rabiscar();
+        Pen p1 = new Pen();
+        
+        // ✅ PUBLIC ATTRIBUTES - Accessible
+        p1.model = "BIC Cristal";
+        p1.color = "Blue";
+        
+        // ❌ PRIVATE ATTRIBUTE - Not directly accessible
+        // p1.tipSize = 0.5f;  // ERROR! Private attribute
+        
+        // ✅ PROTECTED ATTRIBUTE - Accessible (same package)
+        p1.inkLevel = 50;
+        
+        // ❌ PRIVATE ATTRIBUTE - Not directly accessible
+        // p1.capped = false;  // ERROR! Private attribute
+        
+        // ❌ PRIVATE METHOD - Not directly accessible
+        // p1.cap();  // ERROR! Private method
+        
+        p1.status();
+        p1.scribble();
     }
 }
 ```
 
 ---
 
-## 🧠 Conclusão
+## 🎯 What is `this`?
 
-Os **modificadores de visibilidade** são fundamentais para proteger os dados de uma classe e **controlar o acesso externo**.
-Eles fazem parte do conceito de **encapsulamento**, que veremos com mais profundidade na **Aula 4**.
+### Explanation:
 
-> 💬 “Definir a visibilidade corretamente é o primeiro passo para escrever código seguro, organizado e fácil de manter.”
+* **`this`** refers to the **current object** that’s calling the method.
+* **`this.model`** means the `model` attribute of **this object**.
+* When calling `p1.status()`, inside that method, **`this` = `p1`**.
+
+### Example:
+
+```java
+Pen p1 = new Pen();
+Pen p2 = new Pen();
+
+p1.model = "BIC";
+p2.model = "Faber-Castell";
+
+p1.status(); // this = p1 → shows "BIC"
+p2.status(); // this = p2 → shows "Faber-Castell"
+```
 
 ---
+
+## 🚫 Access Restrictions in Practice
+
+### What you can and can’t do:
+
+#### ✅ **ALLOWED** (Public attributes):
+
+```java
+p1.model = "BIC Cristal";  // ✅ Public
+p1.color = "Blue";         // ✅ Public
+```
+
+#### ✅ **ALLOWED** (Protected attribute – same package):
+
+```java
+p1.inkLevel = 50;          // ✅ Protected (same package)
+```
+
+#### ❌ **DENIED** (Private attributes):
+
+```java
+// p1.tipSize = 0.5f;     // ❌ Private - ERROR!
+// p1.capped = true;      // ❌ Private - ERROR!
+```
+
+#### ❌ **DENIED** (Private methods):
+
+```java
+// p1.cap();              // ❌ Private method - ERROR!
+// p1.uncap();            // ❌ Private method - ERROR!
+```
+
+---
+
+## 🛡️ Why Use Access Modifiers?
+
+### Advantages:
+
+1. **Encapsulation** → Protects sensitive data
+2. **Access Control** → Defines who can modify what
+3. **Maintainability** → Makes code organized and secure
+4. **Error Prevention** → Avoids unintended modifications
+
+---
+
+## 📋 Summary Table – Access Modifiers
+
+| Modifier      | Class | Package | Subclass | Everyone |
+| ------------- | ----- | ------- | -------- | -------- |
+| **public**    | ✅     | ✅       | ✅        | ✅        |
+| **protected** | ✅     | ✅       | ✅        | ❌        |
+| **default**   | ✅     | ✅       | ❌        | ❌        |
+| **private**   | ✅     | ❌       | ❌        | ❌        |
+
+> **Default**: Used when no modifier is explicitly defined.
+
+---
+
+## 🚀 Practice Exercises
+
+### Exercise 1: UML Diagram
+
+```java
+// Create a UML class diagram for "Car"
+// Attributes: brand, model, year, currentSpeed
+// Methods: accelerate(), brake(), start(), stop()
+// Define visibility for each element
+```
+
+### Exercise 2: Java Implementation
+
+```java
+// Implement the "Car" class in Java
+// Apply the appropriate access modifiers
+```
+
+### Exercise 3: Access Analysis
+
+```java
+// Given a class with public, private, and protected attributes
+// Identify which accesses are allowed and which are denied
+// in different contexts
+```
+
+---
+
+> 💡 **Tip:** Think of modifiers as *security levels*.
+> Use `private` for sensitive data, `protected` for what’s shared within the family,
+> and `public` for what everyone needs to use.
+> That mindset helps you write safer and cleaner code!
+
