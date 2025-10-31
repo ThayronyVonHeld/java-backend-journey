@@ -1,353 +1,459 @@
+Claro! Aqui está a **versão completa em inglês**, mantendo o mesmo formato didático e estilo visual da sua Aula 3 traduzida:
 
 ---
 
-# 📚 Aula 4 – Métodos Especiais (Getters, Setters e Construtores)
+# 📚 Lesson 4 – Special Methods
 
 ---
 
-## 🎯 Objetivos da Aula
+## 🎯 Lesson Objectives
 
-* Entender o conceito de **métodos especiais** em POO
-* Compreender a função dos **getters** e **setters**
-* Aprender o papel do **método construtor**
-* Aplicar esses métodos em um exemplo prático em Java
-
----
-
-## 🧭 Introdução
-
-Em programação orientada a objetos, **métodos especiais** são funções que possuem **propósitos específicos e padronizados** dentro das classes.
-
-Eles não são obrigatórios, mas são **amplamente utilizados** por convenção, porque tornam o código mais **seguro, legível e organizado**.
-
-Nesta aula, veremos os três principais tipos de métodos especiais:
-
-1. **Getters** → métodos acessores
-2. **Setters** → métodos modificadores
-3. **Construtores** → métodos que inicializam o objeto
+* Understand the concept of special methods in OOP
+* Master accessor (getter) and mutator (setter) methods
+* Learn how to implement constructors
+* Understand the importance of encapsulation for data security
+* Apply these concepts in a practical Java example
 
 ---
 
-## 🧱 Conceito de Métodos Especiais
+## 🧭 Introduction
 
-Toda linguagem orientada a objeto permite criar métodos livremente, mas existem **nomes e padrões** universalmente reconhecidos — os métodos “especiais”.
+In object-oriented programming, **special methods** are functions that have **specific and standardized purposes** within classes.
 
-Esses métodos garantem **acesso controlado aos atributos** de um objeto e **automatizam sua criação**.
+They are not mandatory, but are **widely used** because they make the code more **secure, readable, and organized**.
 
-Vamos entender isso com um exemplo simples.
+In this lesson, we’ll explore the three main types of special methods:
 
----
-
-## 🗄️ Exemplo Conceitual: A Estante
-
-Imagine que você tem um objeto chamado `Estante`.
-
-### 🔹 Atributos possíveis:
-
-* Tamanho
-* Cor
-* Quantidade de prateleiras
-* Modelo
-* Fabricante
-
-### 🔹 Métodos possíveis:
-
-* `colocarDocumento()`
-* `retirarDocumento()`
-* `contarDocumentos()`
-
-Agora, pense no seguinte:
-Se várias pessoas usam a mesma estante, **você deixaria qualquer uma mexer diretamente nos documentos de todas as outras?**
-
-Provavelmente não.
-Na vida real, criamos **mecanismos de proteção** — e em POO isso também acontece.
+1. **Getters** → accessor methods
+2. **Setters** → mutator methods
+3. **Constructors** → methods that initialize the object
 
 ---
 
-## 🔑 Métodos Acessores (Getters)
+## 🗄️ Conceptual Example: The Bookshelf
 
-Os **getters** são métodos que **acessam um atributo de forma segura**.
+Imagine you have an object called `Bookshelf`.
 
-Eles permitem **consultar informações** de um objeto **sem alterar seu estado interno**.
+### 🔹 Possible attributes:
 
-📘 *Em inglês, “get” significa “pegar” ou “obter”.*
+* Size
+* Color
+* Number of shelves
+* Model
+* Manufacturer
 
-### 📦 Analogia:
+### 🔹 Possible methods:
 
-Pense em um **caixa eletrônico**.
-Você não abre o cofre do banco para ver seu saldo — você **pede a informação** através de uma interface segura.
+* `addDocument()`
+* `removeDocument()`
+* `countDocuments()`
+
+Now think about this:
+If multiple people use the same bookshelf, would you let anyone handle other people's documents directly?
+
+Probably not.
+In real life, we create **protection mechanisms**, and in OOP, we do the same.
 
 ---
 
-### 💡 Exemplo Conceitual:
+## 🔑 Accessor Methods (Getters)
 
-A estante tem um atributo `totDoc` (total de documentos).
-Quer saber quantos documentos há?
+**Getters** are methods used to **safely access an attribute**.
+They allow you to **retrieve information** from an object **without altering its internal state**.
 
-Em vez de acessar diretamente `e.totDoc`, você usa o método:
+📘 *In English, “get” means “to obtain” or “to retrieve.”*
+
+### 📦 Analogy:
+
+Think of an **ATM**.
+You don’t open the bank vault to see your balance — you **request the information** through a secure interface.
+
+---
+
+### 💡 Conceptual Example:
+
+The bookshelf has an attribute `totalDocs` (total number of documents).
+To check how many documents it has, instead of directly accessing `b.totalDocs`, you call:
 
 ```java
-e.getTotDoc();
+b.getTotalDocs();
 ```
 
-Assim, **você consulta o valor de forma controlada**, sem modificar nada indevidamente.
+This way, you **safely retrieve** the value without accidentally changing it.
 
 ---
 
-## 🛠️ Métodos Modificadores (Setters)
+## 🛠️ Mutator Methods (Setters)
 
-Os **setters** servem para **modificar um atributo com segurança**.
-Eles controlam *como* e *quando* o valor de um atributo é alterado.
+**Setters** are used to **safely modify an attribute**.
+They control *how* and *when* the value of an attribute can be changed.
 
-📘 *Em inglês, “set” significa “definir” ou “atribuir”.*
+📘 *In English, “set” means “to assign” or “to define.”*
 
-### 📦 Analogia:
+### 📦 Analogy:
 
-No mesmo exemplo da estante, você quer **adicionar um documento**.
-Você **não vai lá e coloca direto** — entrega o documento ao funcionário responsável.
+Using the same bookshelf example — if you want to **add a document**, you don’t do it yourself; you **hand it to the librarian**.
 
-Esse “funcionário” é o **setter**.
+That “librarian” is the **setter**.
 
 ---
 
-### 💡 Exemplo Conceitual:
+### 💡 Conceptual Example:
 
 ```java
-e.setTotDoc(6);
+b.setTotalDocs(6);
 ```
 
-Aqui, `setTotDoc` recebe um **parâmetro** (6) e **atualiza** o valor do atributo internamente.
+Here, `setTotalDocs` receives a **parameter** (6) and **updates** the attribute internally.
 
-Dessa forma, você garante que **nenhum atributo seja modificado de forma direta ou incorreta.**
+This ensures that **no attribute is modified incorrectly or directly.**
 
 ---
 
-## 🧩 Resumo: Getters e Setters
+## 🛡️ Why Use Getters and Setters?
 
-| Tipo        | Nome                 | Função                      | Recebe Parâmetro? |
-| ----------- | -------------------- | --------------------------- | ----------------- |
-| Acessor     | `getAtributo()`      | Retorna o valor do atributo | ❌ Não             |
-| Modificador | `setAtributo(valor)` | Altera o valor do atributo  | ✅ Sim             |
+### Advantages:
 
----
-
-## 💡 Exemplo com a Classe Caneta
-
-Vamos simplificar nossa classe `Caneta` para dois atributos:
-`modelo` (público) e `ponta` (privado).
-
-```
-+---------------------+
-|       Caneta        |
-+---------------------+
-| + modelo            |
-| - ponta             |
-+---------------------+
-| + getModelo()       |
-| + setModelo(m)      |
-| + getPonta()        |
-| + setPonta(p)       |
-+---------------------+
-```
+1. **Encapsulation** → Protects sensitive data
+2. **Validation** → Ensures values are verified before changing
+3. **Control** → Allows logging or tracking changes
+4. **Flexibility** → Internal logic can change without breaking external code
 
 ---
 
-## 🧩 Pseudocódigo
+## 💡 Example with Class `Pen`
+
+Let’s simplify our `Pen` class to two attributes:
+`model` (public) and `tip` (private).
+
+```
++---------------------+
+|        Pen          |
++---------------------+
+| + model             |
+| - tip               |
++---------------------+
+| + getModel()        |
+| + setModel(m)       |
+| + getTip()          |
+| + setTip(t)          |
++---------------------+
+```
+
+---
+
+## 🧩 Pseudocode
 
 ```algoritmo
-classe Caneta
-  publico modelo : caractere
-  privado ponta : real
+class Pen
+  public model : string
+  private tip : float
 
-  publico método getModelo()
-    retorne modelo
-  fim método
+  public method getModel()
+    return model
+  end method
 
-  publico método setModelo(m : caractere)
-    modelo = m
-  fim método
+  public method setModel(m : string)
+    model = m
+  end method
 
-  publico método getPonta()
-    retorne ponta
-  fim método
+  public method getTip()
+    return tip
+  end method
 
-  publico método setPonta(p : real)
-    ponta = p
-  fim método
-fim classe
+  public method setTip(t : float)
+    tip = t
+  end method
+end class
 ```
 
 ---
 
-## 💻 Código Java Completo
+## 💻 Full Java Code Example
 
-### Classe Caneta
+### Class Pen
 
 ```java
-package oop.Lesson4.Caneta;
+package oop.Lesson4.Pen;
 
-public class Caneta {
-    public String modelo;   // Público
-    private float ponta;    // Privado
+public class Pen {
+    public String model;   // Public
+    private float tip;     // Private
 
-    // GETTER do modelo
-    public String getModelo() {
-        return this.modelo;
+    // GETTER for model
+    public String getModel() {
+        return this.model;
     }
 
-    // SETTER do modelo
-    public void setModelo(String m) {
-        this.modelo = m;
+    // SETTER for model
+    public void setModel(String m) {
+        this.model = m;
     }
 
-    // GETTER da ponta
-    public float getPonta() {
-        return this.ponta;
+    // GETTER for tip
+    public float getTip() {
+        return this.tip;
     }
 
-    // SETTER da ponta
-    public void setPonta(float p) {
-        this.ponta = p;
+    // SETTER for tip
+    public void setTip(float t) {
+        this.tip = t;
     }
 }
 ```
 
 ---
 
-### Classe Principal (Main)
+### Main Class
 
 ```java
-package oop.Lesson4.Caneta;
-
 public class Main {
     public static void main(String[] args) {
-        Caneta c1 = new Caneta();
+        // Creating object
+        Pen p1 = new Pen();
 
-        c1.setModelo("Bic Cristal");
-        c1.setPonta(0.5f);
+        // ✅ Using SETTERS (safe modification)
+        p1.setModel("BIC Cristal");
+        p1.setTip(0.5f);
 
-        System.out.println("Modelo: " + c1.getModelo());
-        System.out.println("Ponta: " + c1.getPonta());
+        // ✅ Using GETTERS (safe access)
+        System.out.println("Model: " + p1.getModel());
+        System.out.println("Tip: " + p1.getTip());
+
+        // ❌ Direct access to private attribute (ERROR!)
+        // p1.tip = 0.7f; // Compilation error
     }
 }
 ```
 
-🧠 **Saída esperada:**
+🧠 **Expected output:**
 
 ```
-Modelo: Bic Cristal
-Ponta: 0.5
+Model: BIC Cristal
+Tip: 0.5
 ```
 
 ---
 
-## 🏗️ Método Construtor
+## 🏗️ Constructor Method
 
-O **construtor** é um método especial que é **executado automaticamente** sempre que um novo objeto é criado.
+A **constructor** is a special method that is **automatically executed** whenever a new object is created.
 
-📘 *Em inglês, “constructor” vem de “construir” — ele monta o objeto inicial.*
+📘 *In English, “constructor” comes from “construct” — it builds the object.*
+
+### ⚙️ Constructor Function
+
+1. **Initializes attributes automatically**
+2. **Defines default values**
+3. **Can receive parameters for customization**
+
+### Characteristics:
+
+* Has the **same name** as the class
+* **No return type** (not even `void`)
+* Can **accept parameters**
+* Initializes attributes
 
 ---
 
-### ⚙️ Função do Construtor
+### 💡 Example 1 – Simple Constructor
 
-1. **Inicializa os atributos automaticamente**
-2. **Define valores padrão**
-3. **Pode receber parâmetros para personalização**
-
----
-
-### 💡 Exemplo 1 – Construtor Simples
-
-Toda caneta criada começa **tampada** e **azul**:
+Every pen starts **blue** and **capped**:
 
 ```java
-public Caneta() {
-    this.cor = "Azul";
-    this.tampar();
+public Pen() {
+    this.color = "Blue";
+    this.cap();
+}
+```
+
+### 💡 Example 2 – Constructor with Parameters
+
+```java
+public Pen(String m, String c, float t) {
+    this.setModel(m);
+    this.setColor(c);
+    this.setTip(t);
+    this.cap();
+}
+```
+
+Now we can create customized pens in one line:
+
+```java
+Pen p1 = new Pen("BIC", "Blue", 0.5f);
+Pen p2 = new Pen("Faber-Castell", "Red", 0.7f);
+```
+
+---
+
+## 🎯 Full Example
+
+### Class Pen – Constructor with Parameters
+
+```java
+public class Pen {
+    // ATTRIBUTES
+    private String model;
+    private String color;
+    private Float tip;
+    private boolean capped;
+    
+    // ✅ CONSTRUCTOR
+    public Pen(String m, String c, Float t) {
+        this.setModel(m);
+        this.setColor(c);
+        this.setTip(t);
+        this.cap();
+    }
+    
+    // GETTERS AND SETTERS
+    public String getModel() {
+        return this.model;
+    }
+    
+    public void setModel(String m) {
+        this.model = m;
+    }
+    
+    public String getColor() {
+        return this.color;
+    }
+    
+    public void setColor(String c) {
+        this.color = c;
+    }
+    
+    public Float getTip() {
+        return this.tip;
+    }
+    
+    public void setTip(Float t) {
+        this.tip = t;
+    }
+    
+    public boolean getCapped() {
+        return this.capped;
+    }
+    
+    // REGULAR METHODS
+    public void cap() {
+        this.capped = true;
+    }
+    
+    public void uncap() {
+        this.capped = false;
+    }
+    
+    public void status() {
+        System.out.println("=== ABOUT THE PEN ===");
+        System.out.println("Model: " + this.getModel());
+        System.out.println("Color: " + this.getColor());
+        System.out.println("Tip: " + this.getTip());
+        System.out.println("Capped: " + this.getCapped());
+    }
 }
 ```
 
 ---
 
-### 💡 Exemplo 2 – Construtor com Parâmetros
+### Using the Constructor
 
 ```java
-public Caneta(String m, String c, float p) {
-    this.setModelo(m);
-    this.setCor(c);
-    this.setPonta(p);
-    this.tampar();
+public class Main {
+    public static void main(String[] args) {
+        // ✅ Creating pens with constructor
+        Pen p1 = new Pen("BIC", "Blue", 0.5f);
+        Pen p2 = new Pen("Faber-Castell", "Red", 1.0f);
+        
+        // Displaying status
+        p1.status();
+        p2.status();
+    }
 }
 ```
 
-Agora podemos criar canetas diferentes com uma única linha:
+🧠 **Expected Output:**
 
-```java
-Caneta c1 = new Caneta("Bic", "Azul", 0.5f);
-Caneta c2 = new Caneta("Faber-Castell", "Vermelha", 0.7f);
+```
+=== ABOUT THE PEN ===
+Model: BIC
+Color: Blue
+Tip: 0.5
+Capped: true
+
+=== ABOUT THE PEN ===
+Model: Faber-Castell
+Color: Red
+Tip: 1.0
+Capped: true
 ```
 
 ---
 
-## 🧠 Resumo Final
+## 🧠 Final Summary
 
-| Tipo de Método | Nome                 | Função                     | Executado Automaticamente? |
-| -------------- | -------------------- | -------------------------- | -------------------------- |
-| Getter         | `getAtributo()`      | Retorna valor do atributo  | ❌                          |
-| Setter         | `setAtributo(valor)` | Modifica valor do atributo | ❌                          |
-| Construtor     | `Classe()`           | Inicializa o objeto        | ✅                          |
-
----
-
-## 🧩 Diagrama UML Final
-
-```
-+---------------------+
-|      Caneta         |
-+---------------------+
-| + modelo : String   |
-| - ponta : float     |
-+---------------------+
-| + getModelo()       |
-| + setModelo(m)      |
-| + getPonta()        |
-| + setPonta(p)       |
-| + Caneta()          |
-+---------------------+
-```
+| Method Type | Name                | Purpose                 | Runs Automatically? |
+| ----------- | ------------------- | ----------------------- | ------------------- |
+| Getter      | `getAttribute()`    | Returns attribute value | ❌                   |
+| Setter      | `setAttribute(val)` | Changes attribute value | ❌                   |
+| Constructor | `ClassName()`       | Initializes the object  | ✅                   |
 
 ---
 
-## 🚀 Exercícios Práticos
+## 💡 Best Practices
 
-### 🧠 Exercício 1 – Criando Getters e Setters
-
-```java
-// Crie uma classe "Livro" com os atributos:
-// título, autor e número de páginas.
-// Gere os métodos getters e setters para cada atributo.
-```
-
-### 🧩 Exercício 2 – Construtor com Parâmetros
+1. **Always use getters/setters** for private attributes
+2. **Keep attributes private** whenever possible
+3. **Use constructors** to define initial values
+4. **Validate data** inside setters
 
 ```java
-// Modifique a classe "Livro" para ter um construtor
-// que receba título, autor e número de páginas.
-// Depois, crie 2 objetos diferentes usando esse construtor.
-```
-
-### 🧱 Exercício 3 – Acesso Seguro
-
-```java
-// Teste o acesso direto aos atributos privados
-// e compare com o uso dos métodos getters e setters.
+public void setTip(Float t) {
+    // ✅ Validation before changing
+    if (t > 0 && t <= 2.0) {
+        this.tip = t;
+    } else {
+        System.out.println("Invalid tip size!");
+    }
+}
 ```
 
 ---
 
-> 💡 **Dica:** “Pense nos getters e setters como os seguranças do seu código.
-> O getter te deixa *ver* o que há dentro; o setter te deixa *mudar*, mas só da forma certa.
-> E o construtor? Ele é o *porteiro*, que garante que todo objeto entre já configurado e pronto pra uso.”
+## 🚀 Practical Exercises
+
+### Exercise 1: Class `Car`
+
+```java
+// Create a class Car with:
+// Attributes: brand, model, year, speed (private)
+// Methods: getters/setters, constructor, accelerate(), brake()
+```
+
+### Exercise 2: Setter Validation
+
+```java
+// Modify the setters to validate:
+// - Year cannot be in the future
+// - Speed cannot be negative
+// - Brand cannot be empty
+```
+
+### Exercise 3: Bank Account Class
+
+```java
+// Create a class Account with:
+// Attributes: number, balance, holder (private)
+// Methods: deposit(), withdraw(), getBalance()
+// Rule: balance cannot be negative
+```
+
+---
+
+> 💡 **Tip:** “Think of getters and setters as your code’s security guards.
+> The getter lets you *see* what’s inside; the setter lets you *change* it — but only the right way.
+> The constructor is like receiving a product already configured.
+> This mindset helps you write safer and more professional code!”
 
 ---
