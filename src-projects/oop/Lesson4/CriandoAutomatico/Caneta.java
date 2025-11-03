@@ -22,34 +22,42 @@ public class Caneta {
     ir em Getters and Setters, que você criará os metodos!
      */
     public String getModelo() {
+
         return modelo;
     }
 
     public void setModelo(String modelo) {
+
         this.modelo = modelo;
     }
 
     public float getPonta() {
+
         return ponta;
     }
 
     public void setPonta(float ponta) {
+
         this.ponta = ponta;
     }
 
     public boolean isTampada() {
+
         return tampada;
     }
 
     public void setTampada(boolean tampada) {
+
         this.tampada = tampada;
     }
 
     public String getCor() {
+
         return cor;
     }
 
     public void setCor(String cor) {
+
         this.cor = cor;
     }
 }

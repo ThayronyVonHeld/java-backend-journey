@@ -12,15 +12,18 @@ public class Caneta {
    }
 
     public String getModelo() {     // Todo metodo getter é public
-        return modelo;
+
+       return modelo;
     }
 
     public void setModelo(String m) {     // Todo Modelo Setters é publico
-        this.modelo = m;
+
+       this.modelo = m;
     }
 
     public float getPonta(){
-        return ponta;
+
+       return ponta;
     }
 
     public void setPonta(float p){
