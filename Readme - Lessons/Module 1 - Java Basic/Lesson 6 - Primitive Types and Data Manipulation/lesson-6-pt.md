@@ -33,7 +33,7 @@ int idade = 25; // Comentário após o código
 ### 3. Comentário de Documentação (Javadoc)
 ```java
 /**
- * Classe Principal do Sistema
+ * Classe Main do Sistema
  * @author Thayrony
  * @version 14.2
  * @since 2025

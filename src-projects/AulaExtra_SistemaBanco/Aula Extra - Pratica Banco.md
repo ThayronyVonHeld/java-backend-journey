@@ -1,4 +1,4 @@
-Aqui Irei reunir meu estudo da ferramenta JavaFx e executar um Exercicio Proposto pelo Curso Em Video
+Aqui iremos xecutar um Exercicio Proposto pelo Curso Em Video
 
 Conta de Banco
 
