@@ -6,11 +6,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="259.0" layoutY="231.0" mnemonicParsing="false" text="Criar" />
-      <TextField layoutX="195.0" layoutY="163.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label layoutX="208.0" layoutY="102.0" text="Crie sua conta para prosseguir" />
+      <VBox layoutY="1.0" />
+      <VBox layoutX="245.0" layoutY="1.0">
+         <children>
+            <Pane layoutX="245.0" layoutY="1.0" prefHeight="400.0" prefWidth="356.0" />
+         </children>
+      </VBox>
+      <Pane prefHeight="400.0" prefWidth="239.0" style="-fx-background-color: #F0F8FF;" />
    </children>
 </AnchorPane>
