@@ -23,7 +23,7 @@ atributos
 
 metodos
 +abrirConta() // mudar o status para verdadeiro
-+fecharConta() // para fechar não pode ter dinheiro em conta(precisasacr), e não pode fechar se tiver debito (vai precisar depositar)
++fecharConta() // para fechar não pode ter dinheiro em conta(precisar), e não pode fechar se tiver debito (vai precisar depositar)
 +depositar() // Para fazer deposito a conta precisa estar aberta (status verdadeiro)
 +sacar() // a conta precisa estar aberta e precisa ter saldo também! A classe não pode permitir que saque um valor maior que o que você tem disponivel
 +pagarMensal() // Cobrada automaticamente quando chamar o metodo pagarMensal(para cc paga 12 reais, para cp paga 20reais)

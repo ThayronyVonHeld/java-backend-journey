@@ -6,6 +6,9 @@ public class Main {
     public static void main(String[] args) {
         int sair = 0;
         int Escolha;
+
+        ContaBanco pessoa = new ContaBanco();
+
         do{
            System.out.println("---------------------------------");
             System.out.println("Bem Vindo ao Nosso Banco");
@@ -22,8 +25,24 @@ public class Main {
             Escolha = teclado.nextInt();
 
             if(Escolha == 1){
-                ContaBanco pessoa = new ContaBanco();
+
                 pessoa.abrirConta();
+            }
+
+            else if(Escolha == 2){
+                pessoa.setFecharConta();
+            }
+            else if(Escolha == 3){
+                pessoa.getSaldo();
+                pessoa.setDepositar();
+            }
+            else if(Escolha == 4){
+                pessoa.getSaldo();
+                pessoa.SetSacar();
+            }
+            else if(Escolha == 5){
+                pessoa.getSaldo();
+                pessoa.SetPagarMensal();
             }
 
         }while(sair != 6);
