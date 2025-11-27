@@ -4,41 +4,41 @@ import java.util.Scanner;
 
 public class ContaBanco {
 
-    public int NumConta;
-    protected String Tipo;
-    private String Dono;
+    public int numConta;
+    protected String tipo;
+    private String dono;
     private double saldo;
-    private boolean Status;
+    private boolean status;
 
     Scanner teclado = new Scanner(System.in);
 
     public ContaBanco(){
-    Status = false;
+    status = false;
     saldo = 0;
     }
 
 
     public void abrirConta(){
-    Status = true;
+    status = true;
         int Valor = 0;
 
         System.out.print("Digite o Numero desejado da conta: ");
 
-        NumConta = teclado.nextInt();
+        numConta = teclado.nextInt();
 
         System.out.print("Digite seu nome: ");
-        Dono = teclado.next();
+        dono = teclado.next();
 
         System.out.println("Digite o Tipo de conta:");
         System.out.print("Digite [1] para Conta Corrente ou Digite [2] para Conta Poupança: ");
         Valor = teclado.nextInt();
 
         if(Valor == 1){
-            Tipo = "Conta Corrente";
+            tipo = "Conta Corrente";
             saldo = 50;
         }
         else if(Valor == 2){
-            Tipo = "Conta Poupança";
+            tipo = "Conta Poupança";
             saldo = 150;
         }
         else{
@@ -48,9 +48,9 @@ public class ContaBanco {
 
     }
 
-    public void setFecharConta(){
+    public void setfecharConta(){
         if(saldo == 0){
-        Status = false;
+        status = false;
             System.out.println("Sua Conta foi Fechada");
         }
        else if (saldo < 0){
@@ -61,7 +61,7 @@ public class ContaBanco {
         }
     }
     public double setDepositar(){
-        if(Status == true) {
+        if(status == true) {
             System.out.println("Digite o valor que deseja depositar: ");
             saldo += teclado.nextDouble();
         }
@@ -71,7 +71,7 @@ public class ContaBanco {
         return saldo;
     }
 public double SetSacar() {
-    if (Status = true) {
+    if (status = true) {
         Double Saque = saldo;
         if (saldo > 0) {
             System.out.println("Digite o valor que deseja sacar: ");
@@ -87,7 +87,7 @@ public double SetSacar() {
 }
 
     public double SetPagarMensal(){
-        if(Tipo.equals("Conta Corrente")){
+        if(tipo.equals("Conta Corrente")){
             saldo = saldo - 12;
         }
         else{
@@ -96,8 +96,8 @@ public double SetSacar() {
         return saldo;
     }
 
-    public int getNumConta() {
-        return NumConta;
+    public int getnumConta() {
+        return numConta;
     }
 
     public double getSaldo(){

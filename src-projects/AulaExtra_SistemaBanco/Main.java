@@ -30,7 +30,7 @@ public class Main {
             }
 
             else if(Escolha == 2){
-                pessoa.setFecharConta();
+                pessoa.setfecharConta();
             }
             else if(Escolha == 3){
                 pessoa.getSaldo();
