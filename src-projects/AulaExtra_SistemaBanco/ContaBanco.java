@@ -7,39 +7,49 @@ public class ContaBanco {
     public int numConta;
     protected String tipo;
     private String dono;
-    private double saldo;
+    private float saldo;
     private boolean status;
 
     Scanner teclado = new Scanner(System.in);
 
-    public ContaBanco(){
-    status = false;
-    saldo = 0;
+    public void infoConta(){
+       System.out.println("-------------------------------");
+       System.out.println("Conta: " + this.getNumConta());
+       System.out.println("Tipo: " + this.getTipo());
+       System.out.println("Dono: " + this.getDono());
+       System.out.println("Saldo: " + this.getSaldo());
+       System.out.println("Status: " + this.getStatus());
+       System.out.println("-------------------------------");
+   }
+
+    public ContaBanco() { //Construtor
+        this.setStatus(false); // ou this.status = false;
+        this.setSaldo(0); // ou this.saldo = 0;
+
     }
 
-
-    public void abrirConta(){
-    status = true;
-        int Valor = 0;
+    //Metodos
+    public void abrirConta() {
+        this.setStatus(true);
+        int Valor;
 
         System.out.print("Digite o Numero desejado da conta: ");
-
-        numConta = teclado.nextInt();
-
+        this.setNumConta(teclado.nextInt());
+        teclado.nextLine();
         System.out.print("Digite seu nome: ");
-        dono = teclado.next();
+        this.setDono(teclado.nextLine());
 
         System.out.println("Digite o Tipo de conta:");
         System.out.print("Digite [1] para Conta Corrente ou Digite [2] para Conta Poupança: ");
         Valor = teclado.nextInt();
 
         if(Valor == 1){
-            tipo = "Conta Corrente";
-            saldo = 50;
+            this.setTipo("Conta Corrente");
+            this.setSaldo(50);
         }
         else if(Valor == 2){
-            tipo = "Conta Poupança";
-            saldo = 150;
+            this.setTipo("Conta Poupança");
+            this.setSaldo(150);
         }
         else{
             System.out.println("Resposta incorreta! Selecione [1] ou [2]!");
@@ -48,64 +58,105 @@ public class ContaBanco {
 
     }
 
-    public void setfecharConta(){
-        if(saldo == 0){
-        status = false;
+
+    public void fecharConta() {
+        if (this.getSaldo() > 0) {
+            System.out.println("Saque todo o valor da sua conta para fechar");
+        } else if (getSaldo() < 0) {
+            System.out.println("Sua conta Posui saldo negativo, para fechar, deposite o valor restante: Valor restante: " + getSaldo());
+        } else {
+            this.setStatus(false);
             System.out.println("Sua Conta foi Fechada");
         }
-       else if (saldo < 0){
-            System.out.println("Sua conta Posui saldo negativo, para fechar, deposite o valor restante: Valor restante: " + getSaldo());
-        }
-        else{
-            System.out.println("Saque todo o valor da sua conta para fechar");
-        }
     }
-    public double setDepositar(){
-        if(status == true) {
+
+    public void depositar() {
+        if (this.getStatus()) {
             System.out.println("Digite o valor que deseja depositar: ");
-            saldo += teclado.nextDouble();
+            this.setSaldo(this.getSaldo() + teclado.nextFloat());
+            System.out.println("Deposito realizado com sucesso na conta de " + this.getDono());
         }
-        else{
-            System.out.println("Você precisa abrir sua conta antes de fazer um deposito!");
+        else {
+            System.out.println("Impossivel depositar em uma conta fechada");
         }
-        return saldo;
     }
-public double SetSacar() {
-    if (status = true) {
-        Double Saque = saldo;
-        if (saldo > 0) {
-            System.out.println("Digite o valor que deseja sacar: ");
-            Saque -= teclado.nextDouble();
-            if (Saque < 0) {
-                System.out.println("Você escolheu um valor maior que o Disponivel, escolha um valor menor, ou deposite");
+
+    public void sacar() {
+        if (this.getStatus()) {
+            float saque = this.getSaldo();
+            if (this.getSaldo() >= 0) {
+                System.out.println("Digite o valor que deseja sacar: ");
+                saque -= teclado.nextFloat();
+                    if(saque < 0){
+                        System.out.println("Você escolheu um valor maior que o Disponivel, escolha um valor menor, ou deposite");
+                    }
+                    else{
+                        System.out.println("Saque realizado com sucesso.");
+                        this.setSaldo(saque);
+                    }
             }
-        }
-    }else {
+        }else {
             System.out.println("Você precisa abrir sua conta, antes de tentar efetuar um saque!");
         }
-        return saldo;
-}
 
-    public double SetPagarMensal(){
-        if(tipo.equals("Conta Corrente")){
-            saldo = saldo - 12;
+    }
+
+    public void pagarMensal() {
+        if(this.getStatus()){
+            if (this.tipo.equals("Conta Corrente")) {
+                this.setSaldo(this.getSaldo() - 12);
+                System.out.println("Mensalidade Paga com Sucesso");
+            } else {
+                this.setSaldo(this.getSaldo() - 20);
+                System.out.println("Mensalidade Paga com Sucesso");
+            }
         }
-        else{
-            saldo = saldo - 20;
+        else {
+            System.out.println("Impossivel pagar a mensalidade de uma conta fechada");
         }
-        return saldo;
     }
 
-    public int getnumConta() {
-        return numConta;
+    //Metodos especiais
+    public int getNumConta() {
+        return this.numConta;
     }
 
-    public double getSaldo(){
-        System.out.println("Valor disponivel na conta é: " + saldo);
-return saldo;
+    public void setNumConta(int nc) {
+        this.numConta = nc;
     }
-    public double setSaldo(){
-        saldo = setSaldo();
-    return setSaldo();
+
+    public String getTipo() {
+        return this.tipo;
     }
+
+    public void setTipo(String t) {
+        this.tipo = t;
+    }
+
+
+    public String getDono() {
+        return this.dono;
+    }
+
+        public void setDono(String d){
+        this.dono = d;
+        }
+
+    public float getSaldo() {
+        return this.saldo;
+    }
+
+        public void setSaldo(float s) {
+            this.saldo = s;
+
+    }
+
+    public boolean getStatus(){
+        return this.status;
+    }
+
+    public void setStatus(boolean stts){
+        this.status = stts;
+    }
+
 }

@@ -18,34 +18,38 @@ public class Main {
             System.out.println("Digite [3] para fazer um deposito");
             System.out.println("Digite [4] para fazer um saque");
             System.out.println("Digite [5] para pagar a mensalidade");
-            System.out.println("Digite [6] para sair");
-            System.out.println("Digite sua escolha: ");
+            System.out.println("Digite [6] para Visualizar suas informações");
+            System.out.println("Digite [7] para sair");
+            System.out.print("Digite sua escolha: ");
 
             Scanner teclado = new Scanner(System.in);
             Escolha = teclado.nextInt();
 
             if(Escolha == 1){
-
-                pessoa.abrirConta();
+            pessoa.abrirConta();
             }
 
             else if(Escolha == 2){
-                pessoa.setfecharConta();
+            pessoa.fecharConta();
             }
             else if(Escolha == 3){
-                pessoa.getSaldo();
-                pessoa.setDepositar();
+
+                pessoa.depositar();
             }
             else if(Escolha == 4){
-                pessoa.getSaldo();
-                pessoa.SetSacar();
+                pessoa.sacar();
             }
             else if(Escolha == 5){
-                pessoa.getSaldo();
-                pessoa.SetPagarMensal();
+                pessoa.pagarMensal();
             }
+            else if(Escolha == 6){
+                pessoa.infoConta();
+            }
+            else if (Escolha == 7){
+                    sair = 7;
+                }
 
-        }while(sair != 6);
+        }while(sair != 7);
 
     }
 }
