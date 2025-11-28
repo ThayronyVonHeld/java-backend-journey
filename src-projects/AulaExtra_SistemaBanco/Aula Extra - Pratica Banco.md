@@ -1,43 +1,92 @@
-Aqui iremos xecutar um Exercicio Proposto pelo Curso Em Video
 
-Conta de Banco
+# 🏦 Sistema de Conta Bancária – Exercício do Curso em Vídeo
 
-O exercicio proposto é abrir uma conta corrente(pessoa 1) e uma conta poupança(pessoa 2), depos qualquer uma das duas pessoas
-podem sacar seu dinheiro!
+Este projeto executa um exercício proposto pelo **Curso em Vídeo**, cujo objetivo é simular a abertura e o gerenciamento de contas bancárias utilizando conceitos fundamentais de **Programação Orientada a Objetos (POO)** em Java.
 
-Então para começar precisamos pensar o que precisamos para criar objetos, como vimos anteriormente, todo objeto é composto 
-de um conjunto de propriedades, seu conjunto de metodos e seu estado atual. Na hora de idealizar uma nva classe, vamos pensar
-tudo em forma de seus atributos e metodos
+---
 
-atributos - são dados que o objeto tem dentro
-metodos - são procedimentos, funções, "pequenos programas que existem dentro dos objetos"
+## 📘 Objetivo do Exercício
 
-Classe banco:
+Criar duas contas bancárias:
 
-atributos
-+numConta 
-#tipo // só pode aceitar dois valores, conta poupança(cc) e conta corrente(cp), 
--dono // Pessoa responsavel pela conta
--saldo
--bolean status // Para verificar se a conta está aberta ou não
+* **Conta Corrente (CC)** — Pessoa 1
+* **Conta Poupança (CP)** — Pessoa 2
 
-metodos
-+abrirConta() // mudar o status para verdadeiro
-+fecharConta() // para fechar não pode ter dinheiro em conta(precisar), e não pode fechar se tiver debito (vai precisar depositar)
-+depositar() // Para fazer deposito a conta precisa estar aberta (status verdadeiro)
-+sacar() // a conta precisa estar aberta e precisa ter saldo também! A classe não pode permitir que saque um valor maior que o que você tem disponivel
-+pagarMensal() // Cobrada automaticamente quando chamar o metodo pagarMensal(para cc paga 12 reais, para cp paga 20reais)
+Após a abertura das contas, cada pessoa deve ser capaz de:
 
+* Depositar dinheiro
+* Sacar dinheiro
+* Pagar mensalidade
+* Fechar a conta (seguindo regras específicas)
 
-**Bonus de 50 reais para quem abrir conta corrente** 
-se for conta poupança ganha 150 reais
+---
 
-vamos usar get e set para todos os atributos!
-getnumConta()
-setnumConta()
-getTipo()
-setTipo()
+## 🧠 Conceitos Envolvidos
 
-e por ai vai para cada um atributo
+Antes de criar uma classe, precisamos entender que **todo objeto** é formado por:
 
-E teremos um metodo construtor! Sempre que uma nova conta for criada, seu status será definido como falso ou seja a conta está fechado e o saldo 0 
+* **Atributos** → dados internos do objeto
+* **Métodos** → ações, comportamentos e operações que o objeto pode executar
+* **Estado** → condição atual do objeto (ex.: conta aberta ou fechada)
+
+O exercício reforça exatamente essas bases da POO.
+
+---
+
+# 🧩 Estrutura da Classe `ContaBanco`
+
+## 🔑 **Atributos**
+
+| Atributo   | Acesso        | Função                                                |
+| ---------- | ------------- | ----------------------------------------------------- |
+| `numConta` | público (+)   | Número da conta                                       |
+| `tipo`     | protegido (#) | Tipo da conta: **CC** (corrente) ou **CP** (poupança) |
+| `dono`     | privado (-)   | Nome do titular                                       |
+| `saldo`    | privado (-)   | Saldo disponível                                      |
+| `status`   | privado (-)   | Informa se a conta está aberta ou não                 |
+
+---
+
+## ⚙️ **Métodos**
+
+| Método          | Função                                            |
+| --------------- | ------------------------------------------------- |
+| `abrirConta()`  | Abre uma nova conta e aplica bônus inicial        |
+| `fecharConta()` | Fecha a conta, desde que o saldo seja **zero**    |
+| `depositar()`   | Deposita valores, desde que a conta esteja aberta |
+| `sacar()`       | Realiza saques, verificando saldo e status        |
+| `pagarMensal()` | Deduz mensalidade (R$ 12 para CC, R$ 20 para CP)  |
+
+---
+
+## 🎁 Bônus ao Abrir Conta
+
+* **Conta Corrente (CC)**: recebe **R$ 50**
+* **Conta Poupança (CP)**: recebe **R$ 150**
+
+---
+
+## 🛠️ Getters e Setters
+
+O exercício exige o uso de **getters e setters para todos os atributos**, garantindo encapsulamento e controle total sobre leitura e escrita dos dados.
+
+Exemplos:
+
+* `getNumConta()`
+* `setNumConta()`
+* `getTipo()`
+* `setTipo()`
+* *(e assim por diante para todos os atributos)*
+
+---
+
+## 🏗️ Construtor da Classe
+
+Sempre que uma nova conta for criada, ela deve começar com:
+
+* `status = false` (conta fechada)
+* `saldo = 0`
+
+Isso reflete o estado inicial realista de uma conta ainda não ativada.
+
+---
