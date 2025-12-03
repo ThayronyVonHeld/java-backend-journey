@@ -1,6 +1,6 @@
 
 
-## **TEXTO ORGANIZADO**
+## **Aula 5 - Pilares da POO - Encapsulamento**
 
 Agora falaremos sobre um conceito muito importante, que é o encapsulamento. Na nossa sequência lógica já falamos sobre objeto, construção de objetos, classes, atributos, métodos, vimos alguns exemplos, visibilidade, e agora vamos começar a falar sobre os pilares da Programação Orientada a Objetos.
 

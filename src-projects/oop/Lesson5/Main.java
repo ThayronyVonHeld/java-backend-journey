@@ -1,4 +1,4 @@
 package oop.Lesson5;
 
-public class Controle {
+public class Main {
 }
