@@ -1,19 +1,17 @@
-
-# 📚 Aula 5 – Pilares da POO: Encapsulamento - pt
+# 📚 Aula 5 - Pilares da POO: Encapsulamento
 
 ---
 
 ## 🎯 Objetivos da Aula
-
-* Entender o conceito de encapsulamento
-* Compreender por que ele é considerado um dos pilares da POO
-* Aplicar encapsulamento em UML e em Java
-* Criar interfaces, classes encapsuladas e métodos públicos de controle
-* Relacionar encapsulamento com segurança, padrões e modularidade
+- Compreender o conceito de encapsulamento na POO
+- Diferenciar entre os pilares da POO
+- Aprender os benefícios do encapsulamento
+- Implementar encapsulamento em código Java
+- Entender a relação entre interfaces e encapsulamento
 
 ---
 
-## 🧭 Introdução: Os Pilares da POO
+## 🏛️ Os Pilares da Programação Orientada a Objetos
 
 A Programação Orientada a Objetos possui **três pilares principais** (no modelo reduzido mais moderno):
 
@@ -21,7 +19,7 @@ A Programação Orientada a Objetos possui **três pilares principais** (no mode
 2. **Herança**
 3. **Polimorfismo**
 
-> “Mas meu professor disse que são quatro, incluindo abstração…”
+> Você pode se perguntar “Mas no material no qual estudei são quatro pilares, incluindo abstração…”
 
 Sim! Algumas bibliografias usam **quatro pilares**:
 
@@ -30,11 +28,11 @@ Sim! Algumas bibliografias usam **quatro pilares**:
 * Herança
 * Polimorfismo
 
-Porém, no material que estamos seguindo, **abstração está contida dentro de encapsulamento**, pois abstrair significa **isolar apenas o que importa** e esconder o resto — exatamente a essência do encapsulamento.
+> Em nosso estudo, consideramos **abstração como parte do encapsulamento**, pois ao encapsular, naturalmente abstraímos os detalhes internos.
 
 ---
 
-## 🔒 O Encapsulamento
+## 💊 O que é Encapsulamento?
 
 ### 📦 Analogia: A Pilha (Bateria)
 
@@ -49,6 +47,15 @@ Pense em uma **pilha AA**:
 
 👉 **O usuário vê apenas a interface — não o funcionamento interno.**
 
+```mermaid
+graph TD
+    A[Mundo Externo] --> B[Cápsula/Interface]
+    B --> C[Componentes Internos]
+    
+    style B fill:#3E7580
+    style C fill:#193080
+```
+
 ### Encapsulamento em POO funciona da mesma maneira:
 
 Um software encapsulado:
@@ -58,8 +65,6 @@ Um software encapsulado:
 ✔ Fornece uma interface estável
 ✔ Esconde detalhes internos
 ✔ Permite mudança interna sem quebrar quem usa
-
----
 
 ## 🔐 O que significa encapsular?
 
@@ -71,6 +76,84 @@ Encapsular significa:
 
 Assim como você não abre uma pilha para ver como ela funciona,
 um programador não deve acessar diretamente os atributos de um objeto.
+
+## 🎮 Exemplo do Mundo Real: Controle Remoto
+
+### Sem Encapsulamento:
+```
+[ Fios expostos ]
+[ Circuitos visíveis ]
+[ Bateria desprotegida ]
+↑ Usuário tem acesso direto aos componentes internos
+```
+
+### Com Encapsulamento:
+```
+┌─────────────────────┐
+│    📺 CONTROLE      │
+├─────────────────────┤
+│ [Power] [Menu] [Mute]│
+│ [Vol+] [Vol-] [CH+] │
+│ [Play] [Pause] [OK] │
+└─────────────────────┘
+↑ Interface simplificada, funcionamento interno oculto
+```
+
+### Interface do Controle Remoto:
+- `ligar()` / `desligar()`
+- `abrirMenu()` / `fecharMenu()`
+- `maisVolume()` / `menosVolume()`
+- `ligarMudo()` / `desligarMudo()`
+- `play()` / `pause()`
+
+---
+
+## 🛡️ Benefícios do Encapsulamento
+
+### 1. **Proteção de Dados**
+```java
+// SEM ENCAPSULAMENTO (Perigoso!)
+public class ContaBancaria {
+    public double saldo;  // ❌ Qualquer um pode modificar!
+}
+
+// COM ENCAPSULAMENTO (Seguro!)
+public class ContaBancaria {
+    private double saldo;  // ✅ Apenas métodos controlados acessam
+    
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+        }
+    }
+}
+```
+
+### 2. **Flexibilidade para Mudanças Internas**
+```java
+public class Calculadora {
+    private double resultado;
+    
+    // Internamente pode mudar, mas a interface permanece
+    public double somar(double a, double b) {
+        // Versão 1.0: resultado = a + b
+        // Versão 2.0: resultado = processadorAvancado.somar(a, b)
+        return resultado;
+    }
+}
+```
+
+### 3. **Reutilização de Código**
+```java
+// Uma classe encapsulada pode ser usada em múltiplos projetos
+public class ValidadorEmail {
+    private boolean verificarDominio(String email) { /* código interno */ }
+    
+    public boolean isValid(String email) {
+        return verificarDominio(email) && /* mais verificações */;
+    }
+}
+```
 
 ---
 
@@ -108,26 +191,7 @@ O código externo não altera indevidamente o interno — e vice-versa.
 
 ---
 
-## 🎮 Exemplo: O Controle Remoto
-
-Antes da carcaça (a cápsula), você teria acesso a circuitos e fios.
-Isso seria perigoso e frágil.
-
-Depois da carcaça, você vê apenas a **interface**:
-
-* Ligar
-* Desligar
-* Menu
-* Mudo
-* Volume + / –
-* Play
-* Pause
-
-Você não sabe (e nem precisa saber) **como** cada botão funciona internamente.
-
----
-
-# 🧩 Encapsulamento em UML e em Java
+## 💻 Implementação Prática: Interface Controlador
 
 Vamos agora representar isso usando:
 
@@ -135,223 +199,67 @@ Vamos agora representar isso usando:
 * Classe que implementa a interface
 * Encapsulamento com atributos privados
 
----
 
-## 🧭 A Interface (UML)
-
-Uma **interface** é a descrição dos métodos que uma classe deve implementar.
-
-No UML:
+### Diagrama UML da Interface:
 
 ```
-<<interface>> Controlador
--------------------------
-+ ligar()
-+ desligar()
-+ abrirMenu()
-+ fecharMenu()
-+ maisVolume()
-+ menosVolume()
-+ ligarMudo()
-+ desligarMudo()
-+ play()
-+ pause()
+    ╔══════════════════╗
+    ║  «interface»     ║
+    ║   Controlador    ║
+    ╠══════════════════╣
+    ║ + ligar(): void  ║
+    ║ + desligar(): void║
+    ║ + abrirMenu(): void║
+    ║ + fecharMenu(): void║
+    ║ + maisVolume(): void║
+    ║ + menosVolume(): void║
+    ║ + ligarMudo(): void║
+    ║ + desligarMudo(): void║
+    ║ + play(): void   ║
+    ║ + pause(): void  ║
+    ╚══════════════════╝
 ```
 
-Nenhum desses métodos tem implementação.
-A interface apenas **define o contrato**.
+Para saber mais sobre este exercício [Clique aqui.](https://github.com/ThayronyVonHeld/Introduction-JAVA/tree/main/src-projects/oop/Lesson5)
+
+---
+## 📊 Tabela: Níveis de Encapsulamento
+
+| Nível | Atributos | Getters/Setters | Interface | Uso |
+|-------|-----------|----------------|-----------|-----|
+| **Básico** | `private` | `public` | Simples | Comum |
+| **Intermediário** | `private` | `protected` | Controlada | Bibliotecas |
+| **Avançado** | `private` | `private` | Estrita | APIs complexas |
 
 ---
 
-## 💻 Interface em Java
+## 🚀 Exercícios Práticos
 
+### Exercício 1: Conta Bancária Encapsulada
 ```java
-public interface Controlador {
-    public abstract void ligar();
-    public abstract void desligar();
-    public abstract void abrirMenu();
-    public abstract void fecharMenu();
-    public abstract void maisVolume();
-    public abstract void menosVolume();
-    public abstract void ligarMudo();
-    public abstract void desligarMudo();
-    public abstract void play();
-    public abstract void pause();
-}
+// Crie uma classe ContaBancaria encapsulada com:
+// - saldo (private)
+// - número da conta (private)
+// - Métodos: depositar(), sacar(), consultarSaldo()
+// - Validações: não permitir saque maior que saldo
 ```
 
----
-
-## 🏗️ A Classe que Implementa a Interface
-
-A classe **ControleRemoto** terá:
-
-### 🔐 Atributos privados:
-
-* volume
-* ligado
-* tocando
-
-### ⚙️ Métodos especiais:
-
-* construtor
-* getters
-* setters
-
-### 🎮 Métodos públicos obrigatórios (da interface):
-
-Implementação de todos os métodos como ligar(), desligar(), etc.
-
----
-
-## 💻 Classe ControleRemoto (estrutura base)
-
+### Exercício 2: Carrinho de Compras
 ```java
-public class ControleRemoto implements Controlador {
-    private int volume;
-    private boolean ligado;
-    private boolean tocando;
-
-    // CONSTRUTOR
-    public ControleRemoto() {
-        this.volume = 50;
-        this.ligado = false;
-        this.tocando = false;
-    }
-
-    // GETTERS e SETTERS
-    private int getVolume() {
-        return volume;
-    }
-
-    private void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    private boolean getLigado() {
-        return ligado;
-    }
-
-    private void setLigado(boolean ligado) {
-        this.ligado = ligado;
-    }
-
-    private boolean getTocando() {
-        return tocando;
-    }
-
-    private void setTocando(boolean tocando) {
-        this.tocando = tocando;
-    }
-
-    // MÉTODOS DA INTERFACE
-    @Override
-    public void ligar() {
-        this.setLigado(true);
-    }
-
-    @Override
-    public void desligar() {
-        this.setLigado(false);
-    }
-
-    @Override
-    public void abrirMenu() {
-        System.out.println("----- MENU -----");
-        System.out.println("Ligado: " + this.getLigado());
-        System.out.println("Tocando: " + this.getTocando());
-        System.out.print("Volume: " + this.getVolume() + " ");
-        for (int i = 0; i < this.getVolume(); i += 10) {
-            System.out.print("|");
-        }
-        System.out.println();
-    }
-
-    @Override
-    public void fecharMenu() {
-        System.out.println("Fechando menu...");
-    }
-
-    @Override
-    public void maisVolume() {
-        if (this.getLigado()) {
-            this.setVolume(this.getVolume() + 5);
-        }
-    }
-
-    @Override
-    public void menosVolume() {
-        if (this.getLigado()) {
-            this.setVolume(this.getVolume() - 5);
-        }
-    }
-
-    @Override
-    public void ligarMudo() {
-        if (this.getLigado() && this.getVolume() > 0) {
-            this.setVolume(0);
-        }
-    }
-
-    @Override
-    public void desligarMudo() {
-        if (this.getLigado() && this.getVolume() == 0) {
-            this.setVolume(50);
-        }
-    }
-
-    @Override
-    public void play() {
-        if (this.getLigado() && !this.getTocando()) {
-            this.setTocando(true);
-        }
-    }
-
-    @Override
-    public void pause() {
-        if (this.getLigado() && this.getTocando()) {
-            this.setTocando(false);
-        }
-    }
-}
+// Implemente um carrinho de compras encapsulado:
+// - Lista de produtos (private)
+// - Valor total (private)
+// - Métodos: adicionarItem(), removerItem(), calcularTotal(), finalizarCompra()
 ```
 
+### Exercício 3: Sistema de Login
+```java
+// Crie um sistema de login com encapsulamento:
+// - usuário e senha (private)
+// - Métodos: autenticar(), alterarSenha(), verificarForçaSenha()
+// - Regras: senha deve ter mínimo 8 caracteres
+```
 ---
 
-# 🧠 Resumo Final
-
-| Conceito           | Significado                                          |
-| ------------------ | ---------------------------------------------------- |
-| Encapsulamento     | Esconder partes internas e expor apenas a interface  |
-| Interface          | Lista de métodos que uma classe deve implementar     |
-| Atributos privados | Protegem o estado interno do objeto                  |
-| Getters/Setters    | Controlam o acesso ao interior da cápsula            |
-| Vantagens          | Segurança, organização, flexibilidade e reutilização |
-
----
-
-# 🚀 Exercícios Práticos
-
-## 1. Crie uma interface chamada **Player** com métodos:
-
-* play
-* pause
-* stop
-* aumentarVolume
-* diminuirVolume
-
-## 2. Implemente a classe **MusicPlayer**:
-
-* volume privado
-* tocando privado
-* construtor
-* getters/setters privados
-* implementação total da interface
-
-## 3. Adapte o ControleRemoto:
-
-* Adicione um método “mudarCanal(int canal)”
-* Permita canais apenas entre 1 e 99
-* Encapsule o atributo canal
-
----
+> 💡 **Dica**: "Pense no encapsulamento como criar uma 'caixa preta': você sabe o que entra (parâmetros), o que sai (retorno)
+> e o que pode fazer (métodos públicos), mas não precisa saber como funciona internamente. Isso torna seu código mais seguro, flexível e profissional!"
