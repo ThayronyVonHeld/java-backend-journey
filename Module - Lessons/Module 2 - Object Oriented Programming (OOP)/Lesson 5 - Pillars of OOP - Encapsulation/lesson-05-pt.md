@@ -1,130 +1,357 @@
 
-
-## **Aula 5 - Pilares da POO - Encapsulamento**
-
-Agora falaremos sobre um conceito muito importante, que é o encapsulamento. Na nossa sequência lógica já falamos sobre objeto, construção de objetos, classes, atributos, métodos, vimos alguns exemplos, visibilidade, e agora vamos começar a falar sobre os pilares da Programação Orientada a Objetos.
-
-A Programação Orientada a Objetos possui três pilares que vamos reconhecer: encapsulamento, herança e polimorfismo. O “E” é de encapsulamento, o “H” é de herança e o “P” é de polimorfismo.
-
-Você pode estar se perguntando: “Mas o meu professor disse que são quatro pilares, incluindo abstração”. Sim, há bibliografias que consideram quatro pilares: abstração, encapsulamento, herança e polimorfismo. Porém, na bibliografia que estamos estudando, consideramos apenas três, pois a abstração está dentro do encapsulamento. Abstrair é selecionar apenas o que importa. Por exemplo: um ser humano possui inúmeras características, mas se eu quero tratá-lo como cliente, só preciso de nome, CPF e endereço. O resto não importa naquele contexto.
-
-Vamos trabalhar então com o modelo de três pilares: encapsulamento, herança e polimorfismo. Começaremos pelo primeiro: o encapsulamento.
-
-### **O Encapsulamento**
-
-Encapsulamento é como colocar algo dentro de uma cápsula. Pense em uma pilha: ela é uma cápsula. Já se perguntou por que a pilha precisa ser encapsulada? Dentro dela há componentes químicos responsáveis por gerar energia. Esses componentes podem danificar a pele ou mucosas, então a cápsula protege você da pilha e a pilha de você — é uma proteção de mão dupla.
-
-Além disso, a cápsula cria um padrão. Pilhas do mesmo tipo possuem sempre o mesmo formato e podem ser usadas em aparelhos diferentes. O importante é o padrão externo; o funcionamento interno não importa desde que a energia fornecida seja a mesma. Uma pilha comum, uma alcalina ou recarregável funcionam internamente de formas diferentes, mas se a cápsula e a voltagem são compatíveis, elas podem ser usadas no mesmo aparelho.
-
-Esse é exatamente o conceito de encapsulamento em programação. Um software encapsulado:
-
-* segue um mesmo padrão;
-* protege o usuário (programador) do código e o código do usuário;
-* oferece uma interface externa, e o funcionamento interno não importa — desde que o resultado seja o mesmo.
-
-Encapsular é **ocultar partes independentes da implementação**, criando partes invisíveis ao mundo exterior. Assim como você não precisa saber o processo químico da pilha para usá-la, o programador que usa um objeto não deve precisar conhecer seus detalhes internos.
-
-### **Mensagem e Interface**
-
-Na POO, a comunicação entre o mundo externo e o objeto acontece via **mensagens**: você envia uma mensagem (chama um método) e a cápsula responde. Você não entra na cápsula; apenas utiliza sua interface.
-
-A interface é a lista de serviços que o objeto disponibiliza ao mundo externo. É o que pode ser feito com o objeto — nada mais.
-
-Assim como a pilha possui dois polos como interface, um objeto encapsulado possui métodos públicos que permitem interação sem expor sua estrutura interna.
-
-### **Encapsulamento não é obrigatório, mas é uma boa prática**
-
-Sem encapsulamento é possível programar orientado a objetos, mas o código fica frágil. Encapsular produz classes mais eficientes.
-
-As três grandes vantagens do encapsulamento são:
-
-1. **Tornar mudanças internas invisíveis**
-   Você pode modificar a implementação interna desde que a interface permaneça a mesma.
-
-2. **Facilitar a reutilização**
-   Uma classe encapsulada pode ser usada em vários projetos.
-
-3. **Reduzir efeitos colaterais**
-   O código externo não prejudica o interno e vice-versa.
+# 📚 Aula 5 – Pilares da POO: Encapsulamento - pt
 
 ---
 
-## **O Controle Remoto como Exemplo**
+## 🎯 Objetivos da Aula
 
-Vamos encapsular um objeto real: um controle remoto. Antes da cápsula (a carcaça), você teria contato direto com circuitos, fios e bateria, correndo risco de danificar o aparelho. Com a cápsula, você tem apenas botões: menu, ligar, desligar, mudo, volume, play, pause. Estes botões formam a **interface** do objeto.
-
-Você não precisa saber como cada ação é implementada internamente. Isso é encapsulamento.
-
-Outro exemplo é o carro: você usa volante, pedais e alavancas, sem precisar saber o funcionamento interno do motor. Os controles são a interface; o motor e seus mecanismos estão encapsulados.
+* Entender o conceito de encapsulamento
+* Compreender por que ele é considerado um dos pilares da POO
+* Aplicar encapsulamento em UML e em Java
+* Criar interfaces, classes encapsuladas e métodos públicos de controle
+* Relacionar encapsulamento com segurança, padrões e modularidade
 
 ---
 
-## **Como Encapsular na Prática (UML e Código)**
+## 🧭 Introdução: Os Pilares da POO
 
-### **A Interface**
+A Programação Orientada a Objetos possui **três pilares principais** (no modelo reduzido mais moderno):
 
-No UML, interface é representada como uma classe sem atributos, apenas métodos. Ela lista o que pode ser feito, mas **não implementa** o que acontece.
+1. **Encapsulamento**
+2. **Herança**
+3. **Polimorfismo**
 
-Criamos a interface **Controlador**, contendo métodos como:
+> “Mas meu professor disse que são quatro, incluindo abstração…”
 
-* ligar
-* desligar
-* abrirMenu
-* fecharMenu
-* maisVolume
-* menosVolume
-* ligarMudo
-* desligarMudo
-* play
-* pause
+Sim! Algumas bibliografias usam **quatro pilares**:
 
-Esses são **métodos abstratos**: previstos, mas não implementados.
+* Abstração
+* Encapsulamento
+* Herança
+* Polimorfismo
 
-Na prática, em código, criamos algo como:
+Porém, no material que estamos seguindo, **abstração está contida dentro de encapsulamento**, pois abstrair significa **isolar apenas o que importa** e esconder o resto — exatamente a essência do encapsulamento.
+
+---
+
+## 🔒 O Encapsulamento
+
+### 📦 Analogia: A Pilha (Bateria)
+
+Pense em uma **pilha AA**:
+
+* Ela possui **componentes químicos internos**
+* Esses componentes poderiam ser perigosos
+* Por isso ela precisa ser **encapsulada**
+* Você **usa** a pilha sem ter acesso ao conteúdo interno
+* Pilhas do mesmo tipo seguem um **padrão externo**
+* O funcionamento interno pode ser totalmente diferente entre marcas
+
+👉 **O usuário vê apenas a interface — não o funcionamento interno.**
+
+### Encapsulamento em POO funciona da mesma maneira:
+
+Um software encapsulado:
+
+✔ Usa o mesmo padrão externo
+✔ Protege o usuário do código e o código do usuário
+✔ Fornece uma interface estável
+✔ Esconde detalhes internos
+✔ Permite mudança interna sem quebrar quem usa
+
+---
+
+## 🔐 O que significa encapsular?
+
+Encapsular significa:
+
+**➡️ Ocultar partes internas da implementação
+➡️ Expor apenas o necessário
+➡️ Garantir segurança, padronização e flexibilidade**
+
+Assim como você não abre uma pilha para ver como ela funciona,
+um programador não deve acessar diretamente os atributos de um objeto.
+
+---
+
+## 💬 Mensagens e Interfaces
+
+Em POO, não interagimos diretamente com o objeto.
+Nós enviamos **mensagens** → chamadas de métodos.
+
+A **interface** é o conjunto de serviços que o objeto oferece ao mundo externo.
+
+Exemplos de interfaces no mundo real:
+
+* **Pilha** → apenas dois polos
+* **Carro** → volante, acelerador, freio
+* **Controle remoto** → botões
+
+Você não precisa saber como internamente cada ação é executada.
+A interface te protege dos detalhes internos.
+
+---
+
+## 🧱 Por que encapsular?
+
+### 1. 🔄 Mudanças internas invisíveis
+
+Você pode reescrever toda a lógica interna, desde que os métodos públicos permaneçam iguais.
+
+### 2. ♻ Reutilização
+
+Classes encapsuladas funcionam como “caixas pretas” reutilizáveis.
+
+### 3. 🛡 Menos efeitos colaterais
+
+O código externo não altera indevidamente o interno — e vice-versa.
+
+---
+
+## 🎮 Exemplo: O Controle Remoto
+
+Antes da carcaça (a cápsula), você teria acesso a circuitos e fios.
+Isso seria perigoso e frágil.
+
+Depois da carcaça, você vê apenas a **interface**:
+
+* Ligar
+* Desligar
+* Menu
+* Mudo
+* Volume + / –
+* Play
+* Pause
+
+Você não sabe (e nem precisa saber) **como** cada botão funciona internamente.
+
+---
+
+# 🧩 Encapsulamento em UML e em Java
+
+Vamos agora representar isso usando:
+
+* Interface (UML e código)
+* Classe que implementa a interface
+* Encapsulamento com atributos privados
+
+---
+
+## 🧭 A Interface (UML)
+
+Uma **interface** é a descrição dos métodos que uma classe deve implementar.
+
+No UML:
 
 ```
-interface Controlador {
-    public abstract function ligar();
-    public abstract function desligar();
-    ...
+<<interface>> Controlador
+-------------------------
++ ligar()
++ desligar()
++ abrirMenu()
++ fecharMenu()
++ maisVolume()
++ menosVolume()
++ ligarMudo()
++ desligarMudo()
++ play()
++ pause()
+```
+
+Nenhum desses métodos tem implementação.
+A interface apenas **define o contrato**.
+
+---
+
+## 💻 Interface em Java
+
+```java
+public interface Controlador {
+    public abstract void ligar();
+    public abstract void desligar();
+    public abstract void abrirMenu();
+    public abstract void fecharMenu();
+    public abstract void maisVolume();
+    public abstract void menosVolume();
+    public abstract void ligarMudo();
+    public abstract void desligarMudo();
+    public abstract void play();
+    public abstract void pause();
 }
 ```
 
-### **A Classe**
+---
 
-A classe ControleRemoto terá atributos:
+## 🏗️ A Classe que Implementa a Interface
+
+A classe **ControleRemoto** terá:
+
+### 🔐 Atributos privados:
 
 * volume
 * ligado
 * tocando
 
-Todos privados.
+### ⚙️ Métodos especiais:
 
-A classe implementará a interface:
+* construtor
+* getters
+* setters
 
-```
-class ControleRemoto implements Controlador {
-    ...
+### 🎮 Métodos públicos obrigatórios (da interface):
+
+Implementação de todos os métodos como ligar(), desligar(), etc.
+
+---
+
+## 💻 Classe ControleRemoto (estrutura base)
+
+```java
+public class ControleRemoto implements Controlador {
+    private int volume;
+    private boolean ligado;
+    private boolean tocando;
+
+    // CONSTRUTOR
+    public ControleRemoto() {
+        this.volume = 50;
+        this.ligado = false;
+        this.tocando = false;
+    }
+
+    // GETTERS e SETTERS
+    private int getVolume() {
+        return volume;
+    }
+
+    private void setVolume(int volume) {
+        this.volume = volume;
+    }
+
+    private boolean getLigado() {
+        return ligado;
+    }
+
+    private void setLigado(boolean ligado) {
+        this.ligado = ligado;
+    }
+
+    private boolean getTocando() {
+        return tocando;
+    }
+
+    private void setTocando(boolean tocando) {
+        this.tocando = tocando;
+    }
+
+    // MÉTODOS DA INTERFACE
+    @Override
+    public void ligar() {
+        this.setLigado(true);
+    }
+
+    @Override
+    public void desligar() {
+        this.setLigado(false);
+    }
+
+    @Override
+    public void abrirMenu() {
+        System.out.println("----- MENU -----");
+        System.out.println("Ligado: " + this.getLigado());
+        System.out.println("Tocando: " + this.getTocando());
+        System.out.print("Volume: " + this.getVolume() + " ");
+        for (int i = 0; i < this.getVolume(); i += 10) {
+            System.out.print("|");
+        }
+        System.out.println();
+    }
+
+    @Override
+    public void fecharMenu() {
+        System.out.println("Fechando menu...");
+    }
+
+    @Override
+    public void maisVolume() {
+        if (this.getLigado()) {
+            this.setVolume(this.getVolume() + 5);
+        }
+    }
+
+    @Override
+    public void menosVolume() {
+        if (this.getLigado()) {
+            this.setVolume(this.getVolume() - 5);
+        }
+    }
+
+    @Override
+    public void ligarMudo() {
+        if (this.getLigado() && this.getVolume() > 0) {
+            this.setVolume(0);
+        }
+    }
+
+    @Override
+    public void desligarMudo() {
+        if (this.getLigado() && this.getVolume() == 0) {
+            this.setVolume(50);
+        }
+    }
+
+    @Override
+    public void play() {
+        if (this.getLigado() && !this.getTocando()) {
+            this.setTocando(true);
+        }
+    }
+
+    @Override
+    public void pause() {
+        if (this.getLigado() && this.getTocando()) {
+            this.setTocando(false);
+        }
+    }
 }
 ```
 
-Ao implementar a interface, a classe é obrigada a implementar todos os métodos abstratos.
+---
 
-Também criamos:
+# 🧠 Resumo Final
 
-* **Construtor**
-* **Getters e Setters** (métodos especiais)
+| Conceito           | Significado                                          |
+| ------------------ | ---------------------------------------------------- |
+| Encapsulamento     | Esconder partes internas e expor apenas a interface  |
+| Interface          | Lista de métodos que uma classe deve implementar     |
+| Atributos privados | Protegem o estado interno do objeto                  |
+| Getters/Setters    | Controlam o acesso ao interior da cápsula            |
+| Vantagens          | Segurança, organização, flexibilidade e reutilização |
 
-Na prática:
+---
 
-* ligar() chama setLigado(true)
-* desligar() chama setLigado(false)
-* abrirMenu() mostra estado do volume, ligado e tocando
-* maisVolume() só funciona se estiver ligado
-* menosVolume() idem
-* ligarMudo() coloca volume em 0
-* desligarMudo() restaura volume
-* play() funciona se estiver ligado e não tocando
-* pause() funciona se estiver tocando
+# 🚀 Exercícios Práticos
+
+## 1. Crie uma interface chamada **Player** com métodos:
+
+* play
+* pause
+* stop
+* aumentarVolume
+* diminuirVolume
+
+## 2. Implemente a classe **MusicPlayer**:
+
+* volume privado
+* tocando privado
+* construtor
+* getters/setters privados
+* implementação total da interface
+
+## 3. Adapte o ControleRemoto:
+
+* Adicione um método “mudarCanal(int canal)”
+* Permita canais apenas entre 1 e 99
+* Encapsule o atributo canal
 
 ---
