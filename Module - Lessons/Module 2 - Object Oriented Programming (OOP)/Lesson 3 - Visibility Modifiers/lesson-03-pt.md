@@ -233,26 +233,28 @@ public class Caneta {
 ```java
 package oop.Lesson3.Caneta;
 
+import Module02.Exercicies.Caneta.Caneta;
+
 public class Main {
     public static void main(String[] args) {
         Caneta c1 = new Caneta();
-        
+
         // ✅ ATRIBUTOS PÚBLICOS - Podemos acessar
         c1.modelo = "BIC cristal";
         c1.cor = "Azul";
-        
+
         // ❌ ATRIBUTO PRIVADO - Não podemos acessar diretamente
         // c1.ponta = 0.5f;  // ERRO! Atributo privado
-        
+
         // ✅ ATRIBUTO PROTEGIDO - Podemos acessar (mesmo pacote)
         c1.carga = 50;
-        
+
         // ❌ ATRIBUTO PRIVADO - Não podemos acessar diretamente
         // c1.tampada = false;  // ERRO! Atributo privado
-        
+
         // ❌ MÉTODO PRIVADO - Não podemos chamar diretamente
         // c1.tampar();  // ERRO! Método privado
-        
+
         c1.status();
         c1.rabiscar();
     }

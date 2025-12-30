@@ -291,7 +291,7 @@ public class Main extends Application {
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="JavaBasic.Lesson5.FXInterface.HelloController" spacing="10" alignment="CENTER">
+      fx:controller="Module01.Exercicies.Lesson5.FXInterface.HelloController" spacing="10" alignment="CENTER">
 
     <Label fx:id="label" text="Hello, JavaFX with FXML!"/>
     <Button text="Click here" onAction="#onHelloButtonClick"/>

@@ -234,6 +234,8 @@ public class Operacoes {
 ```java
 package JavaBasic.Lesson15.TestandoClasses;
 
+import Module01.Exercicies.Lesson15.TestandoClasses.Operacoes;
+
 public class TesteFuncao {
     public static void main(String[] args) {
         System.out.println("Vai começar a contagem...");
