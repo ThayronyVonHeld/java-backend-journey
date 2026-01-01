@@ -1,23 +1,304 @@
-Durante essas aulas, a gente trabalhou o relacionamento entre classes. Eu mostrei como dar uma aprimorada no exemplo do Ultra Emoji Combat. O que fizemos na aula teórica agora vamos aplicar diretamente na aula prática, utilizando como base a linguagem Java. Se você se lembra bem da última aula, eu mostrei como fazer a ligação entre as duas classes, Lutador e Luta, por meio de uma agregação.
+# 📚 Lesson 6 – Class Relationships: Aggregation
 
-Se você não sabe o que é relacionamento entre classes, o que é agregação e como tudo isso funciona, é porque você pulou a aula teórica ou não prestou atenção direito. Na aula passada, criamos objetos, instanciamos objetos de uma determinada classe e fizemos a ligação desses objetos com outra classe, que no nosso caso é a classe Luta. Temos dois objetos da classe Lutador e, na classe Luta, os atributos desafiado e desafiante, que são instâncias de Lutador. É assim que acontece a ligação entre as classes.
+## 🎯 Lesson Objectives
 
-Se você assistiu à aula teórica, você já sabe disso. Caso ainda não saiba, assista à aula teórica na playlist do curso de Programação Orientada a Objetos na linguagem escolhida, seja Java ou PHP. Sem as aulas 07A, 07B e 08A, você não consegue dar prosseguimento, porque muitos dos códigos utilizados aqui foram feitos anteriormente. Não adianta pular etapas e depois dizer que programação orientada a objetos é difícil.
+* Understand the concept of **aggregation** between classes
+* Implement class relationships in the **Ultra Emoji Combat** project
+* Create the **Fight** class that relates to the **Fighter** class
+* Apply **multiplicity** in class relationships
+* Implement combat logic between objects
 
-Basicamente, o código que criamos foi esse que está aparecendo ao lado. Instanciamos objetos da classe Lutador e criamos a classe Luta, que utiliza duas vezes a classe Lutador. Isso mostra claramente a relação entre elas. Agora vamos entrar no ambiente de desenvolvimento e abrir o mesmo projeto da aula passada para ver como tudo funciona na prática.
+---
 
-No NetBeans, abrimos o projeto Ultra Emoji Combat. Dentro do pacote, já temos a classe Lutador e a classe principal, onde cadastramos os lutadores em um vetor. Agora vamos criar uma nova classe chamada Luta. Nessa classe, começamos criando os atributos: desafiado e desafiante, ambos do tipo Lutador, além de rounds e um atributo lógico chamado aprovada.
+## 🧠 Review: Where We Are
 
-Depois disso, criamos os métodos públicos marcarLuta e lutar. O código em Java fica muito parecido com o algoritmo visto anteriormente. Também criamos os métodos getters e setters automaticamente, inclusive para atributos do tipo abstrato, como Lutador. O Java lida muito bem com isso, e não precisamos nos preocupar.
+In the previous lesson, we created the `Fighter` class with:
 
-Com os atributos e métodos criados, partimos para a implementação do método marcarLuta. Esse método recebe dois parâmetros do tipo Lutador e verifica se eles podem lutar. Primeiro, checamos se eles pertencem à mesma categoria e se não são o mesmo lutador. Como categoria é uma String, usamos o método equals em vez de “==”. Se as condições forem satisfeitas, a luta é aprovada e os lutadores são definidos como desafiado e desafiante. Caso contrário, a luta não é aprovada e os atributos são definidos como null.
+### 📋 Attributes:
 
-Em seguida, implementamos o método lutar. Esse método não recebe parâmetros. Primeiro, verificamos se a luta está aprovada. Se não estiver, exibimos uma mensagem dizendo que a luta não pode acontecer. Se estiver aprovada, apresentamos o desafiado e o desafiante, e então geramos um resultado usando a classe Random do Java.
+* Name, nationality, age, height, weight
+* Category (automatically calculated)
+* Wins, losses, draws
 
-O resultado pode ser empate, vitória do desafiado ou vitória do desafiante. Usamos a estrutura switch para tratar cada caso. No empate, ambos os lutadores empatam a luta. Nos outros casos, um ganha e o outro perde, utilizando os métodos definidos na classe Lutador. Tudo isso atualiza automaticamente o histórico de vitórias, derrotas e empates.
+### 🛠️ Methods:
 
-Depois de implementar a classe Luta, voltamos ao código principal. Criamos um objeto da classe Luta e chamamos o método marcarLuta, passando dois lutadores como parâmetros. Em seguida, chamamos o método lutar. Ao executar o programa, os lutadores são apresentados, o resultado da luta é exibido e os dados são atualizados corretamente.
+* `introduce()` and `status()`
+* `winFight()`, `loseFight()`, `drawFight()`
+* Encapsulated getters and setters
 
-Também testamos situações inválidas, como tentar marcar uma luta entre o mesmo lutador ou entre lutadores de categorias diferentes. Em todos os casos, o sistema impediu corretamente que a luta acontecesse. Quando os lutadores pertencem à mesma categoria, a luta acontece sem problemas.
+Now it’s time to create **relationships** between classes!
 
-Por fim, o objetivo é te incentivar a criar classes melhores e mais completas. Durante a aula, não dá para criar algo muito complexo, mas você pode melhorar o sistema. Por exemplo, o resultado da luta poderia levar em conta peso, experiência, número de vitórias ou algo no estilo RPG. Use isso como exercício para treinar e aprofundar seus conhecimentos em programação orientada a objetos.
+---
+
+## 🔗 What Is Aggregation?
+
+**Aggregation** is a type of relationship where:
+
+* One class **has** objects of another class
+* The objects can exist independently
+* It represents a **whole–part** relationship
+
+In our case:
+
+* A **Fight** *has* **Fighters**
+* Fighters exist without a fight
+* A fight depends on fighters to exist
+
+---
+
+## 🥊 Class Diagram – Relationship
+
+```mermaid
+classDiagram
+    class Fighter {
+        -name: String
+        -nationality: String
+        -age: int
+        -height: float
+        -weight: float
+        -category: String
+        -wins: int
+        -losses: int
+        -draws: int
+        +introduce(): void
+        +status(): void
+        +winFight(): void
+        +loseFight(): void
+        +drawFight(): void
+    }
+    
+    class Fight {
+        -challenged: Fighter
+        -challenger: Fighter
+        -rounds: int
+        -approved: boolean
+        +scheduleFight(f1: Fighter, f2: Fighter): void
+        +fight(): void
+    }
+    
+    Fight "1" --> "2" Fighter : has
+```
+
+### 📝 Notation:
+
+* **White diamond**: Aggregation
+* **Multiplicity**: “1” to “2” (one fight has two fighters)
+
+---
+
+## 🏗️ Fight Class – Structure
+
+### 📦 Attributes:
+
+1. **challenged** (type: `Fighter`)
+2. **challenger** (type: `Fighter`)
+3. **rounds** (type: `int`)
+4. **approved** (type: `boolean`)
+
+### 🎯 Methods:
+
+1. **scheduleFight()** – Validates and sets up the fight
+2. **fight()** – Executes the combat
+3. Getters and setters
+
+---
+
+## ⚖️ Rules to Schedule a Fight
+
+For a fight to be **approved**:
+
+1. ✅ Fighters must be **different**
+2. ✅ Fighters must be in the **same category**
+3. ❌ The same fighter cannot fight themselves
+4. ❌ Different categories invalidate the fight
+
+---
+
+## 🎲 Logic of the `fight()` Method
+
+### Flow:
+
+1. Check if the fight is **approved**
+2. **Introduce** both fighters
+3. **Generate a random result**:
+
+    * 0 → Draw
+    * 1 → Challenged fighter wins
+    * 2 → Challenger wins
+4. **Update fighters’ records**
+
+### Algorithm:
+
+```
+IF fight is approved THEN
+    challenged.introduce()
+    challenger.introduce()
+    
+    result = random(0, 2)
+    
+    SWITCH result
+        CASE 0:  // Draw
+            challenged.drawFight()
+            challenger.drawFight()
+        CASE 1:  // Challenged wins
+            challenged.winFight()
+            challenger.loseFight()
+        CASE 2:  // Challenger wins
+            challenger.winFight()
+            challenged.loseFight()
+    END SWITCH
+ELSE
+    SHOW "Fight cannot happen"
+END IF
+```
+
+---
+
+## 🔄 Multiplicity in the Relationship
+
+### Concept:
+
+* A **fighter** can participate in **multiple** fights
+* A **fight** has **exactly two** fighters
+
+### Representation:
+
+* Fighter 1 → N Fights
+* Fight 1 → 2 Fighters
+
+This means we can:
+
+* Create multiple fights with the same fighters
+* Maintain each fighter’s history
+* Reuse fighter objects safely
+
+---
+
+## 🧪 Test Scenarios
+
+### Scenario 1: Valid Fight
+
+```
+Fighter A (Lightweight) vs Fighter B (Lightweight)
+→ Fight APPROVED
+```
+
+### Scenario 2: Invalid Fight
+
+```
+Fighter A (Lightweight) vs Fighter B (Heavyweight)
+→ Fight DENIED
+```
+
+### Scenario 3: Same Fighter
+
+```
+Fighter A vs Fighter A
+→ Fight DENIED
+```
+
+---
+
+## 💡 Best Practices in the Implementation
+
+### 1. **Encapsulation Preserved**
+
+* Private attributes in both classes
+* Public methods control access
+* Business logic protected
+
+### 2. **High Cohesion**
+
+* Each class has a single responsibility
+* `Fighter` manages fighter data
+* `Fight` manages combat rules
+
+### 3. **Controlled Coupling**
+
+* `Fight` knows `Fighter`
+* `Fighter` does NOT know `Fight`
+* One-way relationship
+
+---
+
+## 🚀 Possible Enhancements
+
+You can expand this project:
+
+### 1. **Ranking System**
+
+* Points based on wins
+* Category-based rankings
+* Opponent history
+
+### 2. **Advanced Rules**
+
+* Weight influencing results
+* Experience affecting chances
+* Injuries or special conditions
+
+### 3. **Visual Interface**
+
+* Graphical fighter representation
+* Fight animations
+* Tournament system
+
+### 4. **Data Persistence**
+
+* Save fighters to files
+* Full fight history
+* Advanced statistics
+
+---
+
+## 📚 Lesson Summary
+
+### ✅ What we learned:
+
+1. **Aggregation** as a “has-a” relationship
+2. **Multiplicity** between classes
+3. **Practical implementation** of relationships
+4. **Combat logic** between objects
+
+### 🔧 Skills developed:
+
+* Creating related classes
+* Implementing business rules
+* Using objects as attributes
+* Controlling flow between multiple objects
+
+### 🧭 Next Steps:
+
+This is the **foundation** for:
+
+* Composition (stronger relationship)
+* Inheritance (“is-a” relationship)
+* Polymorphism (multiple behaviors)
+
+---
+
+## 💪 Practical Challenge
+
+**Improve the combat system:**
+
+1. Add **experience level** to fighters
+2. Implement a **luck factor** based on experience
+3. Create **different win types** (Knockout, Decision)
+4. Add a **health system** during fights
+
+**Example improvement:**
+
+```java
+// Instead of a fully random result:
+int chance = (f1.getExperience() * 10) + random.nextInt(50);
+// Fighter with more experience has an advantage
+```
+
+Access the full exercise at:
+[GitHub](https://github.com/ThayronyVonHeld/Introduction-JAVA/tree/main/src-projects/Module02/Exercicies/Lesson7)
+
+---
+
+> 💡 **Tip:** **Don’t skip steps!**
+> Each lesson builds on the previous one.
+> Practice, test, modify, and learn by doing! 🚀
