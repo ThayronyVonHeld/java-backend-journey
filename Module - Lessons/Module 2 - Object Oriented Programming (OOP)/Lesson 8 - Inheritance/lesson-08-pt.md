@@ -1,4 +1,4 @@
-# 📚 Aula 8 – Herança na Programação Orientada a Objetos -pt
+# 📚 Aula 8 – Herança na POO
 
 ## 🎯 Objetivos da Aula
 
@@ -10,14 +10,15 @@
 
 ---
 
-## 🧠 Parte 1: Teoria da Herança
+## 🧠 O que é Herança?
 
 A herança é apresentada como o **segundo pilar da Programação Orientada a Objetos**, vindo logo após o encapsulamento e antes do polimorfismo.
 
 Seu principal objetivo é **permitir que uma nova classe seja baseada em uma classe já existente**, reaproveitando atributos e comportamentos, evitando a criação de código repetido.
 
----
+> Observação: Herança e Encapsulamento são pilares independentes, entretanto a **combinação dos dois** resulta em um software mais organizado, seguro e reutilizável.
 
+---
 ### 👨‍👩‍👧 Analogia e Hierarquia
 
 Uma analogia clássica é a relação entre **mãe e filha**:
@@ -32,7 +33,6 @@ Na POO:
 * A **classe filha** é chamada de **subclasse**
 
 ---
-
 ### 🧩 Abstração e Generalização
 
 Em um exemplo prático de um colégio, temos as classes:
@@ -78,25 +78,52 @@ Exemplo:
 
 ---
 
-### 🧱 Independência dos Pilares da POO
+## 🏗️ Diagrama de Classes
 
-Um ponto importante:
+```mermaid
+classDiagram
+    class Pessoa {
+        -nome: String
+        -idade: int
+        -sexo: char
+        +fazerAniversario(): void
+    }
+    
+    class Aluno {
+        -matricula: int
+        -curso: String
+        +cancelarMatricula(): void
+    }
+    
+    class Professor {
+        -especialidade: String
+        -salario: float
+        +receberAumento(aumento): void
+    }
+    
+    class Funcionario {
+        -setor: String
+        -trabalhando: boolean
+        +mudarTrabalho(): void
+    }
+    
+    Pessoa <|-- Aluno : herda
+    Pessoa <|-- Professor : herda
+    Pessoa <|-- Funcionario : herda
+```
 
-* **Encapsulamento e herança são independentes**
-* É possível usar herança sem encapsulamento
-* E encapsulamento sem herança
-
-Porém, a **combinação dos dois** resulta em um software mais organizado, seguro e reutilizável.
+### 📝 Notações:
+* **Seta com triângulo vazio**: Herança
+* **Direção**: Da subclasse para a superclasse
 
 ---
 
-## 💻 Parte 2: Prática e Implementação em Java
+## 💻 Prática e Implementação em Java
 
 👉 Implementação completa disponível em:
 🔗 [https://github.com/ThayronyVonHeld/Introduction-JAVA/tree/main/src-projects/Module02/Exercicies/Lesson8](https://github.com/ThayronyVonHeld/Introduction-JAVA/tree/main/src-projects/Module02/Exercicies/Lesson8)
 
 ---
-
 ### 🧩 Palavra-chave `extends`
 
 Em Java, a herança é implementada utilizando a palavra-chave **`extends`**:
@@ -111,19 +138,18 @@ Essa declaração significa que:
 > A classe `Aluno` herda todos os atributos e métodos da classe `Pessoa`.
 
 ---
-
 ### 🏗️ Estrutura das Classes
 
 #### 👤 Pessoa (Superclasse)
 
 * Atributos privados:
 
-    * `nome`
-    * `idade`
-    * `sexo`
+  * `nome`
+  * `idade`
+  * `sexo`
 * Método:
 
-    * `fazerAniversario()` → incrementa a idade em 1
+  * `fazerAniversario()` → incrementa a idade em 1
 
 ---
 
@@ -132,11 +158,11 @@ Essa declaração significa que:
 * Herda de `Pessoa`
 * Atributos específicos:
 
-    * `matricula`
-    * `curso`
+  * `matricula`
+  * `curso`
 * Método específico:
 
-    * `cancelarMatricula()`
+  * `cancelarMatricula()`
 
 ---
 
@@ -145,11 +171,11 @@ Essa declaração significa que:
 * Herda de `Pessoa`
 * Atributos específicos:
 
-    * `especialidade`
-    * `salario`
+  * `especialidade`
+  * `salario`
 * Método específico:
 
-    * `receberAumento()`
+  * `receberAumento()`
 
 ---
 
@@ -158,11 +184,11 @@ Essa declaração significa que:
 * Herda de `Pessoa`
 * Atributos específicos:
 
-    * `setor`
-    * `trabalhando`
+  * `setor`
+  * `trabalhando`
 * Método específico:
 
-    * `mudarTrabalho()`
+  * `mudarTrabalho()`
 
 ---
 
@@ -216,25 +242,15 @@ Da mesma forma:
 
 ---
 
-## 📚 Resumo da Aula
+## 🛡️ Encapsulamento + Herança
 
-### ✅ O que Aprendemos
-
-1. Herança como pilar fundamental da POO
-2. Relacionamento **“é um”** entre classes
-3. Uso da palavra-chave `extends` em Java
-4. Reaproveitamento de código com abstração
-5. Regras de acesso entre superclasses e subclasses
+### Boas Práticas:
+1. **Atributos privados** na superclasse
+2. **Getters/setters protegidos** para acesso controlado
+3. **Construtores adequados** com `super()`
+4. **Métodos específicos** apenas onde fazem sentido
 
 ---
 
-### 🧭 Próximos Passos
-
-Esta aula é a base para:
-
-* **Polimorfismo**
-* Sobrescrita de métodos
-* Uso do modificador `protected`
-* Ligação dinâmica de métodos
-
----
+>💡**Dica**: Use herança apenas quando existir claramente um relacionamento “é um” entre as classes.
+Evite herdar só para reutilizar código; prefira herança para representar especialização e hierarquia real.
