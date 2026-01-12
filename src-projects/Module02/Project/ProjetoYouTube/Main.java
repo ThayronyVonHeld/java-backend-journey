@@ -13,7 +13,16 @@ public class Main {
         g[0] = new Gafanhoto("Thayrony", 21, "M", "theld");
         g[1] = new Gafanhoto("Clara", 27, "F", "clarita");
 
-        System.out.println(v[0].toString());
-        System.out.println(g[0].toString());
+        Visualizacao view[] = new Visualizacao[5];
+
+        view[0] = new Visualizacao(g[0],v[2]);
+        view[0].avaliar(87.0f);
+        System.out.println(view[0].toString());
+
+        view[1] = new Visualizacao(g[0],v[1]);
+        view[0].avaliar(9);
+        System.out.println(view[1].toString());
+
+
     }
 }

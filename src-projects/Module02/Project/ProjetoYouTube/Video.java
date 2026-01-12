@@ -55,7 +55,11 @@ private boolean reproduzindo;
     }
 
     public void setAvaliacao(int avaliacao) {
-        this.avaliacao = avaliacao;
+        int media;
+
+        media = (int) ((this.avaliacao + avaliacao)/this.views);
+
+        this.avaliacao = media;
     }
 
     public int getViews() {
