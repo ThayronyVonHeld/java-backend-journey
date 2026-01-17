@@ -94,7 +94,7 @@ Tópicos estudados:
 **Thayrony Kayke Ferreira Von Held**
 🎓 Estudante de Análise e Desenvolvimento de Sistemas — Universidade Veiga de Almeida
 💼 Operador de Central e Técnico de Manutenção — Sistema Globo de Rádio
-🔗 [LinkedIn](https://www.linkedin.com/in/thayronyvonheld)
+🔗 [LinkedIn](https://www.linkedin.com/in/thayrony-von-held-b14ba7256/)
 
 ---
 
