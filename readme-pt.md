@@ -51,7 +51,7 @@ Tópicos estudados:
 ## 🧱 Tecnologias e Ferramentas Utilizadas
 
 * ☕ **Java SE (JDK)**
-* 🧩 **Modulo04 e Swing**
+* 🧩 **JavaFX e Swing**
 * 🧰 **NetBeans IDE**
 * 🖥️ **IntelliJ IDEA**
 * 📄 **Markdown** (para documentação)
