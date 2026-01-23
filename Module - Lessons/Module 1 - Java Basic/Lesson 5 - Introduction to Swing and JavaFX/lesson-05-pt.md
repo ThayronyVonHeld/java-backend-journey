@@ -1,9 +1,9 @@
-# 📚 Aula 5 – Introdução ao Swing e Modulo04
+# 📚 Aula 5 – Introdução ao Swing e JavaFX
 
 ## Índice
 1. [Introdução às Interfaces Gráficas Java](#1-introdução-às-interfaces-gráficas-java)
 2. [Parte 1: Desenvolvendo com Swing](#2-parte-1-desenvolvendo-com-swing)
-3. [Parte 2: Desenvolvendo com Modulo04](#3-parte-2-desenvolvendo-com-javafx)
+3. [Parte 2: Desenvolvendo com JavaFX](#3-parte-2-desenvolvendo-com-javafx)
 4. [Comparação e Análise](#4-comparação-e-análise)
 5. [Distribuição de Aplicações](#5-distribuição-de-aplicações)
 6. [Conclusão](#6-conclusão)
@@ -40,7 +40,7 @@ Porém, assim como **faróis** já vêm de fábrica em qualquer carro, algumas b
 ```mermaid
 graph LR
     A[AWT] --> B[Swing];
-    B --> C[Modulo04];
+    B --> C[JavaFX];
     
     style A fill:#ffcccc
     style B fill:#ccffcc
@@ -49,7 +49,7 @@ graph LR
 
 * **AWT (Abstract Window Toolkit)** → Primeira biblioteca gráfica, dependente do sistema operacional
 * **Swing** → Mais componentes, independente de plataforma
-* **Modulo04** → Plataforma moderna para diversas plataformas (computadores, celulares, etc.)
+* **JavaFX** → Plataforma moderna para diversas plataformas (computadores, celulares, etc.)
 
 ---
 

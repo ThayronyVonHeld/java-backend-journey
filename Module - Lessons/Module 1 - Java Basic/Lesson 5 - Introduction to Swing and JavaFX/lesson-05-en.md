@@ -1,9 +1,9 @@
-# 📚 Lesson 5 - Introduction to Swing and Modulo04
+# 📚 Lesson 5 - Introduction to Swing and JavaFX
 
 ## Table of Contents
 1. [Introduction to Java GUI](#1-introduction-to-java-gui)
 2. [Part 1: Developing with Swing](#2-part-1-developing-with-swing)
-3. [Part 2: Developing with Modulo04](#3-part-2-developing-with-javafx)
+3. [Part 2: Developing with JavaFX](#3-part-2-developing-with-javafx)
 4. [Comparison and Analysis](#4-comparison-and-analysis)
 5. [Application Distribution](#5-application-distribution)
 6. [Conclusion](#6-conclusion)
@@ -40,7 +40,7 @@ However, just like **headlights** come standard in any car, some libraries in Ja
 ```mermaid
 graph LR
     A[AWT] --> B[Swing];
-    B --> C[Modulo04];
+    B --> C[JavaFX];
     
     style A fill:#ffcccc
     style B fill:#ccffcc
@@ -49,7 +49,7 @@ graph LR
 
 * **AWT (Abstract Window Toolkit)** → First graphics library, OS-dependent
 * **Swing** → More components, platform-independent
-* **Modulo04** → Modern platform for various platforms (computers, mobile devices, etc.)
+* **JavaFX** → Modern platform for various platforms (computers, mobile devices, etc.)
 
 ---
 
