@@ -1,9 +1,9 @@
-# 📚 Aula 5 – Introdução ao Swing e JavaFX
+# 📚 Aula 5 – Introdução ao Swing e Modulo04
 
 ## Índice
 1. [Introdução às Interfaces Gráficas Java](#1-introdução-às-interfaces-gráficas-java)
 2. [Parte 1: Desenvolvendo com Swing](#2-parte-1-desenvolvendo-com-swing)
-3. [Parte 2: Desenvolvendo com JavaFX](#3-parte-2-desenvolvendo-com-javafx)
+3. [Parte 2: Desenvolvendo com Modulo04](#3-parte-2-desenvolvendo-com-javafx)
 4. [Comparação e Análise](#4-comparação-e-análise)
 5. [Distribuição de Aplicações](#5-distribuição-de-aplicações)
 6. [Conclusão](#6-conclusão)
@@ -40,7 +40,7 @@ Porém, assim como **faróis** já vêm de fábrica em qualquer carro, algumas b
 ```mermaid
 graph LR
     A[AWT] --> B[Swing];
-    B --> C[JavaFX];
+    B --> C[Modulo04];
     
     style A fill:#ffcccc
     style B fill:#ccffcc
@@ -49,7 +49,7 @@ graph LR
 
 * **AWT (Abstract Window Toolkit)** → Primeira biblioteca gráfica, dependente do sistema operacional
 * **Swing** → Mais componentes, independente de plataforma
-* **JavaFX** → Plataforma moderna para diversas plataformas (computadores, celulares, etc.)
+* **Modulo04** → Plataforma moderna para diversas plataformas (computadores, celulares, etc.)
 
 ---
 
@@ -89,7 +89,7 @@ import javax.swing.*;
 
 🔹 **IntelliJ IDEA**
 * Não tem GUI Builder nativo para Swing.
-* Apostou no **JavaFX + Scene Builder** para interfaces modernas.
+* Apostou no **Modulo04 + Scene Builder** para interfaces modernas.
 * Possui um plugin opcional (*GUI Designer*), mas é menos prático.
 
 👉 Nesta aula, usaremos o **NetBeans** para aprender Swing.
@@ -191,9 +191,9 @@ Mesmo sendo simples, o código já traz alguns conceitos de **POO (Programação
 
 ---
 
-## 3. Parte 2: Desenvolvendo com JavaFX
+## 3. Parte 2: Desenvolvendo com Modulo04
 
-### 🌟 Por que JavaFX substituiu o Swing?
+### 🌟 Por que Modulo04 substituiu o Swing?
 
 * **Melhor desempenho gráfico** - Aceleração por GPU
 * **Estilização com CSS** - Separação entre design e lógica
@@ -203,19 +203,19 @@ Mesmo sendo simples, o código já traz alguns conceitos de **POO (Programação
 
 ---
 
-### 🛠️ Mini‑manual: JavaFX + FXML no IntelliJ (Windows)
+### 🛠️ Mini‑manual: Modulo04 + FXML no IntelliJ (Windows)
 
-> **Objetivo:** criar um projeto Java simples que usa **JavaFX + FXML** no IntelliJ IDEA, abrir o FXML no **Scene Builder** e rodar sem erros.
+> **Objetivo:** criar um projeto Java simples que usa **Modulo04 + FXML** no IntelliJ IDEA, abrir o FXML no **Scene Builder** e rodar sem erros.
 
 ---
 
 #### 1) Pré‑requisitos
 
 * **JDK** instalado (recomendo LTS: 17 ou 21; funciona também no 24).
-* **JavaFX SDK** compatível com seu JDK (ex.: JDK 21 → JavaFX 21; JDK 24 → JavaFX 24). Descompacte em uma pasta, ex.: `C:\Users\seuUsuario\Documents\javafx-sdk-24.0.1`.
+* **Modulo04 SDK** compatível com seu JDK (ex.: JDK 21 → Modulo04 21; JDK 24 → Modulo04 24). Descompacte em uma pasta, ex.: `C:\Users\seuUsuario\Documents\javafx-sdk-24.0.1`.
 * **Scene Builder** instalado (Gluon).
 
-> **Dica:** combine sempre versões compatíveis de JDK e JavaFX.
+> **Dica:** combine sempre versões compatíveis de JDK e Modulo04.
 
 ---
 
@@ -227,11 +227,11 @@ Mesmo sendo simples, o código já traz alguns conceitos de **POO (Programação
 
 ---
 
-#### 3) Adicionar o JavaFX ao projeto (Libraries)
+#### 3) Adicionar o Modulo04 ao projeto (Libraries)
 
 1. **File → Project Structure… (Ctrl+Alt+Shift+S)**.
 2. **Libraries** → clique **+** → **Java**.
-3. Aponte para a pasta **`lib`** do JavaFX (ex.: `…\javafx-sdk-24.0.1\lib`).
+3. Aponte para a pasta **`lib`** do Modulo04 (ex.: `…\javafx-sdk-24.0.1\lib`).
 4. **Apply** e **OK**.
 
 > Isso resolve os imports (`javafx.*`) na compilação.
@@ -248,7 +248,7 @@ Mesmo sendo simples, o código já traz alguns conceitos de **POO (Programação
 --module-path "C:\\Users\\seuUsuario\\Documents\\javafx-sdk-24.0.1\\lib" --add-modules javafx.controls,javafx.fxml
 ```
 
-> Sem isso, ao rodar aparece: *"JavaFX runtime components are missing..."*.
+> Sem isso, ao rodar aparece: *"Modulo04 runtime components are missing..."*.
 
 ---
 
@@ -271,7 +271,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 300);
-        stage.setTitle("JavaFX com FXML!");
+        stage.setTitle("Modulo04 com FXML!");
         stage.setScene(scene);
         stage.show();
     }
@@ -293,7 +293,7 @@ public class Main extends Application {
 <VBox xmlns="http://javfx.com/javfx" xmlns:fx="http://javafx.com/fxml"
       fx:controller="Module01.Exercicies.Lesson5.FXInterface.HelloController" spacing="10" alignment="CENTER">
 
-    <Label fx:id="label" text="Olá, JavaFX com FXML!"/>
+    <Label fx:id="label" text="Olá, Modulo04 com FXML!"/>
     <Button text="Clique aqui" onAction="#onHelloButtonClick"/>
 </VBox>
 ```
@@ -332,7 +332,7 @@ Duas opções válidas:
 
 #### 7) Integrar com o Scene Builder
 
-1. **Settings → Languages & Frameworks → JavaFX** → em **Path to Scene Builder**, aponte para o executável do Scene Builder.
+1. **Settings → Languages & Frameworks → Modulo04** → em **Path to Scene Builder**, aponte para o executável do Scene Builder.
 2. Clique com o direito no `hello-view.fxml` → **Open in Scene Builder**.
 3. No Scene Builder:
 
@@ -360,13 +360,13 @@ Para reduzir avisos do native access, você pode adicionar às **VM Options**:
 --enable-native-access=javafx.graphics
 ```
 
-> Alguns avisos de depreciação podem permanecer. Alternativa: usar JDK LTS (21) + JavaFX correspondente.
+> Alguns avisos de depreciação podem permanecer. Alternativa: usar JDK LTS (21) + Modulo04 correspondente.
 
 ---
 
 #### 10) Problemas comuns (e correção rápida)
 
-* **Erro:** `JavaFX runtime components are missing…`
+* **Erro:** `Modulo04 runtime components are missing…`
 
   * **Causa:** VM Options sem `--module-path`/`--add-modules`.
   * **Fix:** ver seção **4**.
@@ -394,14 +394,14 @@ Para reduzir avisos do native access, você pode adicionar às **VM Options**:
 
 #### 11) Checklist final (funciona sempre)
 
-* [ ] JavaFX adicionado em **Libraries**.
+* [ ] Modulo04 adicionado em **Libraries**.
 * [ ] VM Options com `--module-path …\lib` e `--add-modules javafx.controls,javafx.fxml`.
 * [ ] `fx:controller` correto no FXML.
 * [ ] `fx:id` definidos para os nós usados no controller.
 * [ ] `onAction` mapeado para métodos `@FXML` públicos ou protegidos.
 * [ ] `Main` certo na Run Configuration.
 
-Pronto! Este é o fluxo mínimo e confiável para rodar **JavaFX + FXML + Scene Builder** no IntelliJ.
+Pronto! Este é o fluxo mínimo e confiável para rodar **Modulo04 + FXML + Scene Builder** no IntelliJ.
 
 ---
 
@@ -417,9 +417,9 @@ O FXML oferece várias vantagens em relação ao código puro:
 
 ---
 
-### ✅ Checklist de Aprendizagem - JavaFX
+### ✅ Checklist de Aprendizagem - Modulo04
 
-- [ ] Compreendi a arquitetura do JavaFX
+- [ ] Compreendi a arquitetura do Modulo04
 - [ ] Configurei corretamente o projeto no IntelliJ
 - [ ] Criei os arquivos FXML, Controller e Main
 - [ ] Utilizei o Scene Builder para designer a interface
@@ -430,7 +430,7 @@ O FXML oferece várias vantagens em relação ao código puro:
 
 ## 4. Comparação e Análise
 
-### ⚖️ Diferenças entre Swing e JavaFX
+### ⚖️ Diferenças entre Swing e Modulo04
 
 **Swing:**
 ```java
@@ -456,7 +456,7 @@ public class MyFirstInterface extends javax.swing.JFrame {
 }
 ```
 
-**JavaFX:**
+**Modulo04:**
 
 ```java
 package JavaBasic.JavaFXInterface;
@@ -471,7 +471,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 300);
-        stage.setTitle("JavaFX com FXML!");
+        stage.setTitle("Modulo04 com FXML!");
         stage.setScene(scene);
         stage.show();
     }
@@ -486,7 +486,7 @@ public class Main extends Application {
 
 ### 📊 Comparativo Técnico
 
-| Característica | Swing | JavaFX |
+| Característica | Swing | Modulo04 |
 |----------------|-------|--------|
 | **Arquitetura** | Baseado em AWT | Motor gráfico próprio |
 | **Desempenho** | Bom | Superior (GPU acceleration) |
@@ -507,7 +507,7 @@ public class Main extends Application {
 - Precisar de compatibilidade com JDKs muito antigos
 - Ter equipe familiarizada apenas com Swing
 
-#### Use JavaFX quando:
+#### Use Modulo04 quando:
 - Desenvolver novos projetos
 - Precisar de interfaces modernas e ricas
 - Requerer animações complexas ou gráficos 3D
@@ -619,11 +619,11 @@ public class Main {
 
 ---
 
-### 📦 Distribuindo aplicações JavaFX
+### 📦 Distribuindo aplicações Modulo04
 
-Para distribuir aplicações JavaFX, existem várias abordagens:
+Para distribuir aplicações Modulo04, existem várias abordagens:
 
-1. **JAR tradicional** - Similar ao Swing, mas requer JavaFX no classpath
+1. **JAR tradicional** - Similar ao Swing, mas requer Modulo04 no classpath
 2. **jlink** - Cria uma JRE customizada com apenas os módulos necessários
 3. **jpackage** (JDK 14+) - Cria instaladores nativos (EXE, MSI, DMG, DEB)
 4. **Java Web Start** - Distribuição via web (em desuso)
@@ -641,7 +641,7 @@ jpackage --input target/ --name MyApp --main-jar myapp.jar --main-class com.myap
 
 1. **Introdução às interfaces gráficas** Java e sua evolução
 2. **Swing** - Criação de interfaces com NetBeans GUI Builder
-3. **JavaFX** - Configuração, FXML, Scene Builder e arquitetura MVC
+3. **Modulo04** - Configuração, FXML, Scene Builder e arquitetura MVC
 4. **Comparação** entre as duas tecnologias e quando usar cada uma
 5. **Distribuição** - Como criar e executar arquivos JAR
 
@@ -651,15 +651,15 @@ jpackage --input target/ --name MyApp --main-jar myapp.jar --main-class com.myap
 
 1. Crie a mesma interface simples (botão + label) nas duas tecnologias
 2. Adicione um campo de texto e um botão que concatena o texto com uma saudação
-3. Modifique o estilo da interface JavaFX usando CSS
+3. Modifique o estilo da interface Modulo04 usando CSS
 4. Crie um JAR funcional de cada aplicação e teste em outra máquina
 
 ---
 
 ### 🔍 Recursos Adicionais
 
-- [Documentação Oficial JavaFX](https://openjfx.io/)
-- [JavaFX Tutorials by CodeMakery](https://code.makery.ch/library/javafx-tutorial/)
+- [Documentação Oficial Modulo04](https://openjfx.io/)
+- [Modulo04 Tutorials by CodeMakery](https://code.makery.ch/library/javafx-tutorial/)
 - [Scene Builder Documentation](https://gluonhq.com/products/scene-builder/)
 - [Java Swing Tutorial](https://docs.oracle.com/javase/tutorial/uiswing/)
 

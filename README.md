@@ -51,7 +51,7 @@ Topics covered:
 ## 🧱 Technologies and Tools Used
 
 * ☕ **Java SE (JDK)**
-* 🧩 **JavaFX and Swing**
+* 🧩 **Modulo04 and Swing**
 * 🧰 **NetBeans IDE**
 * 🖥️ **IntelliJ IDEA**
 * 📄 **Markdown** (for documentation)
