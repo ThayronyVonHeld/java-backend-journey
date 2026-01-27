@@ -6,7 +6,7 @@ public class Calculadora {
         String escolha = "sim";
         do{
 
-            
+
 
         }while(escolha!="sim");
 
