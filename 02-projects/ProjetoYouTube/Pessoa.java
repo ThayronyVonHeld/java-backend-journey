@@ -1,4 +1,4 @@
-package Project.ProjetoYouTube;
+package ProjetoYouTube;
 
 public abstract class Pessoa {
     protected String nome;

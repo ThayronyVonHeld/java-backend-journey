@@ -1,4 +1,4 @@
-package Project.ProjetoYouTube;
+package ProjetoYouTube;
 
 public interface AcoesVideo {
     public abstract void play();

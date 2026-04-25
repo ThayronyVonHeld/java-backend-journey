@@ -1,4 +1,4 @@
-package Project.ProjetoYouTube;
+package ProjetoYouTube;
 
 public class Visualizacao {
 

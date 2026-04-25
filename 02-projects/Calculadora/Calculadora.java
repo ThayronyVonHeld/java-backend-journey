@@ -8,7 +8,7 @@ public class Calculadora {
 
 
 
-        }while(escolha!="sim");
+        }while(escolha.equals("sim"));
 
         }
 
