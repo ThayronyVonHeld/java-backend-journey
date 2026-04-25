@@ -1,109 +1,177 @@
-# ☕️ Estudos em Java
+# ☕ Java Backend Journey
 
-[English Version Here!](https://github.com/ThayronyVonHeld/Introduction-JAVA/blob/main/README.md)
+> 📌 [🇺🇸 English Version](README.md)
 
-Repositório dedicado à documentação do meu aprendizado em **Java**, desde os conceitos básicos da linguagem até **Programação Orientada a Objetos (POO)**.
-Aqui você encontrará **aulas, anotações, exemplos práticos e exercícios resolvidos**, baseados em cursos, materiais de referência e práticas pessoais.
+[![Java Version](https://img.shields.io/badge/Java-21%2B-blue)](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
+[![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-brightgreen)](https://github.com/ThayronyVonHeld/java-backend-journey)
+[![Last Commit](https://img.shields.io/github/last-commit/ThayronyVonHeld/java-backend-journey)](https://github.com/ThayronyVonHeld/java-backend-journey/commits/main)
 
-> 💡 **Objetivo:** consolidar o conhecimento em Java e criar uma base sólida para o desenvolvimento de aplicações reais.
+Este repositório apresenta minha jornada de aprendizado em **Java**, evoluindo dos fundamentos da linguagem até o desenvolvimento **backend com Spring Boot**.
+
+Ele reúne **estudos estruturados, exercícios práticos e projetos reais**, com foco na construção de uma base sólida e evolução para aplicações do mundo real.
+
+> 🎯 **Objetivo:** Dominar os fundamentos de Java e desenvolver aplicações backend escaláveis utilizando tecnologias modernas.
 
 ---
 
 ## 📚 Estrutura do Repositório
 
-### 🧩 **Módulo 1 — Java Básico**
+```bash
+📁 java-backend-journey/
+│
+├── 01-fundamentals/
+│   ├── modules/
+│   │   ├── 01-java-basics/
+│   │   └── 02-oop/
+│   │
+│   └── exercises/
+│       ├── basics/
+│       └── oop/
+│
+├── 02-projects/
+│   ├── 01-task-manager/
+│   ├── 02-contact-book/
+│   └── 03-inventory-system/
+│
+├── 03-backend/
+│   └── springboot-api/   # (em breve)
+│
+├── notes/
+│   ├── learning-log.md
+│   └── useful-snippets.java
+│
+└── resources/
+    └── images/
+```
 
-A linguagem **Java** é uma das mais populares e utilizadas no mundo da programação, sendo amplamente adotada no desenvolvimento de aplicações **robustas, seguras e multiplataforma**.
+---
 
-Neste módulo, são abordados os **fundamentos da linguagem**, incluindo:
+## 🧩 Módulo 1 - Fundamentos de Java
 
-* Instalação do **JDK** e do **NetBeans**
-* Estrutura básica de um programa Java
+Foco na construção de uma base sólida na linguagem.
+
+### 📖 Conteúdos abordados:
+
+* Configuração do ambiente (**JDK, IntelliJ, NetBeans**)
+* Estrutura e sintaxe de programas Java
 * Tipos de dados, variáveis e operadores
-* Estruturas condicionais e de repetição
-* Funções e modularização do código
-* Entrada e saída de dados
+* Estruturas de controle (`if`, `switch`, `for`, `while`)
+* Métodos e organização de código
+* Entrada e saída de dados (`Scanner`)
 * Exercícios práticos e desafios
 
-📺 **Curso base:** [Curso em Vídeo – Java Básico (Gustavo Guanabara)](https://www.cursoemvideo.com/curso/java-basico/)
+📺 **Cursos de referência:**
+
+- [Curso em Vídeo – Java POO (Gustavo Guanabara)](https://www.cursoemvideo.com/curso/java-poo/)
+- [Maratona Java Virado No Jiraya - Dev Dojo](https://www.youtube.com/playlist?list=PL62G310vn6nFIsOCC0H-C2infYgwm8SWW)
+
+📂 **Acesse:**
+`/01-fundamentals/modules/01-java-basics/`
 
 ---
 
-### 🧠 **Módulo 2 — Programação Orientada a Objetos (POO)**
+## 🧠 Módulo 2 - Programação Orientada a Objetos (POO)
 
-A **Programação Orientada a Objetos** é o coração do Java.
-Neste módulo, aprofundo os conceitos fundamentais que tornam o Java uma linguagem poderosa para o desenvolvimento de sistemas escaláveis e organizados.
+Conceitos essenciais para construção de sistemas escaláveis e organizados.
 
-Tópicos estudados:
+### 📖 Conteúdos abordados:
 
-* O que é POO e seus benefícios
-* **Classes, objetos e métodos**
-* **Encapsulamento** e visibilidade (`public`, `private`, `protected`)
-* **Métodos especiais** (`getter`, `setter`, `construtor`)
-* **Agregação e composição** entre objetos
-* **Herança e polimorfismo** (incluindo sobrecarga e sobrescrita)
-* Exercícios práticos e um **projeto final**
+* Princípios e benefícios da POO
+* Classes, objetos e métodos
+* Encapsulamento e modificadores de acesso
+* Construtores, getters e setters
+* Relacionamentos entre objetos (agregação e composição)
+* Herança e polimorfismo
+* Exercícios práticos e projeto final
 
-📺 **Curso base:** [Curso em Vídeo – Java POO (Gustavo Guanabara)](https://www.cursoemvideo.com/curso/java-poo/)
+📺 **Cursos de referência:**
 
----
+* Curso em Vídeo — Java POO
+* DevDojo — Maratona Java
 
-## 🧱 Tecnologias e Ferramentas Utilizadas
-
-* ☕ **Java SE (JDK)**
-* 🧩 **JavaFX e Swing**
-* 🧰 **NetBeans IDE**
-* 🖥️ **IntelliJ IDEA**
-* 📄 **Markdown** (para documentação)
+📂 **Acesse:**
+`/01-fundamentals/modules/02-oop/`
 
 ---
 
-## 🚀 Objetivos Pessoais
+## 🛠️ Tecnologias e Ferramentas
 
-* Consolidar fundamentos de **Java e POO**
-* Praticar boas práticas de **organização de código e documentação**
-* Criar uma **base sólida para projetos futuros** (desktop e web)
-* Desenvolver **autonomia e fluência na linguagem**
+| Categoria            | Tecnologias                |
+| -------------------- | -------------------------- |
+| **Linguagem**        | ☕ Java (JDK 21+)           |
+| **IDEs**             | IntelliJ IDEA, NetBeans    |
+| **Backend (futuro)** | Spring Boot, JPA/Hibernate |
+| **Ferramentas**      | Git, Markdown              |
 
 ---
 
-## 🗂️ Estrutura de Pastas (Exemplo)
+## 🗺️ Roadmap
 
-```bash
-📁 Introduction-Java/
- ├── Readme - Lessons
- │    ├── Module 1 - Java Basic
- │    │    └── Lessons
- │    ├── Module 2 - Object Oriented Programming (OOP)
- │         └── Lessons
- │
- ├── resources/
- │    └── imagens/
- │
- ├── src-projects/
- │    ├── JavaBasic/
- │    └── OOP/
- │
- └── README.md
+```mermaid
+graph LR
+    A[Fundamentos de Java] --> B[POO]
+    B --> C[Collections]
+    C --> D[JDBC / Banco de Dados]
+    D --> E[Spring Boot]
+    E --> F[API REST]
+    F --> G[Deploy / Cloud]
 ```
+
+### 📌 Próximos passos:
+
+* [ ] Projetos em console (Task Manager, Contact Book, Inventory)
+* [ ] Integração com banco de dados (JDBC)
+* [ ] Fundamentos de Spring Boot
+* [ ] Desenvolvimento de API REST
+* [ ] Deploy em nuvem (Railway / Render)
+
+---
+
+## 🚀 Objetivos de Aprendizado
+
+* Fortalecer meu conhecimento em **Java e POO**
+* Escrever código limpo, organizado e bem documentado
+* Construir uma base sólida para **desenvolvimento backend**
+* Desenvolver habilidades de **resolução de problemas**
 
 ---
 
 ## ✍️ Autor
 
 **Thayrony Kayke Ferreira Von Held**
-🎓 Estudante de Análise e Desenvolvimento de Sistemas — Universidade Veiga de Almeida
-💼 Operador de Central e Técnico de Manutenção — Sistema Globo de Rádio
-🔗 [LinkedIn](https://www.linkedin.com/in/thayrony-von-held-b14ba7256/)
+
+* 🎓 Estudante de Análise e Desenvolvimento de Sistemas — Universidade Veiga de Almeida
+* 💼 Operador de Broadcast e Técnico de Manutenção — Sistema Globo de Rádio
+* 🌐 LinkedIn — [linkedin.com/in/thayrony-von-held](https://www.linkedin.com/in/thayrony-von-held-b14ba7256/)
+* 📧 Email — [thayrony@email.com](mailto:thayrony@email.com)
 
 ---
 
-## 🏁 Status do Repositório
+## 📜 Licença
 
-📘 **Em andamento** — atualizações semanais com novos conceitos, exemplos e projetos.
+Licença MIT
+
+---
+
+## 🏁 Status
+
+🚧 **Em desenvolvimento ativo** — atualizações frequentes com novos conceitos, exercícios e projetos.
 
 ---
 
-💬 *Este repositório faz parte da minha trajetória de aprendizado contínuo em Java, servindo como registro de evolução e portfólio técnico.*
+<div align="center">
+
+⭐ *Se este repositório te ajudou, considere dar uma estrela!*
+
+</div>
 
 ---
+
+Se quiser, dá pra ir ainda mais longe:
+
+* deixar PT e EN **100% alinhados linha por linha**
+* criar **README dos projetos (task-manager, etc.) no mesmo padrão**
+* adicionar **preview visual (prints, gifs)**
+
+Mas do jeito que tá agora?
+👉 Já é repo que **passa profissionalismo de verdade**.
