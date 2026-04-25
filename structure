@@ -1,0 +1,48 @@
+java-backend-learning-path/
+│
+├── README.md                          # Visão geral do projeto
+├── pom.xml                            # (futuro) Gerenciamento de dependências
+│
+├── 01-java-core/                      # Fundamentos sólidos
+│   ├── syntax-basics/                 # Variáveis, operadores, tipos
+│   ├── control-flow/                  # if/else, loops, switch
+│   ├── arrays-and-lists/              # Arrays, ArrayList, LinkedList
+│   └── oop-principles/                # Encapsulamento, herança, polimorfismo
+│
+├── 02-advanced-java/                  # Conceitos mais profundos
+│   ├── exceptions/                    # Try-catch, custom exceptions
+│   ├── collections/                   # HashMap, HashSet, TreeSet
+│   ├── streams-lambdas/               # Programação funcional
+│   └── file-io/                       # Leitura/escrita de arquivos
+│
+├── 03-console-apps/                   # Projetos práticos
+│   ├── todo-list-cli/                 # Gerenciador de tarefas
+│   ├── contact-manager/               # Agenda de contatos
+│   ├── inventory-control/             # Sistema de estoque
+│   └── banking-system/                # Simulação de banco
+│
+├── 04-database/                       # Persistência de dados
+│   ├── jdbc-basics/                   # Conexão com MySQL/PostgreSQL
+│   ├── sql-scripts/                   # Schemas e queries
+│   └── connection-pool/               # HikariCP, etc
+│
+├── 05-spring-boot/                    # Framework principal
+│   ├── rest-api-basics/               # Primeiros endpoints
+│   ├── dependency-injection/          # IoC e DI na prática
+│   ├── jpa-hibernate/                 # ORM e JPA
+│   ├── security/                      # Auth e autorização
+│   └── testing/                       # JUnit, MockMvc
+│
+├── 06-projects/                       # Projetos completos
+│   ├── ecommerce-api/                 # API completa com produtos, pedidos
+│   ├── blog-platform/                 # Posts, comentários, usuários
+│   └── task-management-system/        # Sistema com equipes e permissões
+│
+├── docs/                              # Documentação
+│   ├── learning-notes.md              # Seu diário de aprendizados
+│   ├── common-mistakes.md             # Erros e soluções
+│   └── resources.md                   # Livros, cursos, links úteis
+│
+└── scripts/                           # Automação
+    ├── setup-database.sh              # Inicialização do banco
+    └── run-tests.sh                   # Execução de testes
