@@ -19,26 +19,23 @@ It combines **structured study, hands-on exercises, and real projects**, focusin
 ```bash
 📁 java-backend-journey/
 │
-├── 01-fundamentals/
-│   ├── modules/
-│   │   ├── 01-java-basics/
-│   │   └── 02-oop/
-│   │
-│   └── exercises/
-│       ├── basics/
-│       └── oop/
+├── backend/
+│   └── springboot-api/
+│       
+├── exercises/
+│   ├── 01_basics/
+│   ├── 02_oop/
 │
-├── 02-projects/
+├── Modules/
+│   ├── 01-java-basic/
+│   ├── 02-object-oriented-programming-(oop)/
+│
+├── notes/
+│   
+├── projects/
 │   ├── 01-task-manager/
 │   ├── 02-contact-book/
 │   └── 03-inventory-system/
-│
-├── 03-backend/
-│   └── springboot-api/   # (coming soon)
-│
-├── notes/
-│   ├── learning-log.md
-│   └── useful-snippets.java
 │
 └── resources/
     └── images/
