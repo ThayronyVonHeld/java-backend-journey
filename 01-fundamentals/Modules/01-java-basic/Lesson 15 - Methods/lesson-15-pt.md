@@ -234,7 +234,7 @@ public class Operacoes {
 ```java
 package JavaBasic.Lesson15.TestandoClasses;
 
-import Module01.Exercicies.Lesson15.TestandoClasses.Operacoes;
+import ex31_classTesting.Operacoes;
 
 public class TesteFuncao {
     public static void main(String[] args) {
