@@ -1,5 +1,5 @@
 
-package Module01.Exercicies.Sorteio;
+package ex32_raffle;
 
 import java.awt.Font;
 
