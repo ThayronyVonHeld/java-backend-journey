@@ -12,18 +12,19 @@ public class sistemaLogin {
 
         Scanner teclado = new Scanner(System.in);
 
-
-        do{
-
-            System.out.println("Digite o seu usuario: ");
+        for (int i = 3; i > 0; i--) {
+            System.out.println("Você tem: " + i + " tentativas");
+            System.out.println("Digite seu login:");
             user = teclado.next();
-            System.out.println("Digite sua senha: ");
+            System.out.println("Digite sua senha:");
             pin = teclado.next();
 
-        }while(!username.equals(user) && (!passoword.equals(pin)));
-
-
-
-
+            if (username.equals(user) && (passoword.equals(pin))) {
+                System.out.println("Login realizado com sucesso!");
+                break;
+            } else {
+                System.out.println("Login ou senha incorreto, tente novamente!");
+            }
+        }
     }
 }
